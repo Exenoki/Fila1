@@ -11,17 +11,29 @@ abstract public class Person extends GameObject implements Movable, Destructable
     private int numAmmo;
     private boolean dead;
     private int health;
+    private int radius;
+    private boolean hasWeapon;
+
+    public Person() {
+        this.radius = 10; //TODO a mudar o valor 10
+        this.health = 100;
+        this.
+    }
 
     public void shoot() {
-
-        weapon.shoot();
-
+        if(hasWeapon()) {
+            weapon.shoot();
+        }
     }
 
     public void reload() {
-        if (numAmmo > 0) {
-            weapon.reload();
-            numAmmo--;
+        if(hasWeapon()) {
+            if (numAmmo > 0) {
+                if (weapon.getAmmo().getNumBullets() < Ammo.MAX_NUM_BULLETS) {
+                    weapon.reload();
+                    numAmmo--;
+                }
+            }
         }
     }
 
@@ -55,4 +67,11 @@ abstract public class Person extends GameObject implements Movable, Destructable
         health -= bulletDamage;
     }
 
+    public boolean hasWeapon(){
+        return hasWeapon;
+    }
+
+    public void setHasWeapon() {
+        this.hasWeapon = true;
+    }
 }

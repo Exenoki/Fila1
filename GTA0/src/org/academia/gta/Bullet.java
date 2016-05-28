@@ -6,23 +6,21 @@ package org.academia.gta;
 public class Bullet extends GameObject implements Movable, Destructable {
 
     private int speed;
+    private int x;
+    private int y;
+    private boolean destroyed;
+    private int radius;
 
     public void move(int x, int y) {
-
-
 
     }
 
     public int getX() {
-
-
-
+        return x;
     }
 
     public int getY() {
-
-
-
+        return y;
     }
 
     public int getSpeed() {
@@ -40,5 +38,18 @@ public class Bullet extends GameObject implements Movable, Destructable {
     }
 
 
+    @Override
+    public boolean isDestroyed() {
+        return destroyed;
+    }
 
+    @Override
+    public void setDestroyed() {
+        this.destroyed = true;
+    }
+
+    @Override
+    public int getRadius() {
+        return radius;
+    }
 }

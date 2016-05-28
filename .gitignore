@@ -1,4 +1,5 @@
 *.class
+.gitignore
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -24,6 +25,10 @@ hs_err_pid*
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
+.idea/modules.xml
+.idea/compiler.xml
+.idea/misc.xml
+
 GTA0/.idea/
 
 # Sensitive or high-churn files:

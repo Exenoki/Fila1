@@ -7,6 +7,10 @@ import org.academia.gta.*;
  */
 abstract public class Person extends GameObject implements Movable, Destructable {
 
+    public Person(int x, int y) {
+        super(x, y);
+    }
+
     private Weapon weapon;
     private int numAmmo;
     private boolean dead;

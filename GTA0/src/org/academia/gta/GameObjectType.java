@@ -8,5 +8,7 @@ public enum GameObjectType {
     BUILDING,
     WEAPON,
     AMMO,
-    BULLET
+    BULLET,
+    PLAYER,
+    ENEMY
 }

@@ -8,7 +8,7 @@ import org.academia.gta.people.Person;
 public class Collision {
 
     public boolean merge(GameObject objA, GameObject objB) {
-        GameObjectType obj;
+
         switch (objA.getGameObjectType()) {
             case PERSON:
 
@@ -16,7 +16,6 @@ public class Collision {
 
                     if (Math.sqrt(Math.abs(objA.getX() - objB.getX())^2 + Math.abs(objA.getY() - objB.getY())^2) < objA.getRadius() + objB.getRadius()) {
 
-                        obj
 
                     }
 
@@ -44,6 +43,7 @@ public class Collision {
 
                     if (Math.sqrt(Math.abs(objA.getX() - objB.getX())^2 + Math.abs(objA.getY() - objB.getY())^2) < objA.getRadius() + objB.getRadius()) {
 
+                        if (((Person)objA).)
                         ((Grabbable)objB).pickedBy(objA);
                         ((Grabbable)objB).erase();
 

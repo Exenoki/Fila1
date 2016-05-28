@@ -1,4 +1,4 @@
-package org.academia.gta;
+package org.academia.gta.representation;
 
 /**
  * Created by codecadet on 24/05/16.

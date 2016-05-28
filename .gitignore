@@ -24,6 +24,7 @@ hs_err_pid*
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
+GTA0/.idea/
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids

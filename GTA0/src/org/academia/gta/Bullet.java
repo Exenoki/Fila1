@@ -14,15 +14,11 @@ public class Bullet extends GameObject implements Movable, Destructable {
     }
 
     public int getX() {
-
-
-
+        return 0;
     }
 
     public int getY() {
-
-
-
+        return 0;
     }
 
     public int getSpeed() {
@@ -40,5 +36,13 @@ public class Bullet extends GameObject implements Movable, Destructable {
     }
 
 
+    @Override
+    public boolean isDestroyed() {
+        return false;
+    }
 
+    @Override
+    public void setDestroyed() {
+
+    }
 }

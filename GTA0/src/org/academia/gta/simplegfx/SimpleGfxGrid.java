@@ -2,8 +2,8 @@ package org.academia.gta.simplegfx;
 
 import org.academia.gta.position.Grid;
 import org.academia.gta.position.GridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Picture;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 /**
@@ -34,12 +34,10 @@ public class SimpleGfxGrid implements Grid {
         ground = new Picture[width/CELL_SIZE][height/CELL_SIZE];
         for (int i=0; i<ground.length; i++){
             for (int j=0; j<ground[i].length; j++){
-                ground[i][j] = new Picture("http://img.stockfresh.com/files/t/tashatuvango/x/27/4810138_39548961.jpg");
-                ground[i][j].translate(col,row);
+                ground[i][j] = new Picture(col,row,"dirt_ground.png");
                 ground[i][j].draw();
                 row+=CELL_SIZE;
             }
-
             col += CELL_SIZE;
             row =0;
         }

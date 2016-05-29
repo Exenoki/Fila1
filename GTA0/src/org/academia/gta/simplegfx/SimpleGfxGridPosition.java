@@ -15,15 +15,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition{
     private Ellipse myPosition;
 
 
-
-    public static int convertToPixel(int gridPos){
-        return gridPos * SimpleGfxGrid.CELL_SIZE;
-    }
-
-    public static Rectangle createRectangle(int col, int row){
-        return new Rectangle(convertToPixel(col), convertToPixel(row), SimpleGfxGrid.CELL_SIZE , SimpleGfxGrid.CELL_SIZE);
-    }
-
     public SimpleGfxGridPosition (SimpleGfxGrid grid){
         this((int)(Math.random()*grid.getCols()), (int)(Math.random()*grid.getRows()), grid);
 
@@ -31,8 +22,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition{
 
     public SimpleGfxGridPosition (int col, int row, SimpleGfxGrid grid){
         super(col, row, grid);
-        myPosition = new Ellipse(convertToPixel(getCol()),convertToPixel(getRow()),SimpleGfxGrid.CELL_SIZE,SimpleGfxGrid.CELL_SIZE);
-        //myPosition = new Rectangle(convertToPixel(getCol()),convertToPixel(getRow()),SimpleGfxGrid.CELL_SIZE,SimpleGfxGrid.CELL_SIZE);
 
     }
 

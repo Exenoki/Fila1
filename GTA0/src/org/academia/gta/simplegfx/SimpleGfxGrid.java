@@ -11,8 +11,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class SimpleGfxGrid implements Grid {
 
-    private int col;
-    private int row;
+    private int width;
+    private int height;
+    private int x;
+    private int y;
     private Picture[][] ground;
 
 
@@ -30,41 +32,39 @@ public class SimpleGfxGrid implements Grid {
 
     @Override
     public void init(int width, int height) {
-
+        this.width = width;
+        this.height = height;
         ground = new Picture[width/CELL_SIZE][height/CELL_SIZE];
         for (int i=0; i<ground.length; i++){
             for (int j=0; j<ground[i].length; j++){
-                ground[i][j] = new Picture(col,row,"dirt_ground.png");
+                ground[i][j] = new Picture(x,y,"resources/game_sprites/dirt_ground.png");
                 ground[i][j].draw();
-                row+=CELL_SIZE;
+                y+=CELL_SIZE;
             }
-            col += CELL_SIZE;
-            row =0;
+            x += CELL_SIZE;
+            y =0;
         }
     }
 
     @Override
     public int getCols() {
-        return this.col;
-        //throw new UnsupportedOperationException();
+        return this.width;
     }
 
     @Override
     public int getRows() {
-        return this.row;
-        //throw new UnsupportedOperationException();
+        return this.height;
+
     }
 
     @Override
     public GridPosition makeGridPosition() {
         return new SimpleGfxGridPosition(this);
-        //throw new UnsupportedOperationException();
     }
 
     @Override
     public GridPosition makeGridPosition(int col, int row) {
         return new SimpleGfxGridPosition(col,row,this);
-        //throw new UnsupportedOperationException();
     }
 
 }

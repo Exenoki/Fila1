@@ -119,17 +119,17 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * Give movement to the player with a speed taken from the player
      */
     public void move() {
-        /*if(keyPressed[0]) TODO uncomment move method body and change the enum direction
-            player.getPos().moveInDirection(GridDirection.UP, player.getSPEED());
+        /*if(keyPressed[0]) // TODO uncomment move method body and change the enum direction
+            player.getPos().moveInDirection(Direction.UP, player.getSPEED());
 
         if(keyPressed[1])
-            player.getPos().moveInDirection(GridDirection.RIGHT, player.getSPEED());
+            player.getPos().moveInDirection(Direction.RIGHT, player.getSPEED());
 
         if(keyPressed[2])
-            player.getPos().moveInDirection(GridDirection.DOWN, player.getSPEED());
+            player.getPos().moveInDirection(Direction.DOWN, player.getSPEED());
 
         if(keyPressed[3])
-            player.getPos().moveInDirection(GridDirection.LEFT, player.getSPEED());*/
+            player.getPos().moveInDirection(Direction.LEFT, player.getSPEED());*/
     }
 
     @Override

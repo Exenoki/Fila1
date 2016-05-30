@@ -5,6 +5,10 @@ package org.academia.gta.people;
  */
 public class Enemy extends Person {
 
+    public Enemy(int x, int y) {
+        super(x, y);
+    }
+
     public int getX() {
         return 0;
     }

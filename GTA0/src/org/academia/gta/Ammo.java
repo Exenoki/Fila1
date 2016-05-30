@@ -20,8 +20,8 @@ public class Ammo extends GameObject implements Grabbable {
     public void shoot() {
 
         if(numBullets > 0){
-            new Bullet().move();
-            numBullets--;
+            /*new Bullet().move();
+            numBullets--;*/
 
         }
 

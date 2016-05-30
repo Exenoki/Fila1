@@ -53,5 +53,13 @@ public class Bullet extends GameObject implements Movable, Destructable {
     @Override
     public int getRadius() { return radius; }
 
+    @Override
+    public boolean isDestroyed() {
+        return false;
+    }
 
+    @Override
+    public void setDestroyed() {
+
+    }
 }

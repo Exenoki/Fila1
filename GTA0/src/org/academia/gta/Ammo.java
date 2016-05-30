@@ -44,6 +44,7 @@ public class Ammo extends GameObject implements Grabbable {
     public void pickedBy(GameObject go) {
         ((Person) go).setAmmo();
         this.grabbed = true;
+
     }
 
     @Override

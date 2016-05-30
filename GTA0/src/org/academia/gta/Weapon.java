@@ -32,6 +32,7 @@ public class Weapon extends GameObject implements Grabbable {
 
     @Override
     public void pickedBy(GameObject go) {
+
         if (!((Person) go).hasWeapon()) {
             ((Person) go).setWeapon(this);
             reload();
@@ -40,7 +41,10 @@ public class Weapon extends GameObject implements Grabbable {
         } else {
             ((Person)go).setAmmo();
         }
+
+
     }
+
 
     public Ammo getAmmo() {
         return ammo;

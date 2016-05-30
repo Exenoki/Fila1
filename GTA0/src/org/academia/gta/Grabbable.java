@@ -1,5 +1,7 @@
 package org.academia.gta;
 
+import org.academia.gta.gameobject.GameObject;
+
 /**
  * Created by codecadet on 25/05/16.
  */

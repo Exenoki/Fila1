@@ -1,5 +1,6 @@
-package org.academia.gta.representation;
+package org.academia.gta.simplegfx;
 
+import org.academia.gta.simplegfx.SGFXRepresentation;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -8,9 +9,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class AmmoSGFX extends SGFXRepresentation {
 
     public AmmoSGFX(int x, int y) {
-        super(x,y);
-        this.shape = new Picture(x - Math.floor(shape.getWidth()/2), y - Math.floor(shape.getHeight()/2), /* url */);
-
+        super(new Picture(x, y, "url"));
     }
 
 }

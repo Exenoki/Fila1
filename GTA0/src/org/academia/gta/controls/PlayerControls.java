@@ -1,6 +1,6 @@
 package org.academia.gta.controls;
 
-import org.academia.gta.people.Player;
+import org.academia.gta.gameobject.people.Player;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;

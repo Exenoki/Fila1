@@ -1,6 +1,10 @@
-package org.academia.gta.people;
+package org.academia.gta.gameobject.people;
 
 import org.academia.gta.*;
+import org.academia.gta.gameobject.Ammo;
+import org.academia.gta.gameobject.GameObject;
+import org.academia.gta.gameobject.Weapon;
+import org.academia.gta.representation.Representable;
 
 /**
  * Created by codecadet on 24/05/16.
@@ -14,8 +18,8 @@ abstract public class Person extends GameObject implements Destructable {
     private int radius;
     private boolean hasWeapon;
 
-    public Person(int x, int y) {
-        super(x, y);
+    public Person(Representable representation) {
+        super(representation);
         this.radius = 10; //TODO a mudar o valor 10
         this.health = 100;
     }
@@ -27,12 +31,10 @@ abstract public class Person extends GameObject implements Destructable {
     }
 
     public void reload() {
-        if(hasWeapon()) {
-            if (numAmmo > 0) {
-                if (weapon.getAmmo().getNumBullets() < Ammo.MAX_NUM_BULLETS) {
-                    weapon.reload();
-                    numAmmo--;
-                }
+        if(hasWeapon() && numAmmo > 0) {
+            if (weapon.getAmmo().getNumBullets() < Ammo.MAX_NUM_BULLETS) {
+                weapon.reload();
+                numAmmo--;
             }
         }
     }
@@ -70,4 +72,5 @@ abstract public class Person extends GameObject implements Destructable {
     public void setHasWeapon() {
         this.hasWeapon = true;
     }
+
 }

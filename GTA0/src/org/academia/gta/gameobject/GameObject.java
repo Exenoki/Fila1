@@ -1,14 +1,25 @@
-package org.academia.gta;
+package org.academia.gta.gameobject;
 
+import org.academia.gta.Collision;
+import org.academia.gta.Game;
 import org.academia.gta.representation.Representable;
-import org.academia.gta.representation.SGFXRepresentation;
 
 /**
  * Created by codecadet on 24/05/16.
  */
 public abstract class GameObject implements Representable {
 
-    private Collision collision;
+    private Representable representation;
+
+    public Representable getRepresentation() {
+        return representation;
+    }
+
+    public GameObject(Representable representation) {
+        this.representation = representation;
+    }
+
+    /*private Collision collision;
     private int radius;
     private GameObjectType gameObjectType;
     private int x;
@@ -54,5 +65,5 @@ public abstract class GameObject implements Representable {
 
     public void setRepresentation(Representable representation) {
         this.representation = representation;
-    }
+    }*/
 }

@@ -1,7 +1,6 @@
 package org.academia.gta.representation;
 
-import org.academia.gta.GameObject;
-import org.academia.gta.GameObjectType;
+import org.academia.gta.gameobject.GameObject;
 
 /**
  * Created by codecadet on 24/05/16.
@@ -9,10 +8,9 @@ import org.academia.gta.GameObjectType;
 public interface Representable {
 
     int getX();
-    int getY();
-    void draw();
-    void delete();
-    void merge(GameObject obj);
 
+    int getY();
+
+    void merge();
 
 }

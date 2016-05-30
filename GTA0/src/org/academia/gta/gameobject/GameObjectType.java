@@ -1,13 +1,13 @@
-package org.academia.gta;
+package org.academia.gta.gameobject;
 
 /**
  * Created by codecadet on 25/05/16.
  */
 public enum GameObjectType {
-    PERSON,
-    BUNKER,
     BARBEDWIRE,
     TOWER,
+    TREE,
+    WALL,
     WEAPON,
     AMMO,
     BULLET,

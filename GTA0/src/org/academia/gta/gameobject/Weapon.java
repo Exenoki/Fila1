@@ -1,6 +1,10 @@
-package org.academia.gta;
+package org.academia.gta.gameobject;
 
-import org.academia.gta.people.Person;
+import org.academia.gta.Grabbable;
+import org.academia.gta.gameobject.Ammo;
+import org.academia.gta.gameobject.GameObject;
+import org.academia.gta.gameobject.people.Person;
+import org.academia.gta.representation.Representable;
 
 /**
  * Created by codecadet on 24/05/16.
@@ -13,8 +17,23 @@ public class Weapon extends GameObject implements Grabbable {
     private boolean grabbed;
     private int radius;
 
-    public Weapon(int x, int y) {
-        super(x, y);
+    @Override
+    public int getX() {
+        return 0;
+    }
+
+    @Override
+    public int getY() {
+        return 0;
+    }
+
+    @Override
+    public void merge() {
+
+    }
+
+    public Weapon(Representable representation) {
+        super(representation);
         this.radius = 15; //TODO alterar valor;
     }
 

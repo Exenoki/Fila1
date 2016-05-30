@@ -1,6 +1,9 @@
-package org.academia.gta;
+package org.academia.gta.gameobject;
 
-import org.academia.gta.people.Person;
+import org.academia.gta.Grabbable;
+import org.academia.gta.gameobject.GameObject;
+import org.academia.gta.gameobject.people.Person;
+import org.academia.gta.representation.Representable;
 
 /**
  * Created by codecadet on 25/05/16.
@@ -12,8 +15,8 @@ public class Ammo extends GameObject implements Grabbable {
     private boolean grabbed;
     private int radius;
 
-    public Ammo(int x, int y) {
-        super(x, y);
+    public Ammo(Representable representation) {
+        super(representation);
         this.radius = 5; //TODO alterar valor;
     }
 

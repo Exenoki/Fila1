@@ -1,9 +1,13 @@
-package org.academia.gta;
+package org.academia.gta.gameobject;
+
+import org.academia.gta.Destructable;
+import org.academia.gta.representation.MovableRepresentable;
+import org.academia.gta.representation.Representable;
 
 /**
  * Created by codecadet on 24/05/16.
  */
-public class Bullet extends GameObject implements Movable, Destructable {
+public class Bullet extends GameObject implements Destructable, MovableRepresentable {
 
     private int speed;
     private int x;
@@ -12,8 +16,8 @@ public class Bullet extends GameObject implements Movable, Destructable {
     private int radius;
 
 
-    public Bullet(int x, int y) {
-        super(x, y);
+    public Bullet(Representable representation) {
+        super(representation);
         this.radius = 1;
     }
 
@@ -22,12 +26,19 @@ public class Bullet extends GameObject implements Movable, Destructable {
 
     }
 
+    @Override
     public int getX() {
         return x;
     }
 
+    @Override
     public int getY() {
         return y;
+    }
+
+    @Override
+    public void merge() {
+
     }
 
     public int getSpeed() {

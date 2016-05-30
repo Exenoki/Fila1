@@ -1,6 +1,6 @@
 package org.academia.gta;
 
-import org.academia.gta.people.Player;
+import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.position.GridType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

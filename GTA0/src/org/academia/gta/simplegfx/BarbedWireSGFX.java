@@ -1,5 +1,6 @@
-package org.academia.gta.representation;
+package org.academia.gta.simplegfx;
 
+import org.academia.gta.simplegfx.SGFXRepresentation;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -8,7 +9,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class BarbedWireSGFX extends SGFXRepresentation {
 
     public BarbedWireSGFX(int x, int y) {
-        super(x, y);
-        this.shape = new Picture(x, y, /* url */);
+        super(new Picture(x, y, "url"));
     }
 }

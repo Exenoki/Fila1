@@ -10,9 +10,9 @@ import java.awt.*;
  */
 public class BulletSGFX extends SGFXRepresentation {
 
-    public BulletSGFX() {
-
-        this.shape = new Rectangle(0 - Math.floor(getWidth()/2), 0 - Math.floor(getHeight()/2), 3, 3); //Trocar 0, 0 para as posiçoes na grid
+    public BulletSGFX(int x, int y) {
+        super(x,y);
+        this.shape = new Rectangle(x - Math.floor(shape.getWidth()/2), y - Math.floor(shape.getHeight()/2), 3, 3); //Trocar 0, 0 para as posiçoes na grid
 
     }
 

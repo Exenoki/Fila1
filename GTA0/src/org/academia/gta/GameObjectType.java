@@ -5,7 +5,9 @@ package org.academia.gta;
  */
 public enum GameObjectType {
     PERSON,
-    BUILDING,
+    BUNKER,
+    BARBEDWIRE,
+    TOWER,
     WEAPON,
     AMMO,
     BULLET,

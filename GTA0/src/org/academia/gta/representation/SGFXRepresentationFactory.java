@@ -8,32 +8,28 @@ import org.academia.gta.GameObjectType;
  */
 public class SGFXRepresentationFactory {
 
-    public SGFXRepresentation createRepresentation(SGFXRepresentation representation) {
+    public static SGFXRepresentation createRepresentation(GameObjectType got) {
 
-        switch(representation.getGameObjectType()) {
+        switch(got) {
 
             case PLAYER:
-                representation.setShape(new PlayerSGFX());
-                break;
+                return new PlayerSGFX(x,y);
 
             case ENEMY:
-                representation.setShape(new EnemySGFX());
-                break;
+                return new EnemySGFX(x,y);
 
             case BULLET:
-                representation.setShape(new BulletSGFX());
-                break;
+                return new BulletSGFX(x,y);
 
             case WEAPON:
-                representation.setShape(new WeaponSGFX());
-                break;
+                return new WeaponSGFX(x,y);
 
             case AMMO:
-                representation.setShape(new AmmoSGFX());
-                break;
-            
+                return new AmmoSGFX(x,y);
+
         }
 
+        return null;
 
     }
 

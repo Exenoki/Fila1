@@ -5,10 +5,11 @@ import org.academia.gta.*;
 /**
  * Created by codecadet on 24/05/16.
  */
-abstract public class Person extends GameObject implements Movable, Destructable {
+abstract public class Person extends GameObject implements Destructable {
 
     public Person(int x, int y) {
         super(x, y);
+
     }
 
     private Weapon weapon;

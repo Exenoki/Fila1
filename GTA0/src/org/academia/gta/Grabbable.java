@@ -9,6 +9,4 @@ public interface Grabbable {
 
     void pickedBy(GameObject go);
 
-    void erase();
-
 }

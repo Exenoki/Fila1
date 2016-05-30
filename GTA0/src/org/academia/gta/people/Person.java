@@ -7,26 +7,33 @@ import org.academia.gta.*;
  */
 abstract public class Person extends GameObject implements Destructable {
 
-    public Person(int x, int y) {
-        super(x, y);
-
-    }
-
     private Weapon weapon;
     private int numAmmo;
     private boolean dead;
     private int health;
+    private int radius;
+    private boolean hasWeapon;
+
+    public Person(int x, int y) {
+        super(x, y);
+        this.radius = 10; //TODO a mudar o valor 10
+        this.health = 100;
+    }
 
     public void shoot() {
-
-        weapon.shoot();
-
+        if(hasWeapon()) {
+            weapon.shoot();
+        }
     }
 
     public void reload() {
-        if (numAmmo > 0) {
-            weapon.reload();
-            numAmmo--;
+        if(hasWeapon()) {
+            if (numAmmo > 0) {
+                if (weapon.getAmmo().getNumBullets() < Ammo.MAX_NUM_BULLETS) {
+                    weapon.reload();
+                    numAmmo--;
+                }
+            }
         }
     }
 
@@ -34,11 +41,7 @@ abstract public class Person extends GameObject implements Destructable {
         numAmmo++;
     }
 
-    public void setWeapon(Weapon weapon) {
-
-        this.weapon = weapon;
-
-    }
+    public void setWeapon(Weapon weapon) { this.weapon = weapon; }
 
     public boolean isDestroyed() {
         return dead;
@@ -60,4 +63,11 @@ abstract public class Person extends GameObject implements Destructable {
         health -= bulletDamage;
     }
 
+    public boolean hasWeapon(){
+        return hasWeapon;
+    }
+
+    public void setHasWeapon() {
+        this.hasWeapon = true;
+    }
 }

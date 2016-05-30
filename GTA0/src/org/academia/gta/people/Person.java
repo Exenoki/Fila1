@@ -5,7 +5,7 @@ import org.academia.gta.*;
 /**
  * Created by codecadet on 24/05/16.
  */
-abstract public class Person extends GameObject implements Movable, Destructable {
+abstract public class Person extends GameObject implements Destructable {
 
     private Weapon weapon;
     private int numAmmo;
@@ -14,10 +14,10 @@ abstract public class Person extends GameObject implements Movable, Destructable
     private int radius;
     private boolean hasWeapon;
 
-    public Person() {
+    public Person(int x, int y) {
+        super(x, y);
         this.radius = 10; //TODO a mudar o valor 10
         this.health = 100;
-        this.
     }
 
     public void shoot() {
@@ -41,11 +41,7 @@ abstract public class Person extends GameObject implements Movable, Destructable
         numAmmo++;
     }
 
-    public void setWeapon(Weapon weapon) {
-
-        this.weapon = weapon;
-
-    }
+    public void setWeapon(Weapon weapon) { this.weapon = weapon; }
 
     public boolean isDestroyed() {
         return dead;

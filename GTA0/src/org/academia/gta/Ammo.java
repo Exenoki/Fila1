@@ -10,10 +10,10 @@ public class Ammo extends GameObject implements Grabbable {
     public static final int MAX_NUM_BULLETS = 12;
     private int numBullets = MAX_NUM_BULLETS;
     private boolean grabbed;
-    private Weapon weapon;
     private int radius;
 
-    public Ammo() {
+    public Ammo(int x, int y) {
+        super(x, y);
         this.radius = 5; //TODO alterar valor;
     }
 
@@ -22,6 +22,7 @@ public class Ammo extends GameObject implements Grabbable {
         if(numBullets > 0){
             new Bullet().move();
             numBullets--;
+
         }
 
 

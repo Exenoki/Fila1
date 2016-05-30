@@ -13,14 +13,13 @@ public class Weapon extends GameObject implements Grabbable {
     private boolean grabbed;
     private int radius;
 
-    public Weapon() {
+    public Weapon(int x, int y) {
+        super(x, y);
         this.radius = 15; //TODO alterar valor;
     }
 
     public void shoot() {
-
         ammo.shoot();
-
     }
 
     public void reload() {

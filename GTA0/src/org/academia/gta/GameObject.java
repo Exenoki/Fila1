@@ -10,6 +10,12 @@ public abstract class GameObject implements Representable {
     private GameObjectType gameObjectType;
     private int x;
     private int y;
+    private Representable representable;
+
+    public GameObject(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
 
     public void setCollision(Collision collision) {
         this.collision = collision;

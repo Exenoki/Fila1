@@ -1,8 +1,6 @@
 package org.academia.gta.gameobject;
 
 import org.academia.gta.Grabbable;
-import org.academia.gta.gameobject.Ammo;
-import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.people.Person;
 import org.academia.gta.representation.Representable;
 
@@ -69,7 +67,6 @@ public class Weapon extends GameObject implements Grabbable {
         return ammo;
     }
 
-    @Override
     public int getRadius() {
         return radius;
     }

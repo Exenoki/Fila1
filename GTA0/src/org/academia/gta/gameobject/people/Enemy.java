@@ -1,6 +1,5 @@
 package org.academia.gta.gameobject.people;
 
-import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.representation.Representable;
 
 /**
@@ -18,7 +17,7 @@ public class Enemy extends Person {
     }
 
     @Override
-    public int getY() {
+    public Representable getY() {
         return 0;
     }
 

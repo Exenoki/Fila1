@@ -21,19 +21,19 @@ public class Bullet extends GameObject implements Destructable, MovableRepresent
         this.radius = 1;
     }
 
-    public void move(int x, int y) {
-
-
+    @Override
+    public void move(int dx, int dy) {
+        ((MovableRepresentable) getRepresentation()).move(dx, dy);
     }
 
     @Override
     public int getX() {
-        return x;
+        return getRepresentation().getX();
     }
 
     @Override
     public int getY() {
-        return y;
+        return getRepresentation().getY();
     }
 
     @Override
@@ -61,6 +61,5 @@ public class Bullet extends GameObject implements Destructable, MovableRepresent
         this.destroyed = true;
     }
 
-    @Override
     public int getRadius() { return radius; }
 }

@@ -8,10 +8,12 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class PlayerSGFX extends SGFXRepresentation {
 
-    //TODO Esperar por posiçao na grid para implementar coordenadas
-
     public PlayerSGFX(int x, int y) {
         super(new Picture(x, y, "url"));
+    }
+
+    public void move(int dx, int dy) {
+
     }
 
 }

@@ -1,7 +1,5 @@
 package org.academia.gta.representation;
 
-import org.academia.gta.gameobject.GameObject;
-
 /**
  * Created by codecadet on 24/05/16.
  */

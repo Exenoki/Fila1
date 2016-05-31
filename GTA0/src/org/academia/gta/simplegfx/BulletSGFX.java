@@ -8,9 +8,15 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
  */
 public class BulletSGFX extends SGFXRepresentation {
 
+    private int radius;
+    private int speed;
+
     public BulletSGFX(int x, int y) {
         super(new Rectangle(x, y, 3, 3));
-
+        this.speed = 5;
+        this.radius = 1;
     }
+
+
 
 }

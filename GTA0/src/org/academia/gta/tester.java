@@ -16,7 +16,7 @@ public class tester {
     public static void main(String[] args) throws InterruptedException {
 
         Game mygame = new Game(GridType.SIMPLEGFX,950,600,200);
-        mygame.init();
+        mygame.init(20,3);
 
     }
 }

@@ -71,6 +71,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * @param y The y position of the click
      */
     public void mouseClickedEvent(int x, int y) {
+        //System.out.println(x + " " + y);
         //player.shoot(x, y);
         shooted = true;
     }
@@ -233,7 +234,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     public void mouseClicked(MouseEvent mouseEvent) {
 
         mouseX = (int) mouseEvent.getX();
-        mouseY = (int) mouseEvent.getY();
+        mouseY = (int) mouseEvent.getY() - 25;
 
         mouseClickedEvent(mouseX, mouseY);
     }

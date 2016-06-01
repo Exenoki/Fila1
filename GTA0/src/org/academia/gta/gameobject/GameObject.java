@@ -9,6 +9,7 @@ import org.academia.gta.representation.Representable;
  */
 public abstract class GameObject implements Representable {
 
+    private int radius;
     private Representable representation;
 
     public Representable getRepresentation() {
@@ -17,6 +18,14 @@ public abstract class GameObject implements Representable {
 
     public GameObject(Representable representation) {
         this.representation = representation;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 
     /*private Collision collision;

@@ -3,12 +3,13 @@ package org.academia.gta;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
-import org.academia.gta.gameobject.people.Player;
+import org.academia.gta.gameobject.people.PlayerClean;
+import org.academia.gta.simplegfx.PropsGenerator;
 import org.academia.gta.position.Grid;
 import org.academia.gta.position.GridFactory;
 import org.academia.gta.position.GridType;
-import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.simplegfx.SGFXRepresentationFactory;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -22,6 +23,7 @@ public class Game {
      * Graphical Car field
      */
     private Grid grid;
+    private PropsGenerator propsGenerator;
 
     /**
      * Animation delay
@@ -45,15 +47,24 @@ public class Game {
     /**
      * Creates a bunch of cars and randomly puts them in the field
      */
-    public void init() throws InterruptedException {
+    public void init(int tree, int amo) throws InterruptedException {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
 
 
-
+        propsGenerator = new PropsGenerator();
         grid.init(width,height);
 
-        Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
+        Picture bridge = new Picture(595,320,"resources/game_sprites/bridge_complete.png");
+        bridge.draw();
+
+        Picture boat = new Picture(615,120,"resources/game_sprites/boat.png");
+        boat.draw();
+
+        propsGenerator.propGenerator(this.grid, amo, GameObjectType.AMMO);
+        propsGenerator.propGenerator(this.grid, tree, GameObjectType.TREE);
+
+        PlayerClean player = (PlayerClean) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
 
         while (true) {
             Thread.sleep(25);
@@ -64,12 +75,12 @@ public class Game {
                 bulletsInstantiated.add(b);
 
             moveBullets();
-
             player.move();
         }
 
+
     }
-    
+
     public void moveBullets() {
         Iterator it = bulletsInstantiated.iterator();
 
@@ -78,7 +89,7 @@ public class Game {
 
             b.move();
 
-            if(b.getX() > grid.getCols() || b.getY() > grid.getRows() ||
+            if(b.getX() > grid.getWidth() || b.getY() > grid.getHeight() ||
                     b.getX() < 0 || b.getY() < 0) {
                 it.remove();
             }

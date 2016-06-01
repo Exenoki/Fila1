@@ -16,7 +16,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition{
 
 
     public SimpleGfxGridPosition (SimpleGfxGrid grid){
-        this((int)(Math.random()*grid.getCols()), (int)(Math.random()*grid.getRows()), grid);
+        this((int)(Math.random()*grid.getWidth()), (int)(Math.random()*grid.getHeight()), grid);
 
     }
 

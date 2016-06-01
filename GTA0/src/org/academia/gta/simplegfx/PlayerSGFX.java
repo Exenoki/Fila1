@@ -11,7 +11,8 @@ public class PlayerSGFX extends SGFXRepresentation implements MovableRepresentab
 
 
     public PlayerSGFX(int x, int y) {
-        super(new Picture(x, y, "resources/player_sprites/idle.png"));
+        super(new Picture(x, y, "resources/player_sprites/idle_d.png"));
+
 
 
     }

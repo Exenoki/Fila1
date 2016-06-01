@@ -15,7 +15,7 @@ public class Bullet extends GameObject implements Destructable {
     private int radius;
 
     private int d = 0;
-    private int speed = 3;
+    private int speed = 10;
     private double dt;
 
     private boolean flag = true;
@@ -24,7 +24,6 @@ public class Bullet extends GameObject implements Destructable {
     private int y0;
     private int xf;
     private int yf;
-
 
     public Bullet(Representable representation) {
         super(representation);
@@ -37,17 +36,16 @@ public class Bullet extends GameObject implements Destructable {
         this.xf = xf;
         this.yf = yf;
 
+        dt = Math.sqrt((xf - x0)*(xf - x0) + (yf - y0)*(yf -  y0));
+
         return this;
     }
 
     public void move( ) {
 
-        if(flag) {
-            dt = Math.sqrt((xf - x0) ^ 2 + (yf - y0) ^ 2);
-            flag = false;
-        }
-
         d += speed;
+        System.out.println(d);
+
         x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
         y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
 
@@ -69,16 +67,6 @@ public class Bullet extends GameObject implements Destructable {
     public void merge() {
 
     }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int hit() { return (int)Math.round(Math.random()*20) + 20; }
 
     @Override
     public boolean isDestroyed() {

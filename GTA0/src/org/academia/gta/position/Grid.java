@@ -15,30 +15,19 @@ public interface Grid {
      *
      * @return the number of columns
      */
-    public int getCols();
+    public int getWidth();
 
     /**
      * Gets the number of rows in the grid
      *
      * @return the number of rows
      */
-    public int getRows();
+    public int getHeight();
 
     /**
      * Create a random grid position
      *
      * @return the new grid position
      */
-    public GridPosition makeGridPosition();
-
-    /**
-     * Creates a a grid position in a specific column and row
-     *
-     * @param col   the position column
-     * @param row   the position row
-     * @return the new grid position
-     */
-    public GridPosition makeGridPosition(int col, int row);
-
 
 }

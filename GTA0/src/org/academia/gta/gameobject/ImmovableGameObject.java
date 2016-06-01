@@ -3,27 +3,26 @@ package org.academia.gta.gameobject;
 import org.academia.gta.representation.Representable;
 
 /**
- * Created by codecadet on 29/05/16.
+ * Created by codecadet on 01/06/16.
  */
-public class Wall extends GameObject {
+public class ImmovableGameObject extends GameObject {
 
-    public Wall(Representable representation) {
+    public ImmovableGameObject(Representable representation) {
         super(representation);
     }
 
     @Override
     public int getX() {
-        return 0;
+        return getRepresentation().getX();
     }
 
     @Override
     public int getY() {
-        return 0;
+        return getRepresentation().getY();
     }
 
     @Override
     public void merge() {
 
     }
-
 }

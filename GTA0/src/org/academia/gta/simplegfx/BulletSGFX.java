@@ -33,6 +33,8 @@ public class BulletSGFX extends SGFXRepresentation implements MovableRepresentab
 
             ((Movable) getShape()).translate(x - x0, y - y0);
 
+            //System.out.println(x + " " + y + " " + x0 + " " + y0);
+
             x0 = x;
             y0 = y;
         }
@@ -42,4 +44,5 @@ public class BulletSGFX extends SGFXRepresentation implements MovableRepresentab
     public int getSize() {
         return size;
     }
+
 }

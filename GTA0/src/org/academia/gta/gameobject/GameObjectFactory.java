@@ -2,6 +2,7 @@ package org.academia.gta.gameobject;
 
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
+import org.academia.gta.gameobject.people.PlayerClean;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
 import org.academia.gta.representation.RepresentableFactory;
@@ -24,7 +25,7 @@ public class GameObjectFactory {
         switch (got) {
 
             case PLAYER:
-                gameObject = new Player((MovableRepresentable) factory.createRepresentation(x, y, got));
+                gameObject = new PlayerClean((MovableRepresentable) factory.createRepresentation(x, y, got));
                 break;
 
             case ENEMY:
@@ -36,7 +37,7 @@ public class GameObjectFactory {
                 break;
 
             case BARBEDWIRE:
-                gameObject = new BarbedWire((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got));
                 break;
 
             case BULLET:
@@ -44,15 +45,15 @@ public class GameObjectFactory {
                 break;
 
             case TOWER:
-                gameObject = new Tower((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got));
                 break;
 
             case TREE:
-                gameObject = new Tree((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got));
                 break;
 
             case WALL:
-                gameObject = new Wall((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got));
                 break;
 
             case WEAPON:

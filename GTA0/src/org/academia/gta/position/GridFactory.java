@@ -15,11 +15,11 @@ public class GridFactory {
      * Creates a new grid
      *
      * @param gridType the type of grid to create
-     * @param cols     the number of columns of the grid
-     * @param rows     the number of rows of the grid
+     * @param width     the width the grid
+     * @param height     the height of the grid
      * @return the new grid
      */
-    public static Grid makeGrid(GridType gridType, int cols, int rows) {
+    public static Grid makeGrid(GridType gridType, int width, int height) {
 
         switch (gridType) {
             default:

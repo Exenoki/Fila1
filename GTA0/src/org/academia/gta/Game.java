@@ -3,7 +3,7 @@ package org.academia.gta;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
-import org.academia.gta.gameobject.people.PlayerClean;
+import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.PropsGenerator;
 import org.academia.gta.position.Grid;
 import org.academia.gta.position.GridFactory;
@@ -64,11 +64,12 @@ public class Game {
         propsGenerator.propGenerator(this.grid, amo, GameObjectType.AMMO);
         propsGenerator.propGenerator(this.grid, tree, GameObjectType.TREE);
 
-        PlayerClean player = (PlayerClean) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
+        Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
 
         while (true) {
             Thread.sleep(25);
 
+            player.reload();
             Bullet b = player.shoot();
 
             if(b != null)
@@ -94,6 +95,7 @@ public class Game {
                 it.remove();
             }
         }
+
     }
 
 }

@@ -1,7 +1,5 @@
 package org.academia.gta.controls;
 
-import org.academia.gta.gameobject.people.Player;
-import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -22,7 +20,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * index 2 -> Down
      * index 3 -> Left
      */
-    private boolean[] keyPressed = new boolean[4];
+    private boolean[] keyPressed = new boolean[5];
 
     /** Keyboard instance */
     private Keyboard keyboard;
@@ -35,7 +33,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     private int mouseY;
 
     /** Spedd of the player movement */
-    private final int SPEED = 4;
+    private final int SPEED = 3;
 
     private int dx;
     private int dy;
@@ -61,19 +59,6 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         // Create and define the mouse listener
         mouse = new Mouse(this);
         mouse.addEventListener(MouseEventType.MOUSE_CLICKED);
-    }
-
-    /**
-     * Receive the clicked coordinates
-     * and Delegates the shoot event to the instance player
-     *
-     * @param x The x position of the click
-     * @param y The y position of the click
-     */
-    public void mouseClickedEvent(int x, int y) {
-        //System.out.println(x + " " + y);
-        //player.shoot(x, y);
-        shooted = true;
     }
 
     /**
@@ -148,6 +133,10 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
             dx = -SPEED;
     }
 
+    public void reload() {
+        if(keyPressed[4]) toReload = true;
+    }
+
     @Override
     /**
      * Give a movement to the player when a key or keys are pressed
@@ -167,10 +156,11 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
             keyPressed[3] = true;
 
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RELOAD))
-            toReload = true;
+            keyPressed[4] = true;
 
         // If a key is pressed call the move method
         move();
+        reload();
     }
 
     @Override
@@ -236,7 +226,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         mouseX = (int) mouseEvent.getX();
         mouseY = (int) mouseEvent.getY() - 25;
 
-        mouseClickedEvent(mouseX, mouseY);
+        shooted = true;
     }
 
 

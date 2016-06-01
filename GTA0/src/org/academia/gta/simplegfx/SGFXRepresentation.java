@@ -22,6 +22,16 @@ public abstract class SGFXRepresentation implements Representable {
     }
 
     @Override
+    public int getWidth() {
+        return getShape().getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return getShape().getHeight();
+    }
+
+    @Override
     public int getX() {
         return shape.getX();
     }

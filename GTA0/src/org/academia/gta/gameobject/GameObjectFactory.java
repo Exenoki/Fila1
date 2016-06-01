@@ -2,7 +2,6 @@ package org.academia.gta.gameobject;
 
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
-import org.academia.gta.gameobject.people.PlayerClean;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
 import org.academia.gta.representation.RepresentableFactory;
@@ -25,7 +24,7 @@ public class GameObjectFactory {
         switch (got) {
 
             case PLAYER:
-                gameObject = new PlayerClean((MovableRepresentable) factory.createRepresentation(x, y, got));
+                gameObject = new Player((MovableRepresentable) factory.createRepresentation(x, y, got));
                 break;
 
             case ENEMY:

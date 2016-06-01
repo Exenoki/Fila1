@@ -22,6 +22,16 @@ public class ImmovableGameObject extends GameObject {
     }
 
     @Override
+    public int getWidth() {
+        return getRepresentation().getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return getRepresentation().getHeight();
+    }
+
+    @Override
     public void merge() {
 
     }

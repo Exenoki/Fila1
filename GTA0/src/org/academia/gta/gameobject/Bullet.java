@@ -18,8 +18,6 @@ public class Bullet extends GameObject implements Destructable {
     private int speed = 10;
     private double dt;
 
-    private boolean flag = true;
-
     private int x0;
     private int y0;
     private int xf;
@@ -42,9 +40,7 @@ public class Bullet extends GameObject implements Destructable {
     }
 
     public void move( ) {
-
         d += speed;
-        System.out.println(d);
 
         x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
         y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
@@ -61,6 +57,16 @@ public class Bullet extends GameObject implements Destructable {
     @Override
     public int getY() {
         return getRepresentation().getY();
+    }
+
+    @Override
+    public int getWidth() {
+        return getRepresentation().getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return getRepresentation().getHeight();
     }
 
     @Override

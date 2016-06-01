@@ -1,73 +1,41 @@
 package org.academia.gta.gameobject;
 
-import org.academia.gta.Grabbable;
-import org.academia.gta.gameobject.people.Person;
 import org.academia.gta.representation.Representable;
 
 /**
  * Created by codecadet on 24/05/16.
  */
-public class Weapon extends GameObject implements Grabbable {
+public class Weapon extends GameObject {
 
-    //TODO arma vem com "x" ammo, cada reload gasta uma ammo até 0
 
-    private Ammo ammo = new Ammo(null);
-    private boolean grabbed;
-    private int radius;
+    public Weapon(Representable representation) {
+        super(representation);
+        setRadius(15);
+    }
+
 
     @Override
     public int getX() {
-        return 0;
+        return getRepresentation().getX();
     }
 
     @Override
     public int getY() {
-        return 0;
+        return getRepresentation().getY();
     }
 
+    @Override
+    public int getWidth() {
+        return getRepresentation().getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return getRepresentation().getHeight();
+    }
     @Override
     public void merge() {
 
     }
 
-    public Weapon(Representable representation) {
-        super(representation);
-        this.radius = 15; //TODO alterar valor;
-    }
-
-    public Bullet shoot(int x0, int y0, int xf, int yf) {
-        return ammo.shoot(x0, y0, xf, yf);
-    }
-
-    public void reload() {
-        ammo.setNumBullets(Ammo.MAX_NUM_BULLETS);
-    }
-
-    public boolean isGrabbed() {
-        return grabbed;
-    }
-
-    @Override
-    public void pickedBy(GameObject go) {
-
-        if (!((Person) go).hasWeapon()) {
-            ((Person) go).setWeapon(this);
-            reload();
-            this.grabbed = true;
-            ((Person) go).setHasWeapon();
-        } else {
-            ((Person)go).setAmmo();
-        }
-
-
-    }
-
-
-    public Ammo getAmmo() {
-        return ammo;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
 }

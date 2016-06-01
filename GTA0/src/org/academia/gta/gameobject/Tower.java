@@ -17,7 +17,7 @@ public class Tower extends GameObject {
     }
 
     @Override
-    public Representable getY() {
+    public int getY() {
         return 0;
     }
 

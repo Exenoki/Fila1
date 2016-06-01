@@ -8,7 +8,7 @@ import org.academia.gta.gameobject.people.Person;
  * Created by codecadet on 24/05/16.
  */
 public class Collision {
-    public boolean merge(GameObject objA, GameObject objB) {
+    /*public boolean merge(GameObject objA, GameObject objB) {
 
         switch (objA.getGameObjectType()) {
             case PERSON:
@@ -55,6 +55,6 @@ public class Collision {
         }
         return true;
 
-    }
+    }*/
 
 }

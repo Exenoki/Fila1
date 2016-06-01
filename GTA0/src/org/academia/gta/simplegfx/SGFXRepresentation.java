@@ -17,6 +17,10 @@ public abstract class SGFXRepresentation implements Representable {
         shape.draw();
     }
 
+    public Shape getShape() {
+        return shape;
+    }
+
     @Override
     public int getX() {
         return shape.getX();

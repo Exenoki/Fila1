@@ -11,7 +11,7 @@ public class Weapon extends GameObject implements Grabbable {
 
     //TODO arma vem com "x" ammo, cada reload gasta uma ammo até 0
 
-    private Ammo ammo;
+    private Ammo ammo = new Ammo(null);
     private boolean grabbed;
     private int radius;
 
@@ -35,8 +35,8 @@ public class Weapon extends GameObject implements Grabbable {
         this.radius = 15; //TODO alterar valor;
     }
 
-    public void shoot() {
-        ammo.shoot();
+    public Bullet shoot(int x0, int y0, int xf, int yf) {
+        return ammo.shoot(x0, y0, xf, yf);
     }
 
     public void reload() {

@@ -17,7 +17,7 @@ public class Enemy extends Person {
     }
 
     @Override
-    public Representable getY() {
+    public int getY() {
         return 0;
     }
 

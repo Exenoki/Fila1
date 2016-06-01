@@ -7,13 +7,23 @@ import org.academia.gta.representation.Representable;
 /**
  * Created by codecadet on 24/05/16.
  */
-public class Bullet extends GameObject implements Destructable, MovableRepresentable {
+public class Bullet extends GameObject implements Destructable {
 
-    private int speed;
     private int x;
     private int y;
     private boolean destroyed;
     private int radius;
+
+    private int d = 0;
+    private int speed = 3;
+    private double dt;
+
+    private boolean flag = true;
+
+    private int x0;
+    private int y0;
+    private int xf;
+    private int yf;
 
 
     public Bullet(Representable representation) {
@@ -21,9 +31,28 @@ public class Bullet extends GameObject implements Destructable, MovableRepresent
         this.radius = 1;
     }
 
-    @Override
-    public void move(int dx, int dy) {
-        ((MovableRepresentable) getRepresentation()).move(dx, dy);
+    public Bullet shooted(int x0, int y0, int xf, int yf) {
+        this.x0 = x0;
+        this.y0 = y0;
+        this.xf = xf;
+        this.yf = yf;
+
+        return this;
+    }
+
+    public void move( ) {
+
+        if(flag) {
+            dt = Math.sqrt((xf - x0) ^ 2 + (yf - y0) ^ 2);
+            flag = false;
+        }
+
+        d += speed;
+        x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
+        y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
+
+        ((MovableRepresentable) getRepresentation()).move(x, y);
+
     }
 
     @Override

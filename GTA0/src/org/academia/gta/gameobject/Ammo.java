@@ -4,6 +4,8 @@ import org.academia.gta.Grabbable;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.people.Person;
 import org.academia.gta.representation.Representable;
+import org.academia.gta.simplegfx.BulletSGFX;
+import org.academia.gta.simplegfx.SGFXRepresentationFactory;
 
 /**
  * Created by codecadet on 25/05/16.
@@ -14,20 +16,35 @@ public class Ammo extends GameObject implements Grabbable {
     private int numBullets = MAX_NUM_BULLETS;
     private boolean grabbed;
     private int radius;
+    private Bullet[] bullets;
 
     public Ammo(Representable representation) {
         super(representation);
-        this.radius = 5; //TODO alterar valor;
+        bullets = new Bullet[MAX_NUM_BULLETS];
+        this.radius = 5;
     }
 
-    public void shoot() {
+    public Bullet shoot(int x0, int y0, int xf, int yf) {
 
         if(numBullets > 0){
-            /*new Bullet().move();
-            numBullets--;*/
+            bullets[numBullets - 1] = new Bullet(new BulletSGFX(x0, y0));
+            bullets[numBullets - 1].shooted(x0, y0, xf, yf);
+            numBullets--;
 
+            return bullets[numBullets];
         }
 
+        return null;
+    }
+
+    public void reload() {
+        bullets = new Bullet[MAX_NUM_BULLETS];
+
+        /*for (Bullet bullet : bullets) {
+            if (bullet != null) {
+                bullet = new Bullet(null);
+            }
+        }*/
 
     }
 
@@ -50,8 +67,22 @@ public class Ammo extends GameObject implements Grabbable {
 
     }
 
-    @Override
     public int getRadius() {
         return radius;
+    }
+
+    @Override
+    public int getX() {
+        return 0;
+    }
+
+    @Override
+    public int getY() {
+        return 0;
+    }
+
+    @Override
+    public void merge() {
+
     }
 }

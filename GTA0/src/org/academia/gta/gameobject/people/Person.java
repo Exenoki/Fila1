@@ -2,6 +2,7 @@ package org.academia.gta.gameobject.people;
 
 import org.academia.gta.*;
 import org.academia.gta.gameobject.Ammo;
+import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.Weapon;
 import org.academia.gta.representation.Representable;
@@ -11,12 +12,12 @@ import org.academia.gta.representation.Representable;
  */
 abstract public class Person extends GameObject implements Destructable {
 
-    private Weapon weapon;
-    private int numAmmo;
+    private Weapon weapon = new Weapon(null);
+    private int numAmmo = 10;
     private boolean dead;
     private int health;
     private int radius;
-    private boolean hasWeapon;
+    private boolean hasWeapon = true;
 
     public Person(Representable representation) {
         super(representation);
@@ -24,10 +25,12 @@ abstract public class Person extends GameObject implements Destructable {
         this.health = 100;
     }
 
-    public void shoot() {
+    public Bullet shoot(int xf, int yf) {
         if(hasWeapon()) {
-            weapon.shoot();
+            return weapon.shoot(getX(), getY(), xf, yf);
         }
+
+        return null;
     }
 
     public void reload() {
@@ -44,6 +47,10 @@ abstract public class Person extends GameObject implements Destructable {
     }
 
     public void setWeapon(Weapon weapon) { this.weapon = weapon; }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
 
     public boolean isDestroyed() {
         return dead;

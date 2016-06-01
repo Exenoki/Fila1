@@ -17,7 +17,7 @@ public class Tree extends GameObject {
     }
 
     @Override
-    public Representable getY() {
+    public int getY() {
         return 0;
     }
 

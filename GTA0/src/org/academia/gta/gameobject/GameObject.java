@@ -1,7 +1,5 @@
 package org.academia.gta.gameobject;
 
-import org.academia.gta.Collision;
-import org.academia.gta.Game;
 import org.academia.gta.representation.Representable;
 
 /**

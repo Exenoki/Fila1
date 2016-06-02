@@ -1,6 +1,7 @@
 package org.academia.gta;
 
 import org.academia.gta.gameobject.Bullet;
+import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.people.Player;
@@ -42,6 +43,7 @@ public class Game {
     }
 
     LinkedList<Bullet> bulletsInstantiated = new LinkedList<>();
+    LinkedList<GameObject> gameObjectInstantiated = new LinkedList<>();
 
     /**
      * Creates a bunch of cars and randomly puts them in the field
@@ -49,7 +51,7 @@ public class Game {
     public void init(int tree, int amo) throws InterruptedException {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
-
+        CollisionChecker collisionChecker = new CollisionChecker();
 
         propsGenerator = new PropsGenerator();
 
@@ -64,6 +66,8 @@ public class Game {
         propsGenerator.ammoGenerator(this.grid, amo);
         propsGenerator.treeGenerator(this.grid, tree);
 
+        propsGenerator.getAmmoArray(gameObjectInstantiated);
+
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
 
         while (true) {
@@ -76,6 +80,8 @@ public class Game {
 
             moveBullets();
             player.move();
+
+            collisionChecker.checkCollision(player, gameObjectInstantiated, bulletsInstantiated);
 
             propsGenerator.reDraw();
         }

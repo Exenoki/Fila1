@@ -1,4 +1,4 @@
-package org.academia.gta.position;
+package org.academia.gta.simplegfx;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 28/05/16.

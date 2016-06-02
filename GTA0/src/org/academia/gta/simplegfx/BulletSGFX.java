@@ -5,6 +5,7 @@ import org.academia.gta.simplegfx.SGFXRepresentation;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 28/05/16.
@@ -19,8 +20,7 @@ public class BulletSGFX extends SGFXRepresentation implements MovableRepresentab
     private int size = 3;
 
     public BulletSGFX(int x, int y) {
-        super(new Rectangle(x, y, 3, 3));
-        ((Rectangle)this.getShape()).fill();
+        super(new Picture(x, y, "resources/game_sprites/bullet.jpg"));
         this.x0 = x;
         this.y0 = y;
         this.speed = 5;

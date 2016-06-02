@@ -9,12 +9,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class PlayerSGFX extends SGFXRepresentation implements MovableRepresentable {
 
-
     public PlayerSGFX(int x, int y) {
         super(new Picture(x, y, "resources/player_sprites/idle_d.png"));
-
-
-
     }
 
     @Override

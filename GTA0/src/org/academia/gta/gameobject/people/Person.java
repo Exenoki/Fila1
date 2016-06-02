@@ -2,6 +2,7 @@ package org.academia.gta.gameobject.people;
 
 import org.academia.gta.Destructable;
 import org.academia.gta.gameobject.GameObject;
+import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.representation.Representable;
 
 /**
@@ -13,7 +14,7 @@ public abstract class Person extends GameObject implements Destructable {
     private int health;
 
     public Person(Representable representation) {
-        super(representation);
+        super(representation, GameObjectType.PLAYER);
         setRadius(10); // TODO remove hard coding radius person
         health = 100;
     }
@@ -26,30 +27,5 @@ public abstract class Person extends GameObject implements Destructable {
     @Override
     public void setDestroyed() {
         this.isDead = true;
-    }
-
-    @Override
-    public int getX() {
-        return getRepresentation().getX();
-    }
-
-    @Override
-    public int getY() {
-        return getRepresentation().getY();
-    }
-
-    @Override
-    public int getWidth() {
-        return getRepresentation().getWidth();
-    }
-
-    @Override
-    public int getHeight() {
-        return getRepresentation().getHeight();
-    }
-
-    @Override
-    public void merge() {
-
     }
 }

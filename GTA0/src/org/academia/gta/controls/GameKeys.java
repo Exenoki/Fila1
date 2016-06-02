@@ -19,24 +19,33 @@ public enum GameKeys {
      * @return The code(int) of the pressed key
      */
     public static int getKeyCode(GameKeys gameKeys) {
+        int keyboardEvent;
+
         switch (gameKeys) {
             case UP:
-                return KeyboardEvent.KEY_W;
+                keyboardEvent =  KeyboardEvent.KEY_W;
+                break;
 
             case RIGHT:
-                return KeyboardEvent.KEY_D;
+                keyboardEvent =  KeyboardEvent.KEY_D;
+                break;
 
             case DOWN:
-                return KeyboardEvent.KEY_S;
+                keyboardEvent =  KeyboardEvent.KEY_S;
+                break;
 
             case LEFT:
-                return KeyboardEvent.KEY_A;
+                keyboardEvent = KeyboardEvent.KEY_A;
+                break;
 
             case RELOAD:
-                return KeyboardEvent.KEY_R;
+                keyboardEvent =  KeyboardEvent.KEY_R;
+                break;
 
             default:
-                return KeyboardEvent.KEY_W;
+                keyboardEvent =  -1;
         }
+
+        return keyboardEvent;
     }
 }

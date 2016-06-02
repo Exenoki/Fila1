@@ -7,32 +7,8 @@ import org.academia.gta.representation.Representable;
  */
 public class ImmovableGameObject extends GameObject {
 
-    public ImmovableGameObject(Representable representation) {
-        super(representation);
+    public ImmovableGameObject(Representable representation, GameObjectType got) {
+        super(representation, got);
     }
 
-    @Override
-    public int getX() {
-        return getRepresentation().getX();
-    }
-
-    @Override
-    public int getY() {
-        return getRepresentation().getY();
-    }
-
-    @Override
-    public int getWidth() {
-        return getRepresentation().getWidth();
-    }
-
-    @Override
-    public int getHeight() {
-        return getRepresentation().getHeight();
-    }
-
-    @Override
-    public void merge() {
-
-    }
 }

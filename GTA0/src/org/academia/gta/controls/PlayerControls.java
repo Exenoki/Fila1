@@ -143,6 +143,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * by changing a delta x and y values
      */
     public void keyPressed(KeyboardEvent keyboardEvent) {
+
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.UP))
             keyPressed[0] = true;
 
@@ -173,18 +174,15 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
             dy = 0;
         }
 
-
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RIGHT)) {
             keyPressed[1] = false;
             dx = 0;
         }
 
-
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.DOWN)) {
             keyPressed[2] = false;
             dy = 0;
         }
-
 
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.LEFT)) {
             keyPressed[3] = false;
@@ -229,8 +227,28 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         shooted = true;
     }
 
-
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {}
 
+    public Direction getCurrentDirection() {
+         if(keyPressed[0] && keyPressed[1]) {
+             return Direction.UP_RIGHT;
+         } else if(keyPressed[1] && keyPressed[2]) {
+             return Direction.RIGHT_DOWN;
+         } else if(keyPressed[2] && keyPressed[3]) {
+             return Direction.DOWN_LEFT;
+         } else if(keyPressed[3] && keyPressed[0]) {
+            return Direction.LEFT_UP;
+         } else if (keyPressed[0] ) {
+            return Direction.UP;
+         } else if (keyPressed[1]) {
+            return Direction.RIGHT;
+         } else if (keyPressed[2]) {
+             return Direction.DOWN;
+         } else if (keyPressed[3]) {
+             return Direction.LEFT;
+         }
+
+        return Direction.NULL;
+    }
 }

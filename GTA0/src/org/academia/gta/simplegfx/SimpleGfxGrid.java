@@ -1,6 +1,5 @@
 package org.academia.gta.simplegfx;
 
-import org.academia.gta.position.Grid;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 

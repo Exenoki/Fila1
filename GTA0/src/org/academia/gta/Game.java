@@ -5,10 +5,9 @@ import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.PropsGenerator;
-import org.academia.gta.position.Grid;
-import org.academia.gta.position.GridFactory;
-import org.academia.gta.position.GridType;
+import org.academia.gta.simplegfx.Grid;
 import org.academia.gta.simplegfx.SGFXRepresentationFactory;
+import org.academia.gta.simplegfx.SimpleGfxGrid;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.Iterator;
@@ -33,9 +32,9 @@ public class Game {
     private int width;
     private int height;
 
-    Game(GridType gridType, int width, int height, int delay) {
+    Game(int width, int height, int delay) {
 
-        grid = GridFactory.makeGrid(gridType, width, height);
+        grid = new SimpleGfxGrid();
         this.delay = delay;
         this.width = width;
         this.height = height;
@@ -53,6 +52,7 @@ public class Game {
 
 
         propsGenerator = new PropsGenerator();
+
         grid.init(width,height);
 
         Picture bridge = new Picture(595,320,"resources/game_sprites/bridge_complete.png");
@@ -61,14 +61,13 @@ public class Game {
         Picture boat = new Picture(615,120,"resources/game_sprites/boat.png");
         boat.draw();
 
-        propsGenerator.propGenerator(this.grid, amo, GameObjectType.AMMO);
-        propsGenerator.propGenerator(this.grid, tree, GameObjectType.TREE);
+        propsGenerator.ammoGenerator(this.grid, amo);
+        propsGenerator.treeGenerator(this.grid, tree);
 
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
 
         while (true) {
             Thread.sleep(25);
-
             player.reload();
             Bullet b = player.shoot();
 
@@ -77,9 +76,9 @@ public class Game {
 
             moveBullets();
             player.move();
+
+            propsGenerator.reDraw();
         }
-
-
     }
 
     public void moveBullets() {
@@ -92,6 +91,7 @@ public class Game {
 
             if(b.getX() > grid.getWidth() || b.getY() > grid.getHeight() ||
                     b.getX() < 0 || b.getY() < 0) {
+                b.getRepresentation().delete();
                 it.remove();
             }
         }

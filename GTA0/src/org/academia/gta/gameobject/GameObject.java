@@ -7,17 +7,19 @@ import org.academia.gta.representation.Representable;
 /**
  * Created by codecadet on 24/05/16.
  */
-public abstract class GameObject implements Representable {
+public abstract class GameObject {
 
     private int radius;
     private Representable representation;
+    private GameObjectType got;
 
     public Representable getRepresentation() {
         return representation;
     }
 
-    public GameObject(Representable representation) {
+    public GameObject(Representable representation, GameObjectType got) {
         this.representation = representation;
+        this.got = got;
     }
 
     public int getRadius() {
@@ -28,51 +30,23 @@ public abstract class GameObject implements Representable {
         this.radius = radius;
     }
 
-    /*private Collision collision;
-    private int radius;
-    private GameObjectType gameObjectType;
-    private int x;
-    private int y;
-    private Representable representation;
-
-    public GameObject(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public void setCollision(Collision collision) {
-        this.collision = collision;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
-
-    public GameObjectType getGameObjectType() {
-        return gameObjectType;
-    }
-
-    public void setGameObjectType(GameObjectType gameObjectType) {
-        this.gameObjectType = gameObjectType;
+    public GameObjectType getGot() {
+        return got;
     }
 
     public int getX() {
-        return this.x;
+        return getRepresentation().getX();
     }
 
     public int getY() {
-        return this.y;
+        return getRepresentation().getY();
     }
 
-    public Representable getRepresentation() {
-        return representation;
+    public int getWidth() {
+        return getRepresentation().getWidth();
     }
 
-    public void setRepresentation(Representable representation) {
-        this.representation = representation;
-    }*/
+    public int getHeight() {
+        return getRepresentation().getHeight();
+    }
 }

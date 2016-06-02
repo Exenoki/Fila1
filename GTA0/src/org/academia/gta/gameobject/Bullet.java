@@ -24,7 +24,7 @@ public class Bullet extends GameObject implements Destructable {
     private int yf;
 
     public Bullet(Representable representation) {
-        super(representation);
+        super(representation, GameObjectType.BULLET);
         this.radius = 1;
     }
 
@@ -39,38 +39,13 @@ public class Bullet extends GameObject implements Destructable {
         return this;
     }
 
-    public void move( ) {
+    public void move() {
         d += speed;
 
         x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
         y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
 
         ((MovableRepresentable) getRepresentation()).move(x, y);
-
-    }
-
-    @Override
-    public int getX() {
-        return getRepresentation().getX();
-    }
-
-    @Override
-    public int getY() {
-        return getRepresentation().getY();
-    }
-
-    @Override
-    public int getWidth() {
-        return getRepresentation().getWidth();
-    }
-
-    @Override
-    public int getHeight() {
-        return getRepresentation().getHeight();
-    }
-
-    @Override
-    public void merge() {
 
     }
 
@@ -84,5 +59,4 @@ public class Bullet extends GameObject implements Destructable {
         this.destroyed = true;
     }
 
-    public int getRadius() { return radius; }
 }

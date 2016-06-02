@@ -13,6 +13,9 @@ public interface Representable {
 
     int getHeight();
 
-    void merge();
+    void draw();
 
+    void delete();
+
+    void translate(int dx, int dy);
 }

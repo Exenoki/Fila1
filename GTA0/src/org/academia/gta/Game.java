@@ -1,13 +1,12 @@
 package org.academia.gta;
 
+import org.academia.gta.controls.Direction;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
+import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
-import org.academia.gta.simplegfx.PropsGenerator;
-import org.academia.gta.simplegfx.Grid;
-import org.academia.gta.simplegfx.SGFXRepresentationFactory;
-import org.academia.gta.simplegfx.SimpleGfxGrid;
+import org.academia.gta.simplegfx.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.Iterator;
@@ -65,14 +64,19 @@ public class Game {
         propsGenerator.treeGenerator(this.grid, tree);
 
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
+        Enemy enemy = new Enemy(new EnemySGFX(200, 200), Direction.UP);
 
         while (true) {
             Thread.sleep(25);
             player.reload();
             Bullet b = player.shoot();
+            Bullet b2 = enemy.shoot(player);
 
             if(b != null)
                 bulletsInstantiated.add(b);
+
+            if(b2 != null)
+                bulletsInstantiated.add(b2);
 
             moveBullets();
             player.move();

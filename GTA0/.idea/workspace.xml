@@ -22,12 +22,12 @@
     <favorites_list name="GTA0" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/academia/gta/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+            <state relative-caret-position="210">
+              <caret line="66" column="69" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,21 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/tester.java">
+      <file leaf-file-name="EnemySGFX.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/EnemySGFX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObjectType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectType.java">
+      <file leaf-file-name="GameObjectFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+            <state relative-caret-position="270">
+              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -58,76 +58,60 @@
       <file leaf-file-name="SGFXRepresentationFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentationFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+            <state relative-caret-position="126">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SGFXRepresentation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentation.java">
+      <file leaf-file-name="PlayerSGFX.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/PlayerSGFX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+            <state relative-caret-position="126">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Enemy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1135#1136#0" expanded="true" />
-                <element signature="e#1173#1174#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PropsGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/PropsGenerator.java">
+      <file leaf-file-name="PlayerControls.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/PlayerControls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
+            <state relative-caret-position="-2898">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImmovableGOSGFX.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/ImmovableGOSGFX.java">
+      <file leaf-file-name="Bullet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/Bullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#315#316#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BulletSGFX.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/BulletSGFX.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="70" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+            <state relative-caret-position="432">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImmovableGameObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/ImmovableGameObject.java">
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Representable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/Representable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="306">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,9 +122,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -152,13 +136,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/academia/gta/representation/SGFXRepresentationFactory.java" />
-        <option value="$PROJECT_DIR$/src/org/academia/gta/people/Player.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/people/Person.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/people/Enemy.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/GameObject.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/representation/MovableRepresentable.java" />
-        <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/EnemySGFX.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/TowerSGFX.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/TreeSGFX.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/WallSGFX.java" />
@@ -186,23 +167,26 @@
         <option value="$PROJECT_DIR$/src/org/academia/gta/representation/RepresentableFactory.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/position/GridFactory.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/Grid.java" />
-        <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectFactory.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Person.java" />
-        <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Enemy.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/Bullet.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Player.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/ImmovableGameObject.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/SimpleGfxGrid.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/ImmovableGOSGFX.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/org/academia/gta/representation/Representable.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/org/academia/gta/Game.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectType.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentationFactory.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/tester.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/PropsGenerator.java" />
         <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/BulletSGFX.java" />
+        <option value="$PROJECT_DIR$/src/org/academia/gta/representation/Representable.java" />
+        <option value="$PROJECT_DIR$/src/org/academia/gta/controls/EnemyDirection.java" />
+        <option value="$PROJECT_DIR$/src/org/academia/gta/simplegfx/EnemySGFX.java" />
+        <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Iterator.class" />
+        <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectFactory.java" />
+        <option value="$PROJECT_DIR$/src/org/academia/gta/Game.java" />
+        <option value="$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Enemy.java" />
       </list>
     </option>
   </component>
@@ -212,9 +196,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -241,8 +226,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -403,52 +389,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GTA0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GTA0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game_sprites" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/.nvm/versions/node/v4.4.1/bin/node" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/bashtards/skeletons/pong-skelleton" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bashtards/simple-graphics" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/resources/game_sprites" />
       <recent name="$PROJECT_DIR$/src/org/academia/gta/nelson" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
@@ -539,133 +506,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -680,15 +520,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="depsClasspath" value="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -754,9 +585,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -788,12 +616,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -852,28 +674,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
-      <method />
-    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.tester" />
     </list>
@@ -885,6 +685,9 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -912,24 +715,22 @@
     <option name="totallyTimeSpent" value="124948000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18210198" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18209563" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19382322" sideWeight="0.5916149" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19353099" sideWeight="0.5916149" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -939,7 +740,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -969,6 +772,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27902022" sideWeight="0.4083851" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -983,115 +794,20 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/Grabbable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/GridFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/GridType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/PropType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/SimpleGfxGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="46" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SimpleGfxGridPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/AbstractGridPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/GridPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/GridFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/GridType.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/PropType.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/Game.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/SimpleGfxGrid.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/nelson/tester.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Player.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SimpleGfxGridPosition.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/AbstractGridPosition.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/GridPosition.java" />
     <entry file="file://$PROJECT_DIR$/src/org/academia/gta/Collision.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,600 +815,144 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/BarbedWireSGFX.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/AmmoSGFX.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/Ammo.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/Weapon.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/UrlPictures.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/GridFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/GridType.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/Grid.java" />
+    <entry file="uml://JAVA/org.academia.gta" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/Direction.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/GameKeys.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/MovableRepresentable.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/AnimationArrays.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SimpleGfxGrid.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObject.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/ImmovableGameObject.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/simplegraphics.jar!/org/academiadecodigo/simplegraphics/pictures/Picture.class" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/ImmovableGOSGFX.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectType.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentation.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/tester.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/PropsGenerator.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/BulletSGFX.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/Representable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/BarbedWireSGFX.java">
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="55" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="55" />
+        <state relative-caret-position="306">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/AmmoSGFX.java">
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/EnemyDirection.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/RepresentableFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="5" selection-start-line="10" selection-start-column="4" selection-end-line="12" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="162">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/Ammo.java">
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/EnemySGFX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/UrlPictures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="162">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/PlayerSGFX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
-          <folding>
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/GridFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        <state relative-caret-position="126">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/position/GridType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/org.academia.gta">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>org.academia.gta</OriginalElement>
-          <nodes>
-            <node x="1114.4038515406162" y="168.0">org.academia.gta.controls.PlayerControls</node>
-            <node x="337.9663515406162" y="534.0">org.academia.gta.tester</node>
-            <node x="204.58333333333348" y="267.0">org.academia.gta.simplegfx.Grid</node>
-            <node x="182.0" y="608.0">org.academia.gta.controls.GameKeys</node>
-            <node x="1098.9038515406162" y="356.0">org.academia.gta.gameobject.GameObjectFactory</node>
-            <node x="1004.4038515406162" y="168.0">org.academia.gta.controls.Direction</node>
-            <node x="612.6538515406162" y="89.0">org.academia.gta.representation.MovableRepresentable</node>
-            <node x="622.5200280112047" y="0.0">org.academia.gta.representation.Representable</node>
-            <node x="475.0268207282912" y="356.0">org.academia.gta.simplegfx.SGFXRepresentationFactory</node>
-            <node x="1211.7700280112047" y="0.0">org.academia.gta.gameobject.GameObjectType</node>
-            <node x="399.8325280112046" y="89.0">org.academia.gta.simplegfx.SGFXRepresentation</node>
-            <node x="544.7163515406162" y="168.0">org.academia.gta.simplegfx.PlayerSGFX</node>
-            <node x="1367.5288515406162" y="168.0">org.academia.gta.gameobject.Bullet</node>
-            <node x="0.0" y="608.0">org.academia.gta.simplegfx.AnimationArrays</node>
-            <node x="1106.0030462184873" y="267.0">org.academia.gta.gameobject.people.Player</node>
-            <node x="1171.0643207282912" y="89.0">org.academia.gta.gameobject.GameObject</node>
-            <node x="249.7163515406162" y="168.0">org.academia.gta.simplegfx.EnemySGFX</node>
-            <node x="807.4038515406162" y="168.0">org.academia.gta.gameobject.ImmovableGameObject</node>
-            <node x="719.4038515406162" y="267.0">org.academia.gta.representation.RepresentableFactory</node>
-            <node x="323.0" y="608.0">org.academia.gta.Collision</node>
-            <node x="1276.4038515406162" y="267.0">org.academia.gta.gameobject.people.Enemy</node>
-            <node x="0.0" y="356.0">org.academia.gta.simplegfx.SimpleGfxGrid</node>
-            <node x="1257.4038515406162" y="168.0">org.academia.gta.gameobject.people.Person</node>
-            <node x="1317.4038515406162" y="89.0">org.academia.gta.Destructable</node>
-            <node x="373.7163515406162" y="168.0">org.academia.gta.simplegfx.ImmovableGOSGFX</node>
-            <node x="338.4663515406162" y="455.0">org.academia.gta.Game</node>
-            <node x="142.0" y="356.0">org.academia.gta.simplegfx.PropsGenerator</node>
-            <node x="684.4038515406162" y="168.0">org.academia.gta.simplegfx.BulletSGFX</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="org.academia.gta.simplegfx.EnemySGFX" target="org.academia.gta.simplegfx.SGFXRepresentation">
-              <point x="0.0" y="-14.5" />
-              <point x="301.7163515406162" y="148.0" />
-              <point x="419.4575280112046" y="148.0" />
-              <point x="-58.875" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SGFXRepresentationFactory" target="org.academia.gta.simplegfx.ImmovableGOSGFX">
-              <point x="-40.599999999999966" y="-14.5" />
-              <point x="535.9268207282912" y="316.0" />
-              <point x="449.2163515406162" y="316.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.Game" target="org.academia.gta.simplegfx.Grid">
-              <point x="0.0" y="-14.5" />
-              <point x="371.9663515406162" y="405.0" />
-              <point x="398.02002801120454" y="405.0" />
-              <point x="398.02002801120454" y="336.0" />
-              <point x="252.91666666666674" y="336.0" />
-              <point x="19.333333333333258" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.Game" target="org.academia.gta.gameobject.GameObjectFactory">
-              <point x="19.14285714285714" y="-14.5" />
-              <point x="391.1092086834733" y="425.0" />
-              <point x="1175.9038515406162" y="425.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.ImmovableGameObject" target="org.academia.gta.gameobject.GameObject">
-              <point x="0.0" y="-14.5" />
-              <point x="895.9038515406162" y="148.0" />
-              <point x="1189.0643207282912" y="148.0" />
-              <point x="-36.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Player" target="org.academia.gta.gameobject.Bullet">
-              <point x="28.75" y="-14.5" />
-              <point x="1169.2530462184873" y="247.0" />
-              <point x="1378.695518207283" y="247.0" />
-              <point x="-22.333333333333343" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Person" target="org.academia.gta.gameobject.GameObject">
-              <point x="-18.5" y="-14.5" />
-              <point x="1275.9038515406162" y="148.0" />
-              <point x="1225.0643207282912" y="148.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SGFXRepresentationFactory" target="org.academia.gta.simplegfx.PlayerSGFX">
-              <point x="0.0" y="-14.5" />
-              <point x="576.5268207282912" y="336.0" />
-              <point x="594.7163515406162" y="336.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Player" target="org.academia.gta.controls.Direction">
-              <point x="-17.25" y="-14.5" />
-              <point x="1123.2530462184873" y="237.0" />
-              <point x="1049.4038515406162" y="237.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.tester" target="org.academia.gta.Game">
-              <point x="0.0" y="-14.5" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Player" target="org.academia.gta.gameobject.people.Person">
-              <point x="17.25" y="-14.5" />
-              <point x="1157.7530462184873" y="237.0" />
-              <point x="1275.9038515406162" y="237.0" />
-              <point x="-18.5" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.representation.MovableRepresentable" target="org.academia.gta.representation.Representable">
-              <point x="0.0" y="-14.5" />
-              <point x="698.6538515406162" y="69.0" />
-              <point x="667.5200280112047" y="69.0" />
-              <point x="-15.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Player" target="org.academia.gta.controls.PlayerControls">
-              <point x="5.75" y="-14.5" />
-              <point x="1146.2530462184873" y="227.0" />
-              <point x="1206.6538515406162" y="227.0" />
-              <point x="30.75" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObjectFactory" target="org.academia.gta.representation.RepresentableFactory">
-              <point x="-61.60000000000002" y="-14.5" />
-              <point x="1114.303851540616" y="336.0" />
-              <point x="843.9038515406162" y="336.0" />
-              <point x="41.5" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.ImmovableGOSGFX" target="org.academia.gta.simplegfx.SGFXRepresentation">
-              <point x="0.0" y="-14.5" />
-              <point x="449.2163515406162" y="148.0" />
-              <point x="458.7075280112046" y="148.0" />
-              <point x="-19.625" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.Game" target="org.academia.gta.simplegfx.PropsGenerator">
-              <point x="-19.14285714285714" y="-14.5" />
-              <point x="352.8234943977591" y="425.0" />
-              <point x="174.0" y="425.0" />
-              <point x="-32.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Player" target="org.academia.gta.simplegfx.BulletSGFX">
-              <point x="-28.75" y="-14.5" />
-              <point x="1111.7530462184873" y="247.0" />
-              <point x="757.9038515406162" y="247.0" />
-              <point x="24.5" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.Bullet" target="org.academia.gta.gameobject.GameObject">
-              <point x="-16.75" y="-14.5" />
-              <point x="1384.2788515406162" y="138.0" />
-              <point x="1261.0643207282912" y="138.0" />
-              <point x="36.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.PlayerSGFX" target="org.academia.gta.simplegfx.SGFXRepresentation">
-              <point x="-25.0" y="-14.5" />
-              <point x="569.7163515406162" y="148.0" />
-              <point x="497.9575280112046" y="148.0" />
-              <point x="19.625" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.BulletSGFX" target="org.academia.gta.simplegfx.SGFXRepresentation">
-              <point x="-24.5" y="-14.5" />
-              <point x="708.9038515406162" y="138.0" />
-              <point x="537.2075280112047" y="138.0" />
-              <point x="58.875" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SGFXRepresentationFactory" target="org.academia.gta.representation.RepresentableFactory">
-              <point x="81.19999999999999" y="-14.5" />
-              <point x="657.7268207282912" y="336.0" />
-              <point x="760.9038515406162" y="336.0" />
-              <point x="-41.5" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObjectFactory" target="org.academia.gta.gameobject.ImmovableGameObject">
-              <point x="-30.80000000000001" y="-14.5" />
-              <point x="1145.1038515406162" y="326.0" />
-              <point x="895.9038515406162" y="326.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.PlayerSGFX" target="org.academia.gta.representation.MovableRepresentable">
-              <point x="25.0" y="-14.5" />
-              <point x="619.7163515406162" y="148.0" />
-              <point x="655.6538515406162" y="148.0" />
-              <point x="-43.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.Game" target="org.academia.gta.simplegfx.SimpleGfxGrid">
-              <point x="-28.714285714285708" y="-14.5" />
-              <point x="343.25206582633047" y="435.0" />
-              <point x="61.0" y="435.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.Game" target="org.academia.gta.simplegfx.SGFXRepresentationFactory">
-              <point x="9.571428571428584" y="-14.5" />
-              <point x="381.53778011204474" y="415.0" />
-              <point x="576.5268207282912" y="415.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SGFXRepresentationFactory" target="org.academia.gta.simplegfx.BulletSGFX">
-              <point x="40.60000000000002" y="-14.5" />
-              <point x="617.1268207282912" y="326.0" />
-              <point x="708.9038515406162" y="326.0" />
-              <point x="-24.5" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObjectFactory" target="org.academia.gta.gameobject.people.Player">
-              <point x="0.0" y="-14.5" />
-              <point x="1175.9038515406162" y="316.0" />
-              <point x="1140.5030462184873" y="316.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObjectFactory" target="org.academia.gta.gameobject.people.Enemy">
-              <point x="30.799999999999955" y="-14.5" />
-              <point x="1206.7038515406161" y="326.0" />
-              <point x="1312.9038515406162" y="326.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SGFXRepresentation" target="org.academia.gta.representation.Representable">
-              <point x="0.0" y="-14.5" />
-              <point x="478.3325280112046" y="69.0" />
-              <point x="637.5200280112047" y="69.0" />
-              <point x="-45.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.PropsGenerator" target="org.academia.gta.simplegfx.Grid">
-              <point x="0.0" y="-14.5" />
-              <point x="206.0" y="336.0" />
-              <point x="233.58333333333348" y="336.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Person" target="org.academia.gta.Destructable">
-              <point x="18.5" y="-14.5" />
-              <point x="1312.9038515406162" y="148.0" />
-              <point x="1345.4038515406162" y="148.0" />
-              <point x="-28.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.Bullet" target="org.academia.gta.Destructable">
-              <point x="16.75" y="-14.5" />
-              <point x="1417.7788515406162" y="148.0" />
-              <point x="1401.4038515406162" y="148.0" />
-              <point x="28.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObjectFactory" target="org.academia.gta.gameobject.Bullet">
-              <point x="61.60000000000002" y="-14.5" />
-              <point x="1237.5038515406163" y="336.0" />
-              <point x="1406.695518207283" y="336.0" />
-              <point x="1406.695518207283" y="247.0" />
-              <point x="1401.0288515406162" y="247.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.people.Enemy" target="org.academia.gta.gameobject.people.Person">
-              <point x="0.0" y="-14.5" />
-              <point x="18.5" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObject" target="org.academia.gta.gameobject.GameObjectType">
-              <point x="36.0" y="-14.5" />
-              <point x="1261.0643207282912" y="69.0" />
-              <point x="1280.7700280112047" y="69.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.Game" target="org.academia.gta.gameobject.Bullet">
-              <point x="28.714285714285722" y="-14.5" />
-              <point x="400.6806372549019" y="435.0" />
-              <point x="1417.695518207283" y="435.0" />
-              <point x="1417.695518207283" y="247.0" />
-              <point x="1423.3621848739494" y="247.0" />
-              <point x="22.333333333333258" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.BulletSGFX" target="org.academia.gta.representation.MovableRepresentable">
-              <point x="24.5" y="-14.5" />
-              <point x="757.9038515406162" y="148.0" />
-              <point x="741.6538515406162" y="148.0" />
-              <point x="43.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SimpleGfxGrid" target="org.academia.gta.simplegfx.Grid">
-              <point x="0.0" y="-14.5" />
-              <point x="61.0" y="326.0" />
-              <point x="214.25000000000023" y="326.0" />
-              <point x="-19.333333333333314" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.simplegfx.SGFXRepresentationFactory" target="org.academia.gta.simplegfx.EnemySGFX">
-              <point x="-81.19999999999993" y="-14.5" />
-              <point x="495.3268207282913" y="326.0" />
-              <point x="301.7163515406162" y="326.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="org.academia.gta.gameobject.GameObject" target="org.academia.gta.representation.Representable">
-              <point x="-36.0" y="-14.5" />
-              <point x="1189.0643207282912" y="59.0" />
-              <point x="697.5200280112047" y="59.0" />
-              <point x="15.0" y="14.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="382.0" y="160.0" />
-          <SelectedNodes>
-            <node>org.academia.gta.gameobject.GameObjectFactory</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/GameKeys.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/PlayerControls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3150">
-          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding>
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        <state relative-caret-position="576">
+          <caret line="44" column="102" selection-start-line="44" selection-start-column="102" selection-end-line="44" selection-end-column="102" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Iterator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Timer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/MovableRepresentable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/RepresentableFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/EnemySGFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/AnimationArrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SimpleGfxGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="33" column="40" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="888" column="0" selection-start-line="888" selection-start-column="0" selection-end-line="888" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/ImmovableGameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/simplegraphics.jar!/org/academiadecodigo/simplegraphics/pictures/Picture.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/representation/Representable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/ImmovableGOSGFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="432">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentationFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+        <state relative-caret-position="126">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/SGFXRepresentation.java">
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/GameObjectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/academia/gta/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+        <state relative-caret-position="210">
+          <caret line="66" column="69" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/PropsGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/controls/PlayerControls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
+        <state relative-caret-position="-2898">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/simplegfx/BulletSGFX.java">
+    <entry file="file://$PROJECT_DIR$/src/org/academia/gta/gameobject/people/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="70" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
-          <folding />
+        <state relative-caret-position="594">
+          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1753,7 +1013,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1773,6 +1032,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>simplegraphics</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

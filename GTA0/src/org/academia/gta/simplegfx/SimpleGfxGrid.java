@@ -32,8 +32,8 @@ public class SimpleGfxGrid implements Grid {
                 }else if(i==16){
                     ground[i][j] = new Picture(x, y, "resources/game_sprites/riveredge.png");
                     ground[i][j].draw();
-                   // ground[i][j].rotateClockWise();
-                  //  ground[i][j].rotateClockWise();
+                    ground[i][j].rotateClockWise();
+                    ground[i][j].rotateClockWise();
                     y += CELL_SIZE;
                 } else if(i>12 && i<16){
                     ground[i][j] = new Picture(x, y, "resources/game_sprites/water.png");

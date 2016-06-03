@@ -57,4 +57,9 @@ public abstract class SGFXRepresentation implements Representable {
     public void translate(int x, int y) {
         shape.translate(x , y);
     }
+
+    public void setShape(Picture picture){
+        this.shape=picture;
+        shape.draw();
+    }
 }

@@ -7,7 +7,6 @@ import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
 import org.academia.gta.simplegfx.BulletSGFX;
 
-
 /**
  * Created by codecadet on 01/06/16.
  */
@@ -19,6 +18,7 @@ public class Player extends Person {
     private int totalAmmo = 10;
     private int numBullets = MAX_NUM_BULLETS;
     private PlayerControls playerControls = new PlayerControls();
+
 
     private Direction currentDirection = Direction.NULL;
 

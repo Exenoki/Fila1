@@ -1,5 +1,6 @@
 package org.academia.gta.simplegfx;
 
+import org.academia.gta.controls.Direction;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.people.Enemy;
@@ -23,7 +24,7 @@ public class SGFXRepresentationFactory implements RepresentableFactory {
                 break;
 
             case ENEMY:
-                representable = new EnemySGFX(x, y);
+                representable = new EnemySGFX(x, y, Direction.NULL);
                 break;
 
             case AMMO:

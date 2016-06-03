@@ -17,6 +17,10 @@ public class BulletSGFX extends SGFXRepresentation {
         this.radius = 1;
     }
 
+    public void move(int dx, int dy) {
 
+
+
+    }
 
 }

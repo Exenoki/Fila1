@@ -4,6 +4,7 @@ import org.academia.gta.Grabbable;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.people.Person;
 import org.academia.gta.representation.Representable;
+import org.academia.gta.simplegfx.BulletSGFX;
 
 /**
  * Created by codecadet on 25/05/16.
@@ -23,9 +24,10 @@ public class Ammo extends GameObject implements Grabbable {
     public void shoot() {
 
         if(numBullets > 0){
-            /*new Bullet().move();
-            numBullets--;*/
-
+            /*
+            bullet.move();
+            numBullets--;
+            */
         }
 
 

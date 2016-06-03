@@ -20,6 +20,10 @@ public abstract class Person extends GameObject implements Destructable {
         health = 100;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
     @Override
     public boolean isDestroyed() {
         return isDead;
@@ -28,10 +32,6 @@ public abstract class Person extends GameObject implements Destructable {
     @Override
     public void setDestroyed() {
         this.isDead = true;
-    }
-
-    public int getHealth(){
-        return health;
     }
 
 }

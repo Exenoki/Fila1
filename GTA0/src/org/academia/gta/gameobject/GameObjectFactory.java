@@ -1,5 +1,6 @@
 package org.academia.gta.gameobject;
 
+import org.academia.gta.controls.Direction;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.representation.MovableRepresentable;
@@ -28,7 +29,7 @@ public class GameObjectFactory {
                 break;
 
             case ENEMY:
-                gameObject = new Enemy((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new Enemy((Representable) factory.createRepresentation(x, y, got), Direction.DOWN);
                 break;
 
             case AMMO:

@@ -28,6 +28,9 @@ public class Player extends Person {
 
     public void move() {
         setCurrentDirection();
+        if(currentDirection==Direction.LEFT){
+
+        }
         ((MovableRepresentable)getRepresentation()).move(playerControls.getDx(), playerControls.getDy());
     }
 
@@ -59,4 +62,6 @@ public class Player extends Person {
             playerControls.setToReload(false);
         }
     }
+
+
 }

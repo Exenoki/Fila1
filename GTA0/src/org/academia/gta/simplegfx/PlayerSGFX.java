@@ -17,4 +17,6 @@ public class PlayerSGFX extends SGFXRepresentation implements MovableRepresentab
     public void move(int dx, int dy) {
         ((Movable) getShape()).translate(dx, dy);
     }
+
+
 }

@@ -1,7 +1,10 @@
 package org.academia.gta;
 
 import org.academia.gta.controls.Direction;
+import org.academia.gta.controls.PlayerControls;
+import org.academia.gta.controls.MouseControl;
 import org.academia.gta.gameobject.Bullet;
+import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.people.Enemy;
@@ -22,6 +25,8 @@ public class Game {
      */
     private Grid grid;
     private PropsGenerator propsGenerator;
+    private PlayerControls playerControls;
+    private MouseControl mouse;
 
     /**
      * Animation delay
@@ -31,16 +36,58 @@ public class Game {
     private int width;
     private int height;
 
+
     Game(int width, int height, int delay) {
 
         grid = new SimpleGfxGrid();
         this.delay = delay;
         this.width = width;
         this.height = height;
+        mouse = new MouseControl();
 
     }
 
     LinkedList<Bullet> bulletsInstantiated = new LinkedList<>();
+    LinkedList<GameObject> gameObjectInstantiated = new LinkedList<>();
+
+    public void start() throws InterruptedException {
+        Picture background = new Picture(0, 0, "resources/background_gta_rambo_start2.jpg");
+        Picture logo = new Picture(225, 100, "resources/gta_rambo_logo.png");
+        Picture start = new Picture(370, 400, "resources/bt_start_normal.png");
+        Picture mouseOver = new Picture(370, 400, "resources/bt_start_over.png");
+
+        background.draw();
+        logo.draw();
+        start.draw();
+
+        while (true) {
+
+            if (mouse.getMouseXmove() > 370 && mouse.getMouseXmove() < 570 &&
+                    mouse.getMouseYmove() > 400 && mouse.getMouseYmove() < 480) {
+                start.delete();
+                mouseOver.draw();
+                if (/*playerControls.isShooted() &&*/ mouse.getMouseXclicked() > 370 && mouse.getMouseXclicked() < 570 &&
+                        mouse.getMouseYclicked() > 400 && mouse.getMouseYclicked() < 480) {
+                    //playerControls.setShooted(false);
+                    init(7, 3);
+                }
+            } else {
+                mouseOver.delete();
+                start.draw();
+            }
+
+//        if(playerControls.getMouseX() > 200 && playerControls.getMouseX() < 300 && playerControls.getMouseY() > 200 && playerControls.getMouseY() < 300) {
+//            start.delete();
+//            mouseOver.draw();
+//        } else {
+//            mouseOver.delete();
+//            start.draw();
+//        }
+
+
+        }
+
+    }
 
     /**
      * Creates a bunch of cars and randomly puts them in the field
@@ -48,7 +95,7 @@ public class Game {
     public void init(int tree, int amo) throws InterruptedException {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
-
+        CollisionChecker collisionChecker = new CollisionChecker();
 
         propsGenerator = new PropsGenerator();
 
@@ -62,6 +109,8 @@ public class Game {
 
         propsGenerator.ammoGenerator(this.grid, amo);
         propsGenerator.treeGenerator(this.grid, tree);
+
+        propsGenerator.getAmmoArray(gameObjectInstantiated);
 
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
         Enemy enemy = new Enemy(new EnemySGFX(200, 200), Direction.UP);
@@ -80,6 +129,8 @@ public class Game {
 
             moveBullets();
             player.move();
+
+            collisionChecker.checkCollision(player, gameObjectInstantiated, bulletsInstantiated);
 
             propsGenerator.reDraw();
         }

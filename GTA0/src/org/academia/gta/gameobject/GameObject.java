@@ -1,8 +1,7 @@
 package org.academia.gta.gameobject;
 
-import org.academia.gta.Collision;
-import org.academia.gta.Game;
 import org.academia.gta.representation.Representable;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 24/05/16.
@@ -49,4 +48,5 @@ public abstract class GameObject {
     public int getHeight() {
         return getRepresentation().getHeight();
     }
+
 }

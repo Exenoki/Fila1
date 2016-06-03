@@ -1,8 +1,11 @@
 package org.academia.gta.simplegfx;
 
+import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.ImmovableGameObject;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+
+import java.util.LinkedList;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 30/05/16.
@@ -71,6 +74,14 @@ public class PropsGenerator {
         }
     }
 
+    public LinkedList getAmmoArray(LinkedList<GameObject> objectsList) {
+
+        for (ImmovableGameObject igo : ammoArray) {
+            objectsList.add(igo);
+        }
+
+        return objectsList;
+    }
 
     public void reDraw() {
         for (ImmovableGameObject tree : treeArray) {

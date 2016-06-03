@@ -7,7 +7,7 @@ public class tester {
     public static void main(String[] args) throws InterruptedException {
 
         Game mygame = new Game(950,600,200);
-        mygame.init(7,3);
+        mygame.init(15,3);
 
     }
 }

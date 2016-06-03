@@ -52,6 +52,8 @@ public class Game {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
         CollisionChecker collisionChecker = new CollisionChecker();
+        HeadsUpDisplay myHud = new HeadsUpDisplay();
+
 
         propsGenerator = new PropsGenerator();
 
@@ -70,10 +72,12 @@ public class Game {
 
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
 
+
         while (true) {
             Thread.sleep(25);
             player.reload();
             Bullet b = player.shoot();
+
 
             if(b != null)
                 bulletsInstantiated.add(b);
@@ -83,9 +87,15 @@ public class Game {
 
             collisionChecker.checkCollision(player, gameObjectInstantiated, bulletsInstantiated);
 
+            myHud.hud();
+            myHud.hudHealth.setText(player.getHealth()+"");
+            myHud.hudAmmo.setText(player.getTotalAmmo()+"");
+            myHud.hudBullets.setText(player.getNumBullets()+"");
             propsGenerator.reDraw();
+
         }
     }
+
 
     public void moveBullets() {
         Iterator it = bulletsInstantiated.iterator();

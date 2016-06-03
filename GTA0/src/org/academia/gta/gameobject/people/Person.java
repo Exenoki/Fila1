@@ -4,6 +4,7 @@ import org.academia.gta.Destructable;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.representation.Representable;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 01/06/16.
@@ -28,4 +29,9 @@ public abstract class Person extends GameObject implements Destructable {
     public void setDestroyed() {
         this.isDead = true;
     }
+
+    public int getHealth(){
+        return health;
+    }
+
 }

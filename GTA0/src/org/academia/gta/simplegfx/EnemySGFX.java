@@ -11,4 +11,5 @@ public class EnemySGFX extends SGFXRepresentation {
     public EnemySGFX(int x, int y) {
         super(new Picture(x, y, "url"));
     }
+
 }

@@ -62,4 +62,9 @@ public abstract class SGFXRepresentation implements Representable {
         this.shape=picture;
         shape.draw();
     }
+
+   public void load (String s){
+       shape.load(s);
+   }
+
 }

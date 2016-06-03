@@ -12,6 +12,7 @@ import java.util.LinkedList;
  */
 public class PropsGenerator {
 
+    private boolean isLoaded = false;
     private Grid grid;
 
     ImmovableGameObject[] treeArray;
@@ -35,7 +36,6 @@ public class PropsGenerator {
             while (x>=520 && x<=860){
                 x = randomXPos();
             }
-
             ImmovableGameObject newTree = new ImmovableGameObject(new ImmovableGOSGFX(x, y, GameObjectType.TREE), GameObjectType.TREE);
             treeArray[i] = newTree;
 
@@ -45,7 +45,7 @@ public class PropsGenerator {
             if (newTree.getY() + newTree.getHeight() >= grid.getHeight()) {
                 newTree.getRepresentation().translate(0, grid.getHeight() - (newTree.getY() + newTree.getHeight()));
             }
-            newTree.getRepresentation().draw();
+
         }
     }
 
@@ -70,7 +70,7 @@ public class PropsGenerator {
             if (newAmo.getY() + newAmo.getHeight() >= grid.getHeight()) {
                 newAmo.getRepresentation().translate(0, grid.getHeight() - (newAmo.getY() + newAmo.getHeight()));
             }
-            newAmo.getRepresentation().draw();
+
         }
     }
 
@@ -84,10 +84,13 @@ public class PropsGenerator {
     }
 
     public void reDraw() {
-        for (ImmovableGameObject tree : treeArray) {
-            tree.getRepresentation().delete();
-            tree.getRepresentation().draw();
+        if(!isLoaded) {
+            for (ImmovableGameObject tree : treeArray) {
+                tree.getRepresentation().delete();
+                tree.getRepresentation().draw();
+            }
         }
+        isLoaded = true;
     }
 
 }

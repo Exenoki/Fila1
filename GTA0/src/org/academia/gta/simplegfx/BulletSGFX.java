@@ -43,4 +43,5 @@ public class BulletSGFX extends SGFXRepresentation implements MovableRepresentab
         return size;
     }
 
+
 }

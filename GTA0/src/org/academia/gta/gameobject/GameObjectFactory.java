@@ -24,7 +24,7 @@ public class GameObjectFactory {
         switch (got) {
 
             case PLAYER:
-                gameObject = new Player((MovableRepresentable) factory.createRepresentation(x, y, got));
+                gameObject = new Player(factory.createRepresentation(x, y, got));
                 break;
 
             case ENEMY:

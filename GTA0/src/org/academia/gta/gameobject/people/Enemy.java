@@ -11,10 +11,11 @@ import org.academia.gta.simplegfx.BulletSGFX;
  */
 public class Enemy extends Person {
 
+    private Bullet bullet;
     private Direction dir;
     private boolean condition;
-    private Bullet bullet;
     private long betweenShoot = System.currentTimeMillis();
+    private long instant;
 
     public Enemy(Representable representation, Direction dir) {
         super(representation);
@@ -46,15 +47,18 @@ public class Enemy extends Person {
                         player.getX() > getX();
         }
 
-        System.out.println(System.currentTimeMillis() + " " + betweenShoot);
+        instant = System.currentTimeMillis();
 
-        if (condition && System.currentTimeMillis() >= betweenShoot) {
+        if (condition && (instant >= betweenShoot)) {
+
             bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getY()+getHeight()/2));
             bullet.shooted(getX()+getWidth()/2, getY()+getHeight()/2, player.getX()+player.getWidth()/2, player.getY()+player.getHeight()/2);
-            betweenShoot += 10000;
+            betweenShoot = System.currentTimeMillis() + 250;
+            return bullet;
+
         }
 
-        return bullet;
+        return null;
 
     }
 

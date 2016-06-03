@@ -113,19 +113,24 @@ public class Game {
         propsGenerator.getAmmoArray(gameObjectInstantiated);
 
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
-        Enemy enemy = new Enemy(new EnemySGFX(200, 200), Direction.UP);
+        Enemy enemy = new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP);
+        Enemy enemy1 = new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN);
 
         while (true) {
             Thread.sleep(25);
             player.reload();
             Bullet b = player.shoot();
             Bullet b2 = enemy.shoot(player);
+            Bullet b3 = enemy1.shoot(player);
 
             if(b != null)
                 bulletsInstantiated.add(b);
 
             if(b2 != null)
                 bulletsInstantiated.add(b2);
+
+            if(b3 != null)
+                bulletsInstantiated.add(b3);
 
             moveBullets();
             player.move();

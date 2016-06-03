@@ -10,19 +10,19 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class HeadsUpDisplay  {
 
 
-    public Text hudHealth;
-    public Text hudAmmo;
-    public Text hudBullets;
+
+    private Text hudAmmo;
+    private Text hudBullets;
 
     private boolean isLoaded=false;
 
-    private void playerHealth(){
-        Text health = new Text(655, 30, "");
-        health.setColor(Color.YELLOW);
-        health.grow(health.getWidth()/3,health.getHeight()/3);
-        health.draw();
-        hudHealth = health;
-    }
+//    private void playerHealth(){
+//        Text health = new Text(655, 30, "");
+//        health.setColor(Color.YELLOW);
+//        health.grow(health.getWidth()/3,health.getHeight()/3);
+//        health.draw();
+//        hudHealth = health;
+//    }
 
     private void playerAmmo(){
         Text ammo = new Text(760, 30, "");
@@ -45,11 +45,19 @@ public class HeadsUpDisplay  {
             Picture hud = new Picture(620, 10, "resources/game_sprites/hud.png");
             hud.draw();
 
-            playerHealth();
+           // playerHealth();
             playerAmmo();
             playerBullets();
         }
         isLoaded = true;
     }
 
+
+    public Text getHudAmmo() {
+        return hudAmmo;
+    }
+
+    public Text getHudBullets() {
+        return hudBullets;
+    }
 }

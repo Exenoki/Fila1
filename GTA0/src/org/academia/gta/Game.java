@@ -88,9 +88,9 @@ public class Game {
             collisionChecker.checkCollision(player, gameObjectInstantiated, bulletsInstantiated);
 
             myHud.hud();
-            myHud.hudHealth.setText(player.getHealth()+"");
-            myHud.hudAmmo.setText(player.getTotalAmmo()+"");
-            myHud.hudBullets.setText(player.getNumBullets()+"");
+
+            myHud.getHudAmmo().setText(player.getTotalAmmo()+"");
+            myHud.getHudBullets().setText(player.getNumBullets()+"");
             propsGenerator.reDraw();
 
         }

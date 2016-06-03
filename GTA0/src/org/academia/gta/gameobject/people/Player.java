@@ -16,6 +16,7 @@ public class Player extends Person {
 
     Picture imageLeft = new Picture(this.getX(),this.getY(),"resources/player_sprites/rambo_idle_shoot_l.png");
 
+    private int counter = 0;
 
     public static final int MAX_NUM_BULLETS = 12;
 
@@ -33,22 +34,24 @@ public class Player extends Person {
     public void move() {
         setCurrentDirection();
 
+
+        System.out.println(counter);
         if(currentDirection==Direction.RIGHT_DOWN) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
+            moveDownRight();
         } else if (currentDirection==Direction.UP_RIGHT) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
+            moveUpRight();
         } else if(currentDirection==Direction.LEFT_UP) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
+           moveUpLeft();
         } else if(currentDirection==Direction.DOWN_LEFT) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
+            moveDownLeft();
         } else if(currentDirection==Direction.RIGHT){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
+            moveRight();
         } else if(currentDirection==Direction.DOWN){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
+            moveDown();
         } else if(currentDirection==Direction.LEFT){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
+            moveLeft();
         } else if(currentDirection==Direction.UP){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
+            moveUp();
         }
         ((MovableRepresentable)getRepresentation()).move(playerControls.getDx(), playerControls.getDy());
     }
@@ -91,4 +94,165 @@ public class Player extends Person {
     }
 
 
+    private void moveRight() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_r.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_r.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_r.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_r.png");
+        } else if (counter >= 30){
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
+            counter = 0;
+        }
+    }
+
+    private void moveLeft() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_l.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_l.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_l.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_l.png");
+        } else if (counter >= 30){
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
+            counter = 0;
+        }
+    }
+
+    private void moveUp() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_u.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_u.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_u.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_u.png");
+        } else if (counter >= 30){
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
+            counter = 0;
+        }
+    }
+
+    private void moveDown() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_d.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_d.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_d.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_d.png");
+        } else if (counter >= 30){
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
+            counter = 0;
+        }
+    }
+
+    private void moveUpRight() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_ur.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_ur.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_ur.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_ur.png");
+        } else if (counter >= 30){
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
+            counter = 0;
+        }
+    }
+
+    private void moveUpLeft() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_ul.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_ul.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_ul.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_ul.png");
+        } else if (counter >= 30){
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
+            counter = 0;
+        }
+    }
+
+    private void moveDownLeft() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_dl.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_dl.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_dl.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_dl.png");
+        } else if (counter >= 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
+            counter = 0;
+        }
+
+    }
+
+    private void moveDownRight() {
+        counter++;
+        if (counter >= 0 && counter < 5) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
+        } else if (counter >= 5 && counter < 10) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_dr.png");
+        } else if (counter >= 10 && counter < 15) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_dr.png");
+        } else if (counter >= 15 && counter < 20) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
+        } else if (counter >= 20 && counter < 25) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_dr.png");
+        } else if (counter >= 25 && counter < 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_dr.png");
+        } else if (counter >= 30) {
+            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
+            counter = 0;
+        }
+
+    }
 }

@@ -33,7 +33,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     private int mouseY;
 
     /** Spedd of the player movement */
-    private final int SPEED = 3;
+    private final int SPEED = 2;
 
     private int dx;
     private int dy;
@@ -134,7 +134,10 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     }
 
     public void reload() {
-        if(keyPressed[4]) toReload = true;
+        if(keyPressed[4]){
+            toReload = true;
+            keyPressed[4] = false;
+        }
     }
 
     @Override
@@ -162,6 +165,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         // If a key is pressed call the move method
         move();
         reload();
+
     }
 
     @Override

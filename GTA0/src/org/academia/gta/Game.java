@@ -4,6 +4,7 @@ import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
+import org.academia.gta.gameobject.people.Person;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.PropsGenerator;
 import org.academia.gta.simplegfx.Grid;
@@ -52,15 +53,16 @@ public class Game {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
         CollisionChecker collisionChecker = new CollisionChecker();
+        HeadsUpDisplay myHud = new HeadsUpDisplay();
 
         propsGenerator = new PropsGenerator();
 
-        grid.init(width,height);
+        grid.init(width, height);
 
-        Picture bridge = new Picture(595,320,"resources/game_sprites/bridge_complete.png");
+        Picture bridge = new Picture(595, 320, "resources/game_sprites/bridge_complete.png");
         bridge.draw();
 
-        Picture boat = new Picture(615,120,"resources/game_sprites/boat.png");
+        Picture boat = new Picture(615, 120, "resources/game_sprites/boat.png");
         boat.draw();
 
         propsGenerator.ammoGenerator(this.grid, amo);
@@ -75,13 +77,15 @@ public class Game {
             player.reload();
             Bullet b = player.shoot();
 
-            if(b != null)
+
+            if (b != null)
                 bulletsInstantiated.add(b);
 
             moveBullets();
             player.move();
-
             collisionChecker.checkCollision(player, gameObjectInstantiated, bulletsInstantiated);
+
+            myHud.hudDisplay(player.getHealth(), player.getTotalAmmo(), player.getNumBullets());
 
             propsGenerator.reDraw();
         }
@@ -95,13 +99,11 @@ public class Game {
 
             b.move();
 
-            if(b.getX() > grid.getWidth() || b.getY() > grid.getHeight() ||
+            if (b.getX() > grid.getWidth() || b.getY() > grid.getHeight() ||
                     b.getX() < 0 || b.getY() < 0) {
                 b.getRepresentation().delete();
                 it.remove();
             }
         }
-
     }
-
 }

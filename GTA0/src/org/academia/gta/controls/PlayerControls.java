@@ -134,7 +134,10 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     }
 
     public void reload() {
-        if(keyPressed[4]) toReload = true;
+        if(keyPressed[4]) {
+            toReload = true;
+            keyPressed[4] = false;
+        }
     }
 
     @Override

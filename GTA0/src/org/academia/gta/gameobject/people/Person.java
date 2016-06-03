@@ -19,6 +19,10 @@ public abstract class Person extends GameObject implements Destructable {
         health = 100;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
     @Override
     public boolean isDestroyed() {
         return isDead;

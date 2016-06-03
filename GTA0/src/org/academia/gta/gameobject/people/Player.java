@@ -16,7 +16,7 @@ public class Player extends Person {
     public static final int MAX_NUM_BULLETS = 12;
 
     private boolean hasWeapon = true;
-    private int totalAmmo = 2;
+    private int totalAmmo = 10;
     private int numBullets = MAX_NUM_BULLETS;
     private PlayerControls playerControls = new PlayerControls();
 
@@ -63,5 +63,11 @@ public class Player extends Person {
         }
     }
 
+    public int getTotalAmmo() {
+        return totalAmmo;
+    }
 
+    public int getNumBullets() {
+        return numBullets;
+    }
 }

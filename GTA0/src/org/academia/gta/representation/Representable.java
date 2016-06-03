@@ -18,4 +18,5 @@ public interface Representable {
     void delete();
 
     void translate(int dx, int dy);
+    
 }

@@ -3,12 +3,10 @@ package org.academia.gta.gameobject.people;
 import org.academia.gta.controls.Direction;
 import org.academia.gta.controls.PlayerControls;
 import org.academia.gta.gameobject.Bullet;
-import org.academia.gta.gameobject.GameObjectFactory;
-import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
 import org.academia.gta.simplegfx.BulletSGFX;
-import org.academia.gta.simplegfx.SGFXRepresentationFactory;
+
 
 /**
  * Created by codecadet on 01/06/16.
@@ -30,6 +28,9 @@ public class Player extends Person {
 
     public void move() {
         setCurrentDirection();
+        if(currentDirection==Direction.LEFT){
+
+        }
         ((MovableRepresentable)getRepresentation()).move(playerControls.getDx(), playerControls.getDy());
     }
 
@@ -61,4 +62,6 @@ public class Player extends Person {
             playerControls.setToReload(false);
         }
     }
+
+
 }

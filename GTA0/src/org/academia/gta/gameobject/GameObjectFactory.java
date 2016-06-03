@@ -1,5 +1,6 @@
 package org.academia.gta.gameobject;
 
+import org.academia.gta.controls.Direction;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.representation.MovableRepresentable;
@@ -28,15 +29,15 @@ public class GameObjectFactory {
                 break;
 
             case ENEMY:
-                gameObject = new Enemy((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new Enemy((Representable) factory.createRepresentation(x, y, got), Direction.DOWN);
                 break;
 
             case AMMO:
-                gameObject = new Ammo((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
 
             case BARBEDWIRE:
-                gameObject = new BarbedWire((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
 
             case BULLET:
@@ -44,19 +45,19 @@ public class GameObjectFactory {
                 break;
 
             case TOWER:
-                gameObject = new Tower((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
 
             case TREE:
-                gameObject = new Tree((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
 
             case WALL:
-                gameObject = new Wall((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
 
             case WEAPON:
-                gameObject = new Weapon((Representable) factory.createRepresentation(x, y, got));
+                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
 
 
         }

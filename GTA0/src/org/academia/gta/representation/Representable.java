@@ -9,6 +9,14 @@ public interface Representable {
 
     int getY();
 
-    void merge();
+    int getWidth();
 
+    int getHeight();
+
+    void draw();
+
+    void delete();
+
+    void translate(int dx, int dy);
+    
 }

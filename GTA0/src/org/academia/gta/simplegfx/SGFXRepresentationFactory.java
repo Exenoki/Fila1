@@ -1,5 +1,6 @@
 package org.academia.gta.simplegfx;
 
+import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.representation.Representable;
@@ -26,11 +27,11 @@ public class SGFXRepresentationFactory implements RepresentableFactory {
                 break;
 
             case AMMO:
-                representable = new AmmoSGFX(x, y);
+                representable = new ImmovableGOSGFX(x, y, GameObjectType.AMMO);
                 break;
 
             case BARBEDWIRE:
-                representable = new BarbedWireSGFX(x, y);
+                representable = new ImmovableGOSGFX(x, y, GameObjectType.BARBEDWIRE);
                 break;
 
             case BULLET:
@@ -38,19 +39,19 @@ public class SGFXRepresentationFactory implements RepresentableFactory {
                 break;
 
             case TREE:
-                representable = new TreeSGFX(x, y);
+                representable = new ImmovableGOSGFX(x, y, GameObjectType.TREE);
                 break;
 
             case TOWER:
-                representable = new TowerSGFX(x, y);
+                representable = new ImmovableGOSGFX(x, y, GameObjectType.TOWER);
                 break;
 
             case WALL:
-                representable = new WallSGFX(x, y);
+                representable = new ImmovableGOSGFX(x, y, GameObjectType.WALL);
                 break;
 
             case WEAPON:
-                representable = new WeaponSGFX(x, y);
+                representable = new ImmovableGOSGFX(x, y, GameObjectType.WEAPON);
 
         }
 

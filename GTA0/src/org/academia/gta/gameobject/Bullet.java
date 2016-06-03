@@ -7,49 +7,47 @@ import org.academia.gta.representation.Representable;
 /**
  * Created by codecadet on 24/05/16.
  */
-public class Bullet extends GameObject implements Destructable, MovableRepresentable {
+public class Bullet extends GameObject implements Destructable {
 
-    private int speed;
     private int x;
     private int y;
     private boolean destroyed;
     private int radius;
 
+    private int d = 0;
+    private int speed = 10;
+    private double dt;
+
+    private int x0;
+    private int y0;
+    private int xf;
+    private int yf;
 
     public Bullet(Representable representation) {
-        super(representation);
+        super(representation, GameObjectType.BULLET);
         this.radius = 1;
     }
 
-    @Override
-    public void move(int dx, int dy) {
-        ((MovableRepresentable) getRepresentation()).move(dx, dy);
+    public Bullet shooted(int x0, int y0, int xf, int yf) {
+        this.x0 = x0;
+        this.y0 = y0;
+        this.xf = xf;
+        this.yf = yf;
+
+        dt = Math.sqrt((xf - x0)*(xf - x0) + (yf - y0)*(yf -  y0));
+
+        return this;
     }
 
-    @Override
-    public int getX() {
-        return getRepresentation().getX();
-    }
+    public void move() {
+        d += speed;
 
-    @Override
-    public int getY() {
-        return getRepresentation().getY();
-    }
+        x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
+        y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
 
-    @Override
-    public void merge() {
+        ((MovableRepresentable) getRepresentation()).move(x, y);
 
     }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int hit() { return (int)Math.round(Math.random()*20) + 20; }
 
     @Override
     public boolean isDestroyed() {
@@ -61,5 +59,4 @@ public class Bullet extends GameObject implements Destructable, MovableRepresent
         this.destroyed = true;
     }
 
-    public int getRadius() { return radius; }
 }

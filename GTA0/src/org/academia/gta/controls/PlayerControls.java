@@ -1,6 +1,5 @@
 package org.academia.gta.controls;
 
-import org.academia.gta.gameobject.people.Player;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -11,7 +10,7 @@ import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
 /**
- * Created by codecadet on 27/05/16.
+ * Created by codecadet on 31/05/16.
  */
 public class PlayerControls implements KeyboardHandler, MouseHandler {
 
@@ -21,7 +20,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * index 2 -> Down
      * index 3 -> Left
      */
-    private boolean[] keyPressed = new boolean[4];
+    private boolean[] keyPressed = new boolean[5];
 
     /** Keyboard instance */
     private Keyboard keyboard;
@@ -30,20 +29,28 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     private Mouse mouse;
 
     /** Position of the mouse click */
-    private int x;
-    private int y;
+    private int mouseX;
+    private int mouseY;
 
-    /** Player instance */
-    private Player player;
+    /** Spedd of the player movement */
+    private final int SPEED = 3;
 
-    /**
-     * Constructor a new player controls
-     *
-     * @param player Player that will receive the controls
-     */
-    public PlayerControls(Player player) {
-        this.player = player;
+    private int dx;
+    private int dy;
 
+    private boolean toReload;
+
+    private boolean shooted = false;
+
+    public int getDx() {
+        return dx;
+    }
+
+    public int getDy() {
+        return dy;
+    }
+
+    public PlayerControls() {
         // Create and define the keyboard configuration
         keyboard = new Keyboard(this);
         setKeyboardEventRelease();
@@ -52,17 +59,6 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         // Create and define the mouse listener
         mouse = new Mouse(this);
         mouse.addEventListener(MouseEventType.MOUSE_CLICKED);
-    }
-
-    /**
-     * Receive the clicked coordinates
-     * and Delegates the shoot event to the instance player
-     *
-     * @param x The x position of the click
-     * @param y The y position of the click
-     */
-    public void mouseClickedEvent(int x, int y) {
-        // player.shoot(x, y); TODO uncomment player shoot method
     }
 
     /**
@@ -88,6 +84,11 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         eventLeft.setKey(GameKeys.getKeyCode(GameKeys.LEFT));
         eventLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventLeft);
+
+        KeyboardEvent eventReload = new KeyboardEvent();
+        eventReload.setKey(GameKeys.getKeyCode(GameKeys.RELOAD));
+        eventReload.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventReload);
     }
 
     /**
@@ -116,27 +117,33 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     }
 
     /**
-     * Give movement to the player with a speed taken from the player
+     * Give movement to the object
      */
-    public void move(int dx, int dy) {
-        /*if(keyPressed[0]) // TODO uncomment move method body and change the enum direction
-            player.getPos().moveInDirection(Direction.UP, player.getSPEED());
+    public void move() {
+        if(keyPressed[0])
+            dy = -SPEED;
 
         if(keyPressed[1])
-            player.getPos().moveInDirection(Direction.RIGHT, player.getSPEED());
+            dx = SPEED;
 
         if(keyPressed[2])
-            player.getPos().moveInDirection(Direction.DOWN, player.getSPEED());
+            dy = SPEED;
 
         if(keyPressed[3])
-            player.getPos().moveInDirection(Direction.LEFT, player.getSPEED());*/
+            dx = -SPEED;
+    }
+
+    public void reload() {
+        if(keyPressed[4]) toReload = true;
     }
 
     @Override
     /**
-     * Sets to true the index in the keyPressed array to do the respective movement
+     * Give a movement to the player when a key or keys are pressed
+     * by changing a delta x and y values
      */
     public void keyPressed(KeyboardEvent keyboardEvent) {
+
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.UP))
             keyPressed[0] = true;
 
@@ -149,8 +156,12 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.LEFT))
             keyPressed[3] = true;
 
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RELOAD))
+            keyPressed[4] = true;
+
         // If a key is pressed call the move method
         move();
+        reload();
     }
 
     @Override
@@ -158,17 +169,50 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * When key is released the keyPressed array will change the index to false
      */
     public void keyReleased(KeyboardEvent keyboardEvent) {
-        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.UP))
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.UP)) {
             keyPressed[0] = false;
+            dy = 0;
+        }
 
-        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RIGHT))
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RIGHT)) {
             keyPressed[1] = false;
+            dx = 0;
+        }
 
-        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.DOWN))
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.DOWN)) {
             keyPressed[2] = false;
+            dy = 0;
+        }
 
-        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.LEFT))
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.LEFT)) {
             keyPressed[3] = false;
+            dx = 0;
+        }
+
+    }
+
+    public boolean isReload() {
+        return toReload;
+    }
+
+    public void setToReload(boolean toReload) {
+        this.toReload = toReload;
+    }
+
+    public int getMouseX() {
+        return mouseX;
+    }
+
+    public int getMouseY() {
+        return mouseY;
+    }
+
+    public boolean isShooted() {
+        return shooted;
+    }
+
+    public void setShooted(boolean shooted) {
+        this.shooted = shooted;
     }
 
     @Override
@@ -177,14 +221,34 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      */
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        x = (int) mouseEvent.getX();
-        y = (int) mouseEvent.getY();
+        mouseX = (int) mouseEvent.getX();
+        mouseY = (int) mouseEvent.getY() - 25;
 
-        mouseClickedEvent(x, y);
+        shooted = true;
     }
-
 
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {}
 
+    public Direction getCurrentDirection() {
+         if(keyPressed[0] && keyPressed[1]) {
+             return Direction.UP_RIGHT;
+         } else if(keyPressed[1] && keyPressed[2]) {
+             return Direction.RIGHT_DOWN;
+         } else if(keyPressed[2] && keyPressed[3]) {
+             return Direction.DOWN_LEFT;
+         } else if(keyPressed[3] && keyPressed[0]) {
+            return Direction.LEFT_UP;
+         } else if (keyPressed[0] ) {
+            return Direction.UP;
+         } else if (keyPressed[1]) {
+            return Direction.RIGHT;
+         } else if (keyPressed[2]) {
+             return Direction.DOWN;
+         } else if (keyPressed[3]) {
+             return Direction.LEFT;
+         }
+
+        return Direction.NULL;
+    }
 }

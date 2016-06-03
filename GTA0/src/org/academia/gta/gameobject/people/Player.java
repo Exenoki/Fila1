@@ -1,5 +1,6 @@
 package org.academia.gta.gameobject.people;
 
+import org.academia.gta.CollisionChecker;
 import org.academia.gta.controls.Direction;
 import org.academia.gta.controls.PlayerControls;
 import org.academia.gta.gameobject.Bullet;
@@ -23,14 +24,22 @@ public class Player extends Person {
     private PlayerControls playerControls = new PlayerControls();
 
     private Direction currentDirection = Direction.NULL;
+    private CollisionChecker collisionChecker;
 
-    public Player(Representable representation) {
+    public Player(Representable representation, CollisionChecker collisionChecker) {
         super(representation);
+        this.collisionChecker = collisionChecker;
+
     }
 
     public void move() {
         setCurrentDirection();
-        ((MovableRepresentable)getRepresentation()).move(playerControls.getDx(), playerControls.getDy());
+
+        int dx = playerControls.getDx();
+        int dy = playerControls.getDy();
+
+        if(collisionChecker.isBetweenEdges(this, dx, dy))
+            ((MovableRepresentable)getRepresentation()).move(dx, dy);
     }
 
     private void setCurrentDirection() {

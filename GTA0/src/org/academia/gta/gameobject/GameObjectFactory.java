@@ -1,5 +1,6 @@
 package org.academia.gta.gameobject;
 
+import org.academia.gta.CollisionChecker;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.representation.MovableRepresentable;
@@ -17,14 +18,14 @@ public class GameObjectFactory {
         this.factory = factory;
     }
 
-    public GameObject createObject(int x, int y, GameObjectType got) {
+    public GameObject createObject(int x, int y, GameObjectType got, CollisionChecker collisionChecker) {
 
         GameObject gameObject = null;
 
         switch (got) {
 
             case PLAYER:
-                gameObject = new Player((MovableRepresentable) factory.createRepresentation(x, y, got));
+                gameObject = new Player((MovableRepresentable) factory.createRepresentation(x, y, got), collisionChecker);
                 break;
 
             case ENEMY:

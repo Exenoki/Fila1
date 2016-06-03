@@ -51,7 +51,7 @@ public class Game {
     public void init(int tree, int amo) throws InterruptedException {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
-        CollisionChecker collisionChecker = new CollisionChecker();
+        CollisionChecker collisionChecker = new CollisionChecker(grid);
 
         propsGenerator = new PropsGenerator();
 
@@ -68,7 +68,7 @@ public class Game {
 
         propsGenerator.getAmmoArray(gameObjectInstantiated);
 
-        Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER);
+        Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
 
         while (true) {
             Thread.sleep(25);
@@ -95,7 +95,7 @@ public class Game {
 
             b.move();
 
-            if(b.getX() > grid.getWidth() || b.getY() > grid.getHeight() ||
+            if(b.getX() > grid.getWidth() - b.getWidth() || b.getY() > grid.getHeight() - b.getHeight()||
                     b.getX() < 0 || b.getY() < 0) {
                 b.getRepresentation().delete();
                 it.remove();

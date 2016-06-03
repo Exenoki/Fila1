@@ -3,6 +3,7 @@ package org.academia.gta;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.people.Player;
+import org.academia.gta.simplegfx.Grid;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -11,6 +12,12 @@ import java.util.LinkedList;
  * Created by andre on 02/06/2016.
  */
 public class CollisionChecker {
+
+    private Grid grid;
+
+    public CollisionChecker(Grid grid) {
+        this.grid = grid;
+    }
 
     public void checkCollision(Player player, LinkedList<GameObject> gameObjects, LinkedList bullets) {
 
@@ -39,7 +46,7 @@ public class CollisionChecker {
 
             // Collision radius
             if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
-                    Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 50 + 1) {
+                    Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 20 + 1) {
                 System.out.println("Player death");
             }
         }
@@ -68,6 +75,18 @@ public class CollisionChecker {
             }
 
         }
+
+    }
+
+    public boolean isBetweenEdges(GameObject gameObject, int dx, int dy) {
+
+        int goXWidth = gameObject.getX() + gameObject.getWidth();
+        int goX = gameObject.getX();
+        int goY = gameObject.getY();
+        int goYHeight = gameObject.getY() + gameObject.getHeight();
+
+        return goX + dx >= 0 && goXWidth + dx <= grid.getWidth()
+                && goY + dy >= 0 && goYHeight + dy <= grid.getHeight();
 
     }
 

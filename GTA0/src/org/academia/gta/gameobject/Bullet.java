@@ -1,5 +1,6 @@
 package org.academia.gta.gameobject;
 
+import org.academia.gta.CollisionChecker;
 import org.academia.gta.Destructable;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
@@ -13,6 +14,7 @@ public class Bullet extends GameObject implements Destructable {
     private int y;
     private boolean destroyed;
     private int radius;
+    //private CollisionChecker collisionChecker;
 
     private int d = 0;
     private int speed = 10;
@@ -26,6 +28,7 @@ public class Bullet extends GameObject implements Destructable {
     public Bullet(Representable representation) {
         super(representation, GameObjectType.BULLET);
         this.radius = 1;
+        //this.collisionChecker = collisionChecker;
     }
 
     public Bullet shooted(int x0, int y0, int xf, int yf) {
@@ -40,12 +43,19 @@ public class Bullet extends GameObject implements Destructable {
     }
 
     public void move() {
+
         d += speed;
 
         x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
         y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
 
-        ((MovableRepresentable) getRepresentation()).move(x, y);
+        //if(collisionChecker.isBetweenEdges(this, x, y)) {
+            ((MovableRepresentable) getRepresentation()).move(x, y);
+            //return true;
+        //}
+
+
+        //return false;
 
     }
 

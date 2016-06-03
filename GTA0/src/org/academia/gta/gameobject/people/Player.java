@@ -21,10 +21,9 @@ public class Player extends Person {
     public static final int MAX_NUM_BULLETS = 12;
 
     private boolean hasWeapon = true;
-    private int totalAmmo = 10;
+    private int totalAmmo = 0;
     private int numBullets = MAX_NUM_BULLETS;
     private PlayerControls playerControls = new PlayerControls();
-
 
     private Direction currentDirection = Direction.NULL;
     private CollisionChecker collisionChecker;
@@ -41,7 +40,6 @@ public class Player extends Person {
         int dx = playerControls.getDx();
         int dy = playerControls.getDy();
 
-        System.out.println(counter);
         if(currentDirection==Direction.RIGHT_DOWN) {
             moveDownRight();
         } else if (currentDirection==Direction.UP_RIGHT) {
@@ -85,6 +83,8 @@ public class Player extends Person {
         return null;
     }
 
+
+
     public void reload() {
         if(hasWeapon && totalAmmo > 0 && playerControls.isReload()) {
             numBullets = MAX_NUM_BULLETS;
@@ -97,10 +97,13 @@ public class Player extends Person {
         return totalAmmo;
     }
 
+    public void setTotalAmmo() {
+        this.totalAmmo++;
+    }
+
     public int getNumBullets() {
         return numBullets;
     }
-
 
     private void moveRight() {
         counter++;

@@ -21,16 +21,16 @@ public abstract class GameObject {
         this.got = got;
     }
 
+    public GameObjectType getGot() {
+        return got;
+    }
+
     public int getRadius() {
         return radius;
     }
 
     public void setRadius(int radius) {
         this.radius = radius;
-    }
-
-    public GameObjectType getGot() {
-        return got;
     }
 
     public int getX() {

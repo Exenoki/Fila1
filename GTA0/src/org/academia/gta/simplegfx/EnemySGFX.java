@@ -11,7 +11,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class EnemySGFX extends SGFXRepresentation {
 
     public EnemySGFX(int x, int y, Direction dir) {
-        super(new Picture(x, y, ""));
+        super(new Picture(x, y, "resources/enemy_sprites/captain_u.png"));
 
         this.delete();
 

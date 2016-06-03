@@ -64,9 +64,4 @@ public class Bullet extends GameObject implements Destructable {
         return destroyed;
     }
 
-    @Override
-    public void setDestroyed() {
-        this.destroyed = true;
-    }
-
 }

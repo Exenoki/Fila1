@@ -2,6 +2,8 @@ package org.academia.gta;
 
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObject;
+import org.academia.gta.gameobject.GameObjectType;
+import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.Grid;
 
@@ -19,63 +21,64 @@ public class CollisionChecker {
         this.grid = grid;
     }
 
-    public void checkCollision(Player player, LinkedList<GameObject> gameObjects, LinkedList bullets) {
+    public void scenarioCollisions(Player player, LinkedList<GameObject> gameObjects) {
+        Iterator gameObjectsIterator = gameObjects.iterator();
 
-        Iterator iteratorBullets = bullets.iterator();
-        Iterator iteratorGameObjects = gameObjects.iterator();
+        int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
+        int playerCenterY = player.getY() + Math.round(player.getHeight() / 2);
 
-        while(iteratorBullets.hasNext()) {
-            Bullet bullet = (Bullet) iteratorBullets.next();
+        while (gameObjectsIterator.hasNext()) {
+
+            GameObject gameObject = (GameObject) gameObjectsIterator.next();
+
+            if(gameObject.getGot() == GameObjectType.AMMO) {
+                if((playerCenterX >= gameObject.getX() && playerCenterX <= gameObject.getX() + gameObject.getWidth()) &&
+                        (playerCenterY >= gameObject.getY() && playerCenterY <= gameObject.getY() + gameObject.getHeight())) {
+                    gameObject.getRepresentation().delete();
+                    gameObjectsIterator.remove();
+                    player.setTotalAmmo();
+                }
+            }
+        }
+    }
+
+    public void bulletsCollision(Player player, LinkedList<Bullet> bullets, LinkedList<Enemy> enemies) {
+
+        Iterator<Bullet> bulletsIterator = bullets.iterator();
+        Iterator<Enemy> enemyIterator = enemies.iterator();
+
+        int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
+        int playerCenterY = player.getY() + Math.round(player.getHeight() / 2);
+
+        while (bulletsIterator.hasNext()) {
+            Bullet bullet = bulletsIterator.next();
 
             int bulletCenterX = bullet.getX() + Math.round(bullet.getWidth() / 2);
             int bulletCenterY = bullet.getY() + Math.round(bullet.getHeight() / 2);
 
-//            int playerXR = player.getX() + player.getWidth();
-//            int playerXL = player.getX();
-//            int playerYU = player.getY();
-//            int playerYD = player.getY() + player.getHeight();
-
-            // Collision rectangles
-//            if((bulletCenterX >= playerXL && bulletCenterX <= playerXR) &&
-//                    (bulletCenterY >= playerYU && bulletCenterY <= playerYD)) {
-//                System.out.println("Player death");
-//            }
-
-            int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
-            int playerCenterY = player.getY() + Math.round(player.getHeight() / 2);
-
             // Collision radius
             if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
-                    Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 20 + 1) {
-                System.out.println("Player death");
+                    Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 15 + 1) {
+                player.giveDamage(10);
             }
-        }
 
-        while (iteratorGameObjects.hasNext()) {
+            while (enemyIterator.hasNext()) {
+                Enemy enemy = enemyIterator.next();
 
-            GameObject go = (GameObject) iteratorGameObjects.next();
+                // Collision radius
+                if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
+                        Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 15 + 1) {
+                    enemy.giveDamage(10);
 
-            int gameObjectXL = go.getX();
-            int gameObjectXR = go.getX() + go.getWidth();
-            int gameObjectYU = go.getY();
-            int gameObjectYD = go.getY() + go.getHeight();
+                    if (enemy.isDestroyed()) {
+                        enemies.remove();
 
-//            int playerXL = player.getX();
-//            int playerXR = player.getX() + player.getWidth();
-//            int playerYU = player.getY();
-//            int playerYD = player.getY() + player.getHeight();
-
-            int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
-            int playerCenterY = player.getY() + Math.round(player.getHeight() / 2);
-
-            // if we use the four points change the && to || between points and compare the 4 points?
-            if((playerCenterX >= gameObjectXL && playerCenterX <= gameObjectXR) &&
-                    (playerCenterY >= gameObjectYU && playerCenterY <= gameObjectYD)) {
-                System.out.println("Player Ammo grab");
+                        System.out.println("enemy death");
+                    }
+                }
             }
 
         }
-
     }
 
     public boolean isBetweenEdges(GameObject gameObject, int dx, int dy) {

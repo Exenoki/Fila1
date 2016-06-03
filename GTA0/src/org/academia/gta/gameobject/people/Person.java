@@ -11,7 +11,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public abstract class Person extends GameObject implements Destructable {
 
-    private boolean isDead;
     private int health;
 
     public Person(Representable representation) {
@@ -24,14 +23,13 @@ public abstract class Person extends GameObject implements Destructable {
         return health;
     }
 
-    @Override
-    public boolean isDestroyed() {
-        return isDead;
+    public void giveDamage(int damage) {
+        health -= damage;
     }
 
     @Override
-    public void setDestroyed() {
-        this.isDead = true;
+    public boolean isDestroyed() {
+        return health <= 0;
     }
 
 }

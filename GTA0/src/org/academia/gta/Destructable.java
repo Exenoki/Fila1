@@ -7,6 +7,4 @@ public interface Destructable {
 
     boolean isDestroyed();
 
-    void setDestroyed();
-
 }

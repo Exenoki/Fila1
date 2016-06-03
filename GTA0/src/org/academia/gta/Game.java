@@ -7,7 +7,6 @@ import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
-import org.academia.gta.gameobject.people.Person;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.*;
@@ -50,6 +49,7 @@ public class Game {
 
     LinkedList<Bullet> bulletsInstantiated = new LinkedList<>();
     LinkedList<GameObject> gameObjectInstantiated = new LinkedList<>();
+    LinkedList<Enemy> enemiesInstantiated = new LinkedList<>();
 
     public void start() throws InterruptedException {
         Picture background = new Picture(0, 0, "resources/background_gta_rambo_start2.jpg");
@@ -119,6 +119,9 @@ public class Game {
         Enemy enemy = new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP);
         Enemy enemy1 = new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN);
 
+        enemiesInstantiated.add(enemy);
+        enemiesInstantiated.add(enemy1);
+
         int hel = 100;
 
         while (true) {
@@ -139,9 +142,9 @@ public class Game {
 
             moveBullets();
             player.move();
-            collisionChecker.checkCollision(player, gameObjectInstantiated, bulletsInstantiated);
 
-
+            collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated);
+            collisionChecker.scenarioCollisions(player, gameObjectInstantiated);
 
             myHud.hud(hel);
 
@@ -151,7 +154,13 @@ public class Game {
 
             propsGenerator.reDraw();
 
+            if(player.isDestroyed()) {
+                break;
+            }
         }
+
+        System.out.println("Game over");
+
     }
 
 

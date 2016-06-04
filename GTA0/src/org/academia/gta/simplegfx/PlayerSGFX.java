@@ -12,6 +12,7 @@ public class PlayerSGFX extends SGFXRepresentation implements MovableRepresentab
 
     public PlayerSGFX(int x, int y) {
         super(new Picture(x, y, GameObjectType.PLAYER.getUrl()));
+
     }
 
     @Override

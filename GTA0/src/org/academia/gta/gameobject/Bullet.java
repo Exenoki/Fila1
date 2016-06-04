@@ -2,8 +2,13 @@ package org.academia.gta.gameobject;
 
 import org.academia.gta.CollisionChecker;
 import org.academia.gta.Destructable;
+import org.academia.gta.SoundFx;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
+
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by codecadet on 24/05/16.
@@ -14,6 +19,7 @@ public class Bullet extends GameObject implements Destructable {
     private int y;
     private boolean destroyed;
     private int radius;
+    private SoundFx bulletSound;
     //private CollisionChecker collisionChecker;
 
     private int d = 0;
@@ -38,6 +44,7 @@ public class Bullet extends GameObject implements Destructable {
         this.yf = yf;
 
         dt = Math.sqrt((xf - x0)*(xf - x0) + (yf - y0)*(yf -  y0));
+        new SoundFx().shootSound();
 
         return this;
     }

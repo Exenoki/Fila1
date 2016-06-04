@@ -83,14 +83,16 @@ public class Player extends Person {
         return null;
     }
 
-
-
     public void reload() {
         if(hasWeapon && totalAmmo > 0 && playerControls.isReload()) {
             numBullets = MAX_NUM_BULLETS;
             totalAmmo--;
             playerControls.setToReload(false);
         }
+    }
+
+    public boolean entry() {
+        return playerControls.entry();
     }
 
     public int getTotalAmmo() {

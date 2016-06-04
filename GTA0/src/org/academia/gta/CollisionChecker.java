@@ -3,6 +3,7 @@ package org.academia.gta;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectType;
+import org.academia.gta.gameobject.ImmovableGameObject;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.Grid;
@@ -16,9 +17,11 @@ import java.util.LinkedList;
 public class CollisionChecker {
 
     private Grid grid;
+    private LinkedList<ImmovableGameObject> staticGOCollision;
 
-    public CollisionChecker(Grid grid) {
+    public CollisionChecker(Grid grid, LinkedList<ImmovableGameObject> staticGOCollision) {
         this.grid = grid;
+        this.staticGOCollision = staticGOCollision;
     }
 
     public void scenarioCollisions(Player player, LinkedList<GameObject> gameObjects) {
@@ -37,6 +40,18 @@ public class CollisionChecker {
                     gameObject.getRepresentation().delete();
                     gameObjectsIterator.remove();
                     player.setTotalAmmo();
+                }
+            }
+
+            if(gameObject.getGot() == GameObjectType.BOAT) {
+                if((playerCenterX >= gameObject.getX() && playerCenterX <= gameObject.getX() + gameObject.getWidth()) &&
+                        (playerCenterY >= gameObject.getY() && playerCenterY <= gameObject.getY() + gameObject.getHeight())) {
+
+                    if(player.entry()) {
+
+                        System.out.println("Entry");
+                    }
+
                 }
             }
         }
@@ -88,8 +103,45 @@ public class CollisionChecker {
         int goY = gameObject.getY();
         int goYHeight = gameObject.getY() + gameObject.getHeight();
 
+        Iterator<ImmovableGameObject> goInSuperable = staticGOCollision.iterator();
+
+        if (gameObject instanceof Player){
+
+            int playerCenterX = gameObject.getX() + Math.round(gameObject.getWidth() / 2);
+            int playerCenterY = gameObject.getY() + Math.round(gameObject.getHeight() / 2);
+
+            while (goInSuperable.hasNext()) {
+
+                GameObject go = goInSuperable.next();
+
+                if ((playerCenterX + dx >= go.getX() && playerCenterX + dx <= go.getX() + go.getWidth()) &&
+                        (playerCenterY + dy>= go.getY() && playerCenterY + dy <= go.getY() + go.getHeight())) {
+
+                    if (go.getGot() == GameObjectType.BARBEDWIRE) {
+                        ((Player) gameObject).giveDamage(1);
+                    }
+
+                    if (go.getGot() == GameObjectType.BRIDGE) {
+
+                        int bridgeY = go.getY();
+
+                        if((playerCenterY + dy >= bridgeY + 30 && playerCenterY + dy <= bridgeY + go.getHeight() - 70)) {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                }
+            }
+
+            // Water collision
+            if(playerCenterX + dx >= 620 && playerCenterX + dx <= 825) {
+                return false;
+            }
+        }
+
         return goX + dx >= 0 && goXWidth + dx <= grid.getWidth()
-                && goY + dy >= 0 && goYHeight + dy <= grid.getHeight();
+                && goY + dy >= 0 && goYHeight + dy <= grid.getHeight() ;
 
     }
 

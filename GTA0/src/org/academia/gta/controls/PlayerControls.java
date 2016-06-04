@@ -39,6 +39,8 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     private int dy;
 
     private boolean toReload;
+    private boolean isEntry;
+    private boolean onlyOneTimePressed;
 
     private boolean shooted = false;
 
@@ -89,6 +91,11 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         eventReload.setKey(GameKeys.getKeyCode(GameKeys.RELOAD));
         eventReload.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventReload);
+
+        KeyboardEvent eventEntry = new KeyboardEvent();
+        eventEntry.setKey(GameKeys.getKeyCode(GameKeys.ENTRY));
+        eventEntry.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventEntry);
     }
 
     /**
@@ -114,6 +121,11 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         eventLeftRelease.setKey(GameKeys.getKeyCode(GameKeys.LEFT));
         eventLeftRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         keyboard.addEventListener(eventLeftRelease);
+
+        KeyboardEvent eventEntryRelease = new KeyboardEvent();
+        eventEntryRelease.setKey(GameKeys.getKeyCode(GameKeys.ENTRY));
+        eventEntryRelease.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        keyboard.addEventListener(eventEntryRelease);
     }
 
     /**
@@ -140,6 +152,10 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         }
     }
 
+    public boolean entry() {
+        return isEntry;
+    }
+
     @Override
     /**
      * Give a movement to the player when a key or keys are pressed
@@ -161,6 +177,12 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
 
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RELOAD))
             keyPressed[4] = true;
+
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.ENTRY) && !onlyOneTimePressed) {
+            isEntry = true;
+            onlyOneTimePressed = true;
+        }
+
 
         // If a key is pressed call the move method
         move();
@@ -192,6 +214,12 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
             keyPressed[3] = false;
             dx = 0;
         }
+
+        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.ENTRY)) {
+            isEntry = false;
+            onlyOneTimePressed = false;
+        }
+
 
     }
 

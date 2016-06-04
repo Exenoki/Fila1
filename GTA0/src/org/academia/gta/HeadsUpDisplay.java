@@ -1,5 +1,6 @@
 package org.academia.gta;
 
+import com.sun.beans.editors.ColorEditor;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
@@ -12,10 +13,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class HeadsUpDisplay  {
 
 
-
+    Rectangle rect;
     private Text hudAmmo;
     private Text hudBullets;
-    private int health;
+    private int hudHealthValue;
 
     private Picture hud = new Picture(620, 10, "resources/game_sprites/hud.png");
 
@@ -46,24 +47,34 @@ public class HeadsUpDisplay  {
     }
 
     public void hud(int health){
-        this.health = health;
 
         if(!isLoaded) {
-
             hud.draw();
+
+            this.hudHealthValue = health;
+            rect = new Rectangle(hud.getX() + 11, hud.getY() + 10 , Math.round(hudHealthValue / 1.86), 27);
+            rect.setColor(Color.GREEN);
+
+            rect.fill();
 
            // playerHealth();
             playerAmmo();
             playerBullets();
         }
+
+        if(hudHealthValue != health && isLoaded) {
+            hudHealthValue = health;
+            rect.delete();
+
+            rect = new Rectangle(hud.getX() + 11, hud.getY() + 10 , Math.round(hudHealthValue / 1.86), 27);
+
+            if (health <= 25) rect.setColor(Color.RED);
+            else rect.setColor(Color.GREEN);
+
+            rect.fill();
+        }
+
         isLoaded = true;
-        Rectangle rect = new Rectangle(hud.getX() + 11, hud.getY() + 10 , Math.round(health / 1.86), 27);
-        if (health <= 25) rect.setColor(Color.RED);
-
-        else rect.setColor(Color.GREEN);
-
-        rect.fill();
-
     }
 
 

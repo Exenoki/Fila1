@@ -10,7 +10,8 @@ public enum GameKeys {
     RIGHT,
     DOWN,
     LEFT,
-    RELOAD;
+    RELOAD,
+    ENTRY;
 
     /**
      * Gets the code of the pressed key
@@ -39,7 +40,11 @@ public enum GameKeys {
                 break;
 
             case RELOAD:
-                keyboardEvent =  KeyboardEvent.KEY_R;
+                keyboardEvent = KeyboardEvent.KEY_R;
+                break;
+
+            case ENTRY:
+                keyboardEvent = KeyboardEvent.KEY_SPACE;
                 break;
 
             default:

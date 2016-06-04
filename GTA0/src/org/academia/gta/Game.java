@@ -3,10 +3,7 @@ package org.academia.gta;
 import org.academia.gta.controls.Direction;
 import org.academia.gta.controls.PlayerControls;
 import org.academia.gta.controls.MouseControl;
-import org.academia.gta.gameobject.Bullet;
-import org.academia.gta.gameobject.GameObject;
-import org.academia.gta.gameobject.GameObjectFactory;
-import org.academia.gta.gameobject.GameObjectType;
+import org.academia.gta.gameobject.*;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.*;
@@ -50,6 +47,7 @@ public class Game {
     LinkedList<Bullet> bulletsInstantiated = new LinkedList<>();
     LinkedList<GameObject> gameObjectInstantiated = new LinkedList<>();
     LinkedList<Enemy> enemiesInstantiated = new LinkedList<>();
+    LinkedList<ImmovableGameObject> staticGOCollision = new LinkedList<>();
 
     public void start() throws InterruptedException {
         Picture background = new Picture(0, 0, "resources/background_gta_rambo_start2.jpg");
@@ -96,49 +94,55 @@ public class Game {
     public void init(int tree, int amo) throws InterruptedException {
 
         GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
-        CollisionChecker collisionChecker = new CollisionChecker(grid);
         HeadsUpDisplay myHud = new HeadsUpDisplay();
-
 
         propsGenerator = new PropsGenerator();
 
         grid.init(width, height);
 
-        Picture bridge = new Picture(595, 320, "resources/game_sprites/bridge_complete.png");
-        bridge.draw();
 
-        Picture boat = new Picture(615, 120, "resources/game_sprites/boat.png");
-        boat.draw();
 
         propsGenerator.ammoGenerator(this.grid, amo);
         propsGenerator.treeGenerator(this.grid, tree);
 
         propsGenerator.getAmmoArray(gameObjectInstantiated);
 
+        ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(500, 500, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
+        ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(300, 500, GameObjectType.BUNKER), GameObjectType.BUNKER);
+        ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
+        ImmovableGameObject boat = new ImmovableGameObject(new ImmovableGOSGFX(615, 120, GameObjectType.BOAT), GameObjectType.BOAT);
+
+        gameObjectInstantiated.add(boat);
+
+        staticGOCollision.add(bardedwire);
+        staticGOCollision.add(bunker);
+        staticGOCollision.add(bridge);
+
+        CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
+
         Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
-        Enemy enemy = new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP);
-        Enemy enemy1 = new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN);
 
-        enemiesInstantiated.add(enemy);
-        enemiesInstantiated.add(enemy1);
+        //Enemy enemy = new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP);
+        //Enemy enemy1 = new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN);
 
-        int hel = 100;
+//        enemiesInstantiated.add(enemy);
+//        enemiesInstantiated.add(enemy1);
 
         while (true) {
             Thread.sleep(25);
             player.reload();
             Bullet b = player.shoot();
-            Bullet b2 = enemy.shoot(player);
-            Bullet b3 = enemy1.shoot(player);
-
-            if (b != null)
-                bulletsInstantiated.add(b);
-
-            if(b2 != null)
-                bulletsInstantiated.add(b2);
-
-            if(b3 != null)
-                bulletsInstantiated.add(b3);
+//            Bullet b2 = enemy.shoot(player);
+//            Bullet b3 = enemy1.shoot(player);
+//
+//            if (b != null)
+//                bulletsInstantiated.add(b);
+//
+//            if(b2 != null)
+//                bulletsInstantiated.add(b2);
+//
+//            if(b3 != null)
+//                bulletsInstantiated.add(b3);
 
             moveBullets();
             player.move();
@@ -146,9 +150,7 @@ public class Game {
             collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated);
             collisionChecker.scenarioCollisions(player, gameObjectInstantiated);
 
-            myHud.hud(hel);
-
-            hel--;
+            myHud.hud(player.getHealth());
             myHud.getHudAmmo().setText(player.getTotalAmmo()+"");
             myHud.getHudBullets().setText(player.getNumBullets()+"");
 

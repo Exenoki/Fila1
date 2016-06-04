@@ -11,12 +11,11 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public abstract class Person extends GameObject implements Destructable {
 
-    private int health;
+    private int health = 100;
 
     public Person(Representable representation) {
         super(representation, GameObjectType.PLAYER);
         setRadius(10); // TODO remove hard coding radius person
-        health = 100;
     }
 
     public int getHealth() {

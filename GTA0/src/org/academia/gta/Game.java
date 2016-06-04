@@ -44,7 +44,7 @@ public class Game {
     }
 
     LinkedList<Bullet> bulletsInstantiated = new LinkedList<>();
-    LinkedList<GameObject> gameObjectInstantiated = new LinkedList<>();
+    LinkedList gameObjectInstantiated = new LinkedList<>();
     LinkedList<Enemy> enemiesInstantiated = new LinkedList<>();
     LinkedList<ImmovableGameObject> staticGOCollision = new LinkedList<>();
 
@@ -108,7 +108,7 @@ public class Game {
         ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(500, 500, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
         ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(300, 500, GameObjectType.BUNKER), GameObjectType.BUNKER);
         ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
-        ImmovableGameObject boat = new ImmovableGameObject(new ImmovableGOSGFX(615, 120, GameObjectType.BOAT), GameObjectType.BOAT);
+        ImmovableGOSGFX boat = new ImmovableGOSGFX(600, 120, GameObjectType.BOAT);
 
         gameObjectInstantiated.add(boat);
 

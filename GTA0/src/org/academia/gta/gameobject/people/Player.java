@@ -15,6 +15,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Player extends Person {
 
     private int counter = 0;
+    private boolean isDriving;
 
     public static final int MAX_NUM_BULLETS = 12;
 
@@ -35,29 +36,38 @@ public class Player extends Person {
     public void move() {
         setCurrentDirection();
 
-        int dx = playerControls.getDx();
-        int dy = playerControls.getDy();
+        int dx = 0;
+        int dy = 0;
 
-        if(currentDirection==Direction.RIGHT_DOWN) {
-            moveDownRight();
-        } else if (currentDirection==Direction.UP_RIGHT) {
-            moveUpRight();
-        } else if(currentDirection==Direction.LEFT_UP) {
-           moveUpLeft();
-        } else if(currentDirection==Direction.DOWN_LEFT) {
-            moveDownLeft();
-        } else if(currentDirection==Direction.RIGHT){
-            moveRight();
-        } else if(currentDirection==Direction.DOWN){
-            moveDown();
-        } else if(currentDirection==Direction.LEFT){
-            moveLeft();
-        } else if(currentDirection==Direction.UP){
-            moveUp();
+        if (!isDriving) {
+            dx = playerControls.getDx();
+            dy = playerControls.getDy();
+
+            if(currentDirection==Direction.RIGHT_DOWN) {
+                moveDownRight();
+            } else if (currentDirection==Direction.UP_RIGHT) {
+                moveUpRight();
+            } else if(currentDirection==Direction.LEFT_UP) {
+               moveUpLeft();
+            } else if(currentDirection==Direction.DOWN_LEFT) {
+                moveDownLeft();
+            } else if(currentDirection==Direction.RIGHT){
+                moveRight();
+            } else if(currentDirection==Direction.DOWN){
+                moveDown();
+            } else if(currentDirection==Direction.LEFT){
+                moveLeft();
+            } else if(currentDirection==Direction.UP){
+                moveUp();
+            }
         }
 
         if(collisionChecker.isBetweenEdges(this, dx, dy))
             ((MovableRepresentable)getRepresentation()).move(dx, dy);
+    }
+
+    public void setDriving(boolean driving) {
+        isDriving = driving;
     }
 
     private void setCurrentDirection() {

@@ -7,6 +7,7 @@ import org.academia.gta.gameobject.ImmovableGameObject;
 import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.Grid;
+import org.academia.gta.simplegfx.ImmovableGOSGFX;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -18,13 +19,14 @@ public class CollisionChecker {
 
     private Grid grid;
     private LinkedList<ImmovableGameObject> staticGOCollision;
+    private boolean isInverted;
 
     public CollisionChecker(Grid grid, LinkedList<ImmovableGameObject> staticGOCollision) {
         this.grid = grid;
         this.staticGOCollision = staticGOCollision;
     }
 
-    public void scenarioCollisions(Player player, LinkedList<GameObject> gameObjects) {
+    public void scenarioCollisions(Player player, LinkedList gameObjects) {
         Iterator gameObjectsIterator = gameObjects.iterator();
 
         int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
@@ -32,27 +34,38 @@ public class CollisionChecker {
 
         while (gameObjectsIterator.hasNext()) {
 
-            GameObject gameObject = (GameObject) gameObjectsIterator.next();
+            Object gameObject = gameObjectsIterator.next();
 
-            if(gameObject.getGot() == GameObjectType.AMMO) {
-                if((playerCenterX >= gameObject.getX() && playerCenterX <= gameObject.getX() + gameObject.getWidth()) &&
-                        (playerCenterY >= gameObject.getY() && playerCenterY <= gameObject.getY() + gameObject.getHeight())) {
-                    gameObject.getRepresentation().delete();
+            if(gameObject instanceof ImmovableGameObject) {
+
+                ImmovableGameObject go = (ImmovableGameObject) gameObject;
+
+                if(go.getGot() == GameObjectType.AMMO && (playerCenterX >= go.getX() && playerCenterX <= go.getX() + go.getWidth()) &&
+                        (playerCenterY >= go.getY() && playerCenterY <= go.getY() + go.getHeight())) {
+
+                    go.getRepresentation().delete();
                     gameObjectsIterator.remove();
                     player.setTotalAmmo();
                 }
             }
 
-            if(gameObject.getGot() == GameObjectType.BOAT) {
-                if((playerCenterX >= gameObject.getX() && playerCenterX <= gameObject.getX() + gameObject.getWidth()) &&
-                        (playerCenterY >= gameObject.getY() && playerCenterY <= gameObject.getY() + gameObject.getHeight())) {
+            if(gameObject instanceof ImmovableGOSGFX) {
+
+                ImmovableGOSGFX go = (ImmovableGOSGFX) gameObject;
+
+                if((playerCenterX >= go.getX() && playerCenterX <= go.getX() + go.getWidth()) &&
+                        (playerCenterY >= go.getY() && playerCenterY <= go.getY() + go.getHeight())) {
 
                     if(player.entry()) {
-
-                        System.out.println("Entry");
+                        player.getRepresentation().translate(go.getX() - player.getX(), go.getY() - player.getY());
+                        //player.setDriving(!isInverted);
+                        isInverted = !isInverted;
                     }
-
                 }
+
+                if (isInverted)
+                    go.translate(player.getX() - go.getX(), player.getY() - go.getY());
+
             }
         }
     }
@@ -139,9 +152,12 @@ public class CollisionChecker {
             }
 
             // Water collision
-            if(playerCenterX + dx >= 620 && playerCenterX + dx <= 825) {
+            if(playerCenterX + dx >= 615 && playerCenterX + dx <= 810 && !isInverted) {
                 return false;
             }
+
+            if (isInverted)
+                return !(playerCenterX + dx < 615 || playerCenterX + dx > 825);
         }
 
         return goX + dx >= 0 && goXWidth + dx <= grid.getWidth()

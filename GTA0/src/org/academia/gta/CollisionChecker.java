@@ -58,7 +58,8 @@ public class CollisionChecker {
 
                     if(player.entry()) {
                         player.getRepresentation().translate(go.getX() - player.getX(), go.getY() - player.getY());
-                        //player.setDriving(!isInverted);
+                        player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
+                        player.setDriving(!isInverted);
                         isInverted = !isInverted;
                     }
                 }

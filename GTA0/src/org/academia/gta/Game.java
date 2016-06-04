@@ -100,8 +100,6 @@ public class Game {
 
         grid.init(width, height);
 
-
-
         propsGenerator.ammoGenerator(this.grid, amo);
         propsGenerator.treeGenerator(this.grid, tree);
 

@@ -36,15 +36,15 @@ public class PropsGenerator {
             while (x>=520 && x<=860){
                 x = randomXPos();
             }
+
+            if(x + 164 > grid.getWidth())
+                x = grid.getWidth() - 164;
+
+            if(y + 164 > grid.getHeight())
+                y = grid.getHeight() - 164;
+
             ImmovableGameObject newTree = new ImmovableGameObject(new ImmovableGOSGFX(x, y, GameObjectType.TREE), GameObjectType.TREE);
             treeArray[i] = newTree;
-
-            if (newTree.getX() + newTree.getWidth() >= grid.getWidth()) {
-                newTree.getRepresentation().translate(grid.getWidth() - (newTree.getX() + newTree.getWidth()), 0);
-            }
-            if (newTree.getY() + newTree.getHeight() >= grid.getHeight()) {
-                newTree.getRepresentation().translate(0, grid.getHeight() - (newTree.getY() + newTree.getHeight()));
-            }
 
         }
     }

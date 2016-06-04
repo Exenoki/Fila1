@@ -12,7 +12,7 @@ public enum GameObjectType {
     WEAPON(""),
     AMMO("resources/game_sprites/amo.png"),
     BULLET(""),
-    PLAYER(""),
+    PLAYER("resources/player_sprites/rambo_idle_shoot_r.png"),
     BOAT("resources/game_sprites/boat.png"),
     ENEMY(""),
     BRIDGE("resources/game_sprites/bridge_complete.png"),

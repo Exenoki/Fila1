@@ -14,8 +14,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class Player extends Person {
 
-    Picture imageLeft = new Picture(this.getX(),this.getY(),"resources/player_sprites/rambo_idle_shoot_l.png");
-
     private int counter = 0;
     private boolean isDriving;
 
@@ -38,12 +36,10 @@ public class Player extends Person {
     public void move() {
         setCurrentDirection();
 
-        int dx = 0;
-        int dy = 0;
+        int dx = playerControls.getDx();
+        int dy = playerControls.getDy();
 
         if (!isDriving) {
-            dx = playerControls.getDx();
-            dy = playerControls.getDy();
 
             if(currentDirection==Direction.RIGHT_DOWN) {
                 moveDownRight();
@@ -81,9 +77,11 @@ public class Player extends Person {
             playerControls.setShooted(false);
 
             if (numBullets > 0) {
+
                 Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getHeight()));
                 bullet.shooted(getX()+getWidth()/2, getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
                 numBullets--;
+
 
                 return bullet;
             }

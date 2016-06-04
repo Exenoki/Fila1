@@ -135,8 +135,8 @@ public class Game {
 //            Bullet b2 = enemy.shoot(player);
 //            Bullet b3 = enemy1.shoot(player);
 //
-//            if (b != null)
-//                bulletsInstantiated.add(b);
+            if (b != null)
+                bulletsInstantiated.add(b);
 //
 //            if(b2 != null)
 //                bulletsInstantiated.add(b2);

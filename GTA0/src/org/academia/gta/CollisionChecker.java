@@ -75,6 +75,8 @@ public class CollisionChecker {
             if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
                     Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 15 + 1) {
                 player.giveDamage(10);
+                bullet.getRepresentation().delete();
+                bulletsIterator.remove();
             }
 
             while (enemyIterator.hasNext()) {
@@ -84,6 +86,8 @@ public class CollisionChecker {
                 if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
                         Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 15 + 1) {
                     enemy.giveDamage(10);
+                    bullet.getRepresentation().delete();
+                    bulletsIterator.remove();
 
                     if (enemy.isDestroyed()) {
                         enemies.remove();

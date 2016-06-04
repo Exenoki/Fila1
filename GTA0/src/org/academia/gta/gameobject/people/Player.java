@@ -71,8 +71,8 @@ public class Player extends Person {
             playerControls.setShooted(false);
 
             if (numBullets > 0) {
-                Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getY()+getHeight()/2));
-                bullet.shooted(getX()+getWidth()/2, getY()+getHeight()/2, playerControls.getMouseX(), playerControls.getMouseY());
+                Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getHeight()));
+                bullet.shooted(getX()+getWidth()/2, getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
                 numBullets--;
 
                 return bullet;

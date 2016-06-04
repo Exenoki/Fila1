@@ -8,7 +8,6 @@ import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -32,7 +31,7 @@ public class Game {
 
     private int width;
     private int height;
-
+    private Player player;
 
     Game(int width, int height, int delay) {
 
@@ -59,6 +58,7 @@ public class Game {
         logo.draw();
         start.draw();
 
+        new SoundFx().playSound();
         while (true) {
 
             if (mouse.getMouseXmove() > 370 && mouse.getMouseXmove() < 570 &&
@@ -100,8 +100,6 @@ public class Game {
 
         grid.init(width, height);
 
-
-
         propsGenerator.ammoGenerator(this.grid, amo);
         propsGenerator.treeGenerator(this.grid, tree);
 
@@ -120,29 +118,20 @@ public class Game {
 
         CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
 
-        Player player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
+        player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
 
-        //Enemy enemy = new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP);
-        //Enemy enemy1 = new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN);
-
-//        enemiesInstantiated.add(enemy);
-//        enemiesInstantiated.add(enemy1);
+        enemiesInstantiated.add(new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP));
+        enemiesInstantiated.add(new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN));
 
         while (true) {
             Thread.sleep(25);
             player.reload();
             Bullet b = player.shoot();
-//            Bullet b2 = enemy.shoot(player);
-//            Bullet b3 = enemy1.shoot(player);
-//
+
             if (b != null)
                 bulletsInstantiated.add(b);
-//
-//            if(b2 != null)
-//                bulletsInstantiated.add(b2);
-//
-//            if(b3 != null)
-//                bulletsInstantiated.add(b3);
+
+            enemyShootRound(bulletsInstantiated);
 
             moveBullets();
             player.move();
@@ -157,6 +146,7 @@ public class Game {
             propsGenerator.reDraw();
 
             if(player.isDestroyed()) {
+                player.getRepresentation().load("resources/player_sprites/rambo_dead.png");
                 break;
             }
         }
@@ -165,6 +155,16 @@ public class Game {
 
     }
 
+    public void enemyShootRound(LinkedList<Bullet> bulletsInstantiate) {
+        Iterator enemyInterator = enemiesInstantiated.iterator();
+
+        while (enemyInterator.hasNext()) {
+            Bullet bullet = ((Enemy) enemyInterator.next()).shoot(player);
+
+            if(bullet != null)
+                bulletsInstantiated.add(bullet);
+        }
+    }
 
     public void moveBullets() {
         Iterator it = bulletsInstantiated.iterator();
@@ -181,4 +181,5 @@ public class Game {
             }
         }
     }
+
 }

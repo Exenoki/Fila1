@@ -68,6 +68,8 @@ public class CollisionChecker {
         while (bulletsIterator.hasNext()) {
             Bullet bullet = bulletsIterator.next();
 
+            boolean playerHit = false;
+
             int bulletCenterX = bullet.getX() + Math.round(bullet.getWidth() / 2);
             int bulletCenterY = bullet.getY() + Math.round(bullet.getHeight() / 2);
 
@@ -77,22 +79,28 @@ public class CollisionChecker {
                 player.giveDamage(10);
                 bullet.getRepresentation().delete();
                 bulletsIterator.remove();
+                playerHit = true;
             }
 
-            while (enemyIterator.hasNext()) {
-                Enemy enemy = enemyIterator.next();
+            if(!playerHit) {
 
-                // Collision radius
-                if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
-                        Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 15 + 1) {
-                    enemy.giveDamage(10);
-                    bullet.getRepresentation().delete();
-                    bulletsIterator.remove();
+                while (enemyIterator.hasNext()) {
+                    Enemy enemy = enemyIterator.next();
 
-                    if (enemy.isDestroyed()) {
-                        enemies.remove();
+                    int enemyCenterX = enemy.getX() + Math.round(enemy.getWidth() / 2);
+                    int enemyCenterY = enemy.getY() + Math.round(enemy.getHeight() / 2);
 
-                        System.out.println("enemy death");
+                    // Collision radius
+                    if (Math.sqrt(Math.abs(bulletCenterX - enemyCenterX) * Math.abs(bulletCenterX - enemyCenterX) +
+                            Math.abs(bulletCenterY - enemyCenterY) * Math.abs(bulletCenterY - enemyCenterY)) < 15 + 1) {
+                        enemy.giveDamage(10);
+                        bullet.getRepresentation().delete();
+                        bulletsIterator.remove();
+
+                        if (enemy.isDestroyed()) {
+                            enemy.getRepresentation().load("resources/enemy_sprites/captain_dead.png");
+                            enemyIterator.remove();
+                        }
                     }
                 }
             }

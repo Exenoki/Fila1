@@ -14,8 +14,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class Player extends Person {
 
-    Picture imageLeft = new Picture(this.getX(),this.getY(),"resources/player_sprites/rambo_idle_shoot_l.png");
-
     private int counter = 0;
 
     public static final int MAX_NUM_BULLETS = 12;

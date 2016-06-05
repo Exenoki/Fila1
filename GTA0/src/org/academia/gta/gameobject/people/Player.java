@@ -1,13 +1,13 @@
 package org.academia.gta.gameobject.people;
 
-import org.academia.gta.Animator;
-import org.academia.gta.CollisionChecker;
+import org.academia.gta.components.Animator;
+import org.academia.gta.components.CollisionChecker;
 import org.academia.gta.controls.Direction;
 import org.academia.gta.controls.PlayerControls;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
-import org.academia.gta.simplegfx.BulletSGFX;
+import org.academia.gta.simplegfx.gameobjectsgfx.BulletSGFX;
 
 /**
  * Created by codecadet on 01/06/16.
@@ -48,21 +48,21 @@ public class Player extends Person {
                 lastDirection = currentDirection;
 
                 if (currentDirection == Direction.RIGHT_DOWN) {
-                    playerAnimation.moveDownRight(this);
+                    playerAnimation.animationMoveDownRight(this);
                 } else if (currentDirection == Direction.UP_RIGHT) {
-                    playerAnimation.moveUpRight(this);
+                    playerAnimation.animationMoveUpRight(this);
                 } else if (currentDirection == Direction.LEFT_UP) {
-                    playerAnimation.moveUpLeft(this);
+                    playerAnimation.animationMoveUpLeft(this);
                 } else if (currentDirection == Direction.DOWN_LEFT) {
-                    playerAnimation.moveDownLeft(this);
+                    playerAnimation.animationMoveDownLeft(this);
                 } else if (currentDirection == Direction.RIGHT) {
-                    playerAnimation.moveRight(this);
+                    playerAnimation.animationMoveRight(this);
                 } else if (currentDirection == Direction.DOWN) {
-                    playerAnimation.moveDown(this);
+                    playerAnimation.animationMoveDown(this);
                 } else if (currentDirection == Direction.LEFT) {
-                    playerAnimation.moveLeft(this);
+                    playerAnimation.animationMoveLeft(this);
                 } else if (currentDirection == Direction.UP) {
-                    playerAnimation.moveUp(this);
+                    playerAnimation.animationMoveUp(this);
                 }
 
             }

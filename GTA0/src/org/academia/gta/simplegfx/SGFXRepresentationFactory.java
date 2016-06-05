@@ -1,11 +1,14 @@
 package org.academia.gta.simplegfx;
 
 import org.academia.gta.controls.Direction;
-import org.academia.gta.gameobject.GameObjectFactory;
 import org.academia.gta.gameobject.GameObjectType;
-import org.academia.gta.gameobject.people.Enemy;
+import org.academia.gta.gameobject.people.EnemyType;
 import org.academia.gta.representation.Representable;
 import org.academia.gta.representation.RepresentableFactory;
+import org.academia.gta.simplegfx.gameobjectsgfx.BulletSGFX;
+import org.academia.gta.simplegfx.gameobjectsgfx.EnemySGFX;
+import org.academia.gta.simplegfx.gameobjectsgfx.ImmovableGOSGFX;
+import org.academia.gta.simplegfx.gameobjectsgfx.PlayerSGFX;
 
 /**
  * Created by codecadet on 26/05/16.
@@ -24,7 +27,7 @@ public class SGFXRepresentationFactory implements RepresentableFactory {
                 break;
 
             case ENEMY:
-                representable = new EnemySGFX(x, y, Direction.NULL);
+                representable = new EnemySGFX(x, y, Direction.NULL, EnemyType.CAPTAIN);
                 break;
 
             case AMMO:

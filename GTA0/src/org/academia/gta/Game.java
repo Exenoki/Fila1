@@ -1,15 +1,22 @@
 package org.academia.gta;
 
+import org.academia.gta.components.CollisionChecker;
+import org.academia.gta.components.HeadsUpDisplay;
+import org.academia.gta.components.SoundFx;
 import org.academia.gta.controls.Direction;
-import org.academia.gta.controls.PlayerControls;
 import org.academia.gta.controls.MouseControl;
 import org.academia.gta.gameobject.*;
 import org.academia.gta.gameobject.people.Enemy;
+import org.academia.gta.gameobject.people.EnemyType;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.*;
+import org.academia.gta.simplegfx.gameobjectsgfx.EnemySGFX;
+import org.academia.gta.simplegfx.gameobjectsgfx.ImmovableGOSGFX;
+import org.academia.gta.simplegfx.terrainsgfx.PropsGenerator;
+import org.academia.gta.simplegfx.terrainsgfx.SimpleGfxTerrain;
+import org.academia.gta.simplegfx.terrainsgfx.Terrain;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.awt.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -21,7 +28,7 @@ public class Game {
     /**
      * Graphical Car field
      */
-    private Grid grid;
+    private Terrain terrain;
     private PropsGenerator propsGenerator;
     private MouseControl mouse;
 
@@ -38,7 +45,7 @@ public class Game {
 
     Game(int width, int height, int delay) {
 
-        grid = new SimpleGfxGrid();
+        terrain = new SimpleGfxTerrain();
         this.delay = delay;
         this.width = width;
         this.height = height;
@@ -97,10 +104,10 @@ public class Game {
 
             propsGenerator = new PropsGenerator();
 
-            grid.init(width, height);
+            terrain.init(width, height);
 
-            propsGenerator.ammoGenerator(this.grid, amo);
-            propsGenerator.treeGenerator(this.grid, tree);
+            propsGenerator.ammoGenerator(this.terrain, amo);
+            propsGenerator.treeGenerator(this.terrain, tree);
 
             propsGenerator.getAmmoArray(gameObjectInstantiated);
 
@@ -124,19 +131,19 @@ public class Game {
             staticGOCollision.add(bridge);
 
             // Add enemies in the game
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(650, 350, Direction.RIGHT), Direction.RIGHT));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(650, 400, Direction.RIGHT), Direction.RIGHT));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(900, 50, Direction.DOWN), Direction.DOWN));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(550, 120, Direction.LEFT), Direction.LEFT));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(250, 50, Direction.DOWN), Direction.DOWN));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(150, 250, Direction.DOWN), Direction.DOWN));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(370, 350, Direction.DOWN), Direction.DOWN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(650, 350, Direction.RIGHT, EnemyType.CAPTAIN), Direction.RIGHT, EnemyType.CAPTAIN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(650, 400, Direction.RIGHT, EnemyType.CAPTAIN), Direction.RIGHT, EnemyType.CAPTAIN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(900, 50, Direction.DOWN, EnemyType.SOLDIER), Direction.DOWN, EnemyType.SOLDIER));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(550, 120, Direction.LEFT, EnemyType.CAPTAIN), Direction.LEFT, EnemyType.CAPTAIN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(250, 50, Direction.DOWN, EnemyType.SOLDIER), Direction.DOWN, EnemyType.SOLDIER));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(150, 250, Direction.DOWN, EnemyType.SOLDIER), Direction.DOWN, EnemyType.SOLDIER));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(370, 350, Direction.DOWN, EnemyType.CAPTAIN), Direction.DOWN, EnemyType.CAPTAIN));
 
-            CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
+            CollisionChecker collisionChecker = new CollisionChecker(terrain, staticGOCollision);
             player = (Player) gameObjectFactory.createObject(100, 500, GameObjectType.PLAYER, collisionChecker);
 
             while (true) {
-                Thread.sleep(25);
+                Thread.sleep(delay);
                 player.reload();
                 Bullet b = player.shoot();
 
@@ -157,7 +164,7 @@ public class Game {
 
                 propsGenerator.reDraw();
 
-                if (player.isDestroyed()) {
+                if (player.isDead()) {
                     initGame = false;
                     player.getRepresentation().load("resources/player_sprites/rambo_dead.png");
                     startMusic.getBgmusic().stop();
@@ -191,7 +198,7 @@ public class Game {
 
             b.move();
 
-            if(b.getX() > grid.getWidth() - (b.getWidth() * 3) || b.getY() > grid.getHeight() - (b.getHeight() * 3) ||
+            if(b.getX() > terrain.getWidth() - (b.getWidth() * 3) || b.getY() > terrain.getHeight() - (b.getHeight() * 3) ||
                     b.getX() < 0 || b.getY() < 0) {
                 b.getRepresentation().delete();
                 it.remove();

@@ -1,7 +1,8 @@
-package org.academia.gta.simplegfx;
+package org.academia.gta.simplegfx.gameobjectsgfx;
 
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.representation.MovableRepresentable;
+import org.academia.gta.simplegfx.SGFXRepresentation;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

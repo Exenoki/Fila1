@@ -6,7 +6,7 @@ package org.academia.gta;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        Game mygame = new Game(950,600,200);
+        Game mygame = new Game(950,600,25);
         mygame.start();
 
     }

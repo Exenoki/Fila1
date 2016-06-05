@@ -2,6 +2,8 @@ package org.academia.gta.controls;
 
 /**
  * Created by codecadet on 30/05/16.
+ *
+ * Player directions in the game
  */
 public enum Direction {
     NULL,

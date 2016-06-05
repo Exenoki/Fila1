@@ -1,9 +1,9 @@
-package org.academia.gta.simplegfx;
+package org.academia.gta.simplegfx.terrainsgfx;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 28/05/16.
  */
-public interface Grid {
+public interface Terrain {
 
     /**
      * Initializes the grid

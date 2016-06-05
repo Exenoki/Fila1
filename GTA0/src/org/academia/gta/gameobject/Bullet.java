@@ -1,26 +1,16 @@
 package org.academia.gta.gameobject;
 
-import org.academia.gta.CollisionChecker;
-import org.academia.gta.Destructable;
-import org.academia.gta.SoundFx;
+import org.academia.gta.components.SoundFx;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
-
-import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by codecadet on 24/05/16.
  */
-public class Bullet extends GameObject implements Destructable {
+public class Bullet extends GameObject {
 
     private int x;
     private int y;
-    private boolean destroyed;
-    private int radius;
-    private SoundFx bulletSound;
-    //private CollisionChecker collisionChecker;
 
     private int d = 0;
     private int speed = 10;
@@ -33,8 +23,6 @@ public class Bullet extends GameObject implements Destructable {
 
     public Bullet(Representable representation) {
         super(representation, GameObjectType.BULLET);
-        this.radius = 1;
-        //this.collisionChecker = collisionChecker;
     }
 
     public Bullet shooted(int x0, int y0, int xf, int yf) {
@@ -58,10 +46,4 @@ public class Bullet extends GameObject implements Destructable {
 
         ((MovableRepresentable) getRepresentation()).move(x, y);
     }
-
-    @Override
-    public boolean isDestroyed() {
-        return destroyed;
-    }
-
 }

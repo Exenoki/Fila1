@@ -1,9 +1,10 @@
-package org.academia.gta.simplegfx;
+package org.academia.gta.simplegfx.terrainsgfx;
 
 import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.ImmovableGameObject;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academia.gta.simplegfx.gameobjectsgfx.ImmovableGOSGFX;
+import org.academia.gta.simplegfx.terrainsgfx.Terrain;
 
 import java.util.LinkedList;
 
@@ -13,21 +14,21 @@ import java.util.LinkedList;
 public class PropsGenerator {
 
     private boolean isLoaded = false;
-    private Grid grid;
+    private Terrain terrain;
 
     ImmovableGameObject[] treeArray;
     ImmovableGameObject[] ammoArray;
 
     private int randomXPos(){
-        return (int)Math.round(Math.random()*grid.getWidth()) ;
+        return (int)Math.round(Math.random()* terrain.getWidth()) ;
     }
 
     private int randomYPos(){
-        return (int)Math.round(Math.random()*grid.getHeight()) ;
+        return (int)Math.round(Math.random()* terrain.getHeight()) ;
     }
 
-    public void treeGenerator(Grid grid, int qt){
-        this.grid = grid;
+    public void treeGenerator(Terrain terrain, int qt){
+        this.terrain = terrain;
         treeArray = new ImmovableGameObject[qt];
 
         for (int i=0; i<qt; i++){
@@ -37,11 +38,11 @@ public class PropsGenerator {
                 x = randomXPos();
             }
 
-            if(x + 164 > grid.getWidth())
-                x = grid.getWidth() - 164;
+            if(x + 164 > terrain.getWidth())
+                x = terrain.getWidth() - 164;
 
-            if(y + 164 > grid.getHeight())
-                y = grid.getHeight() - 164;
+            if(y + 164 > terrain.getHeight())
+                y = terrain.getHeight() - 164;
 
             ImmovableGameObject newTree = new ImmovableGameObject(new ImmovableGOSGFX(x, y, GameObjectType.TREE), GameObjectType.TREE);
             treeArray[i] = newTree;
@@ -49,8 +50,8 @@ public class PropsGenerator {
         }
     }
 
-    public void ammoGenerator(Grid grid, int qt){
-        this.grid = grid;
+    public void ammoGenerator(Terrain terrain, int qt){
+        this.terrain = terrain;
         ammoArray = new ImmovableGameObject[qt];
 
         for (int i=0; i<qt; i++){
@@ -64,11 +65,11 @@ public class PropsGenerator {
 
             ammoArray[i] = newAmo;
 
-            if (newAmo.getX() + newAmo.getWidth() >= grid.getWidth()) {
-                newAmo.getRepresentation().translate(grid.getWidth() - (newAmo.getX() + newAmo.getWidth()), 0);
+            if (newAmo.getX() + newAmo.getWidth() >= terrain.getWidth()) {
+                newAmo.getRepresentation().translate(terrain.getWidth() - (newAmo.getX() + newAmo.getWidth()), 0);
             }
-            if (newAmo.getY() + newAmo.getHeight() >= grid.getHeight()) {
-                newAmo.getRepresentation().translate(0, grid.getHeight() - (newAmo.getY() + newAmo.getHeight()));
+            if (newAmo.getY() + newAmo.getHeight() >= terrain.getHeight()) {
+                newAmo.getRepresentation().translate(0, terrain.getHeight() - (newAmo.getY() + newAmo.getHeight()));
             }
 
         }

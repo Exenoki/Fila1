@@ -1,16 +1,12 @@
-package org.academia.gta.simplegfx;
+package org.academia.gta.simplegfx.terrainsgfx;
 
-import org.academia.gta.gameobject.GameObjectType;
-import org.academia.gta.gameobject.ImmovableGameObject;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-
-import java.util.LinkedList;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 28/05/16.
  */
 
-public class SimpleGfxGrid implements Grid {
+public class SimpleGfxTerrain implements Terrain {
 
     private int width;
     private int height;

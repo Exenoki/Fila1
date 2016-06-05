@@ -3,7 +3,7 @@ package org.academia.gta.gameobject.people;
 import org.academia.gta.controls.Direction;
 import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.representation.Representable;
-import org.academia.gta.simplegfx.BulletSGFX;
+import org.academia.gta.simplegfx.gameobjectsgfx.BulletSGFX;
 
 
 /**
@@ -17,7 +17,7 @@ public class Enemy extends Person {
     private long betweenShoot = System.currentTimeMillis();
     private long instant;
 
-    public Enemy(Representable representation, Direction dir) {
+    public Enemy(Representable representation, Direction dir, EnemyType type) {
         super(representation);
         this.dir = dir;//TODO criar classe que extende timertask e meter ali no schedule
     }

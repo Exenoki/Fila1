@@ -1,15 +1,18 @@
-package org.academia.gta;
+package org.academia.gta.components;
 
 import org.academia.gta.gameobject.people.Player;
 
 /**
  * Created by codecadet on 05/06/16.
+ *
+ * Class responsible for the animation of the player
  */
 public class Animator {
 
+    // Frame rate loop counter
     private int counter = 0;
 
-    public void moveRight(Player player) {
+    public void animationMoveRight(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
@@ -29,7 +32,7 @@ public class Animator {
         }
     }
 
-    public void moveLeft(Player player) {
+    public void animationMoveLeft(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
@@ -49,7 +52,7 @@ public class Animator {
         }
     }
 
-    public void moveUp(Player player) {
+    public void animationMoveUp(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
@@ -69,7 +72,7 @@ public class Animator {
         }
     }
 
-    public void moveDown(Player player) {
+    public void animationMoveDown(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
@@ -89,7 +92,7 @@ public class Animator {
         }
     }
 
-    public void moveUpRight(Player player) {
+    public void animationMoveUpRight(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
@@ -109,7 +112,7 @@ public class Animator {
         }
     }
 
-    public void moveUpLeft(Player player) {
+    public void animationMoveUpLeft(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
@@ -129,7 +132,7 @@ public class Animator {
         }
     }
 
-    public void moveDownLeft(Player player) {
+    public void animationMoveDownLeft(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
@@ -150,7 +153,7 @@ public class Animator {
 
     }
 
-    public void moveDownRight(Player player) {
+    public void animationMoveDownRight(Player player) {
         counter++;
         if (counter >= 0 && counter < 5) {
             player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");

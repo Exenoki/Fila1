@@ -5,6 +5,9 @@ import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.representation.Representable;
 
 /**
+ * Sets general attributes and behaviors for all "human" objects in the game
+ *
+ *
  * Created by codecadet on 01/06/16.
  */
 public abstract class Person extends GameObject {
@@ -20,9 +23,9 @@ public abstract class Person extends GameObject {
         return health;
     }
 
-    public void giveDamage(int damage) {
+    public void takeDamage(int damage) {
         health -= damage;
-    }
+    } //
 
     public boolean isDead() {
         return health <= 0;

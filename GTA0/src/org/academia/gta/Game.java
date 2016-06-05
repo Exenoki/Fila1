@@ -195,6 +195,8 @@ public class Game {
             }
         }
 
+        Thread.sleep(3000);
+
         // Game-over
         Picture gameOver = new Picture(0,0,"resources/game_sprites/gameover.png");
         gameOver.draw();

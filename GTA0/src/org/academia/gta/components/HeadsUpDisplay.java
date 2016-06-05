@@ -21,30 +21,40 @@ public class HeadsUpDisplay  {
     private boolean isLoaded=false;
 
     /**
-     * Text
+     * Information of the ammo available in the HUD
      */
     private void playerAmmo(){
-        Text ammo = new Text(760, 30, "");
+        Text ammo = new Text(755, 25, "");
         ammo.setColor(Color.YELLOW);
         ammo.grow(ammo.getWidth()/3,ammo.getHeight()/3);
         ammo.draw();
         hudAmmo = ammo;
     }
 
+    /**
+     * Information of the bullets available in the HUD
+     */
     private void playerBullets(){
-        Text bullets = new Text(860, 30, "");
+        Text bullets = new Text(858, 25, "");
         bullets.setColor(Color.YELLOW);
         bullets.grow(bullets.getWidth()/3,bullets.getHeight()/3);
         bullets.draw();
         hudBullets = bullets;
     }
 
+    /**
+     * Draw the HUD with the health, ammo and bullets information
+     *
+     * @param health Health of the player
+     */
     public void hud(int health){
 
         if(!isLoaded) {
             hud.draw();
 
             this.hudHealthValue = health;
+
+            // Creates a rectangle to reproduce the health of the player
             healthBar = new Rectangle(hud.getX() + 11, hud.getY() + 10 , Math.round(hudHealthValue / 1.86), 27);
             healthBar.setColor(Color.GREEN);
 
@@ -54,6 +64,7 @@ public class HeadsUpDisplay  {
             playerBullets();
         }
 
+        // Every time the health is reduced the healthBar redraw with the new values
         if(hudHealthValue != health && isLoaded) {
             hudHealthValue = health;
             healthBar.delete();
@@ -68,7 +79,6 @@ public class HeadsUpDisplay  {
 
         isLoaded = true;
     }
-
 
     public Text getHudAmmo() {
         return hudAmmo;

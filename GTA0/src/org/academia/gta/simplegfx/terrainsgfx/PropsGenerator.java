@@ -10,23 +10,37 @@ import java.util.LinkedList;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 30/05/16.
+ * This class is responsible for producing and placing the props (scenario objects).
  */
 public class PropsGenerator {
 
-    private boolean isLoaded = false;
+    private boolean isLoaded = false; //Checks if the objects are loaded and
     private Terrain terrain;
 
     ImmovableGameObject[] treeArray;
     ImmovableGameObject[] ammoArray;
 
+    /**
+     * Generates a random X position
+     * @return
+     */
     private int randomXPos(){
         return (int)Math.round(Math.random()* terrain.getWidth()) ;
     }
 
+    /**
+     * Generates a random Y position
+     * @return
+     */
     private int randomYPos(){
         return (int)Math.round(Math.random()* terrain.getHeight()) ;
     }
 
+    /**
+     * This method is responsible for generating and inserting the trees in an array, with random positions.
+     * @param terrain The place (Terrain = Grid) where the trees will be placed.
+     * @param qt The quantity of trees that will be created
+     */
     public void treeGenerator(Terrain terrain, int qt){
         this.terrain = terrain;
         treeArray = new ImmovableGameObject[qt];
@@ -50,6 +64,11 @@ public class PropsGenerator {
         }
     }
 
+    /**
+     * This method is responsible for generating and inserting the Ammo boxes in an array, with random positions.
+     * @param terrain The place (Terrain = Grid) where the trees will be placed.
+     * @param qt The quantity of Ammo that will be created
+     */
     public void ammoGenerator(Terrain terrain, int qt){
         this.terrain = terrain;
         ammoArray = new ImmovableGameObject[qt];
@@ -75,6 +94,11 @@ public class PropsGenerator {
         }
     }
 
+    /**
+     * This method adds each ammo box from the array to a linked list
+     * @param objectsList The linked list where the ammo boxes will be added
+     * @return Returns the final linked list with objects.
+     */
     public LinkedList getAmmoArray(LinkedList<GameObject> objectsList) {
 
         for (ImmovableGameObject igo : ammoArray) {
@@ -84,6 +108,9 @@ public class PropsGenerator {
         return objectsList;
     }
 
+    /**
+     * Draws the trees and ammos to the Terrain (Field or Grid)
+     */
     public void reDraw() {
         if(!isLoaded) {
             for (ImmovableGameObject tree : treeArray) {

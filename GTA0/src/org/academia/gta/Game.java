@@ -22,18 +22,17 @@ import java.util.LinkedList;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 29/05/16.
+ * Class responsible for generating the Terrain, insert the Immovable Objects and Props, the boat, the bridge, the Enemies and the Player.
  */
 public class Game {
 
-    /**
-     * Graphical Car field
-     */
+
     private Terrain terrain;
     private PropsGenerator propsGenerator;
     private MouseControl mouse;
 
     /**
-     * Animation delay
+     * Game delay
      */
     private int delay;
 
@@ -43,6 +42,12 @@ public class Game {
     private SoundFx startMusic = new SoundFx();
     private boolean initGame = false;
 
+    /**
+     * Game constructor
+     * @param width Sets the width of the Terrain.
+     * @param height Sets the height of the Terrain.
+     * @param delay Sets the delay for the game.
+     */
     Game(int width, int height, int delay) {
 
         terrain = new SimpleGfxTerrain();
@@ -53,11 +58,19 @@ public class Game {
 
     }
 
-    LinkedList<Bullet> bulletsInstantiated = new LinkedList<>();
-    LinkedList gameObjectInstantiated = new LinkedList<>();
-    LinkedList<Enemy> enemiesInstantiated = new LinkedList<>();
-    LinkedList<ImmovableGameObject> staticGOCollision = new LinkedList<>();
 
+    LinkedList<Bullet> bulletsInstantiated = new LinkedList<>(); //Bullets linked list
+    LinkedList gameObjectInstantiated = new LinkedList<>(); //Game Objects linked list
+    LinkedList<Enemy> enemiesInstantiated = new LinkedList<>(); //Enemies linked list
+    LinkedList<ImmovableGameObject> staticGOCollision = new LinkedList<>(); //Immovable objects linked list
+
+    /**
+     * This method starts the game cycle!
+     * Its responsible for the START screen with its start button and background object.
+     * Checks for the Mouse Click to start the game (init(); method).
+     * Initiates the background music.
+     * @throws InterruptedException Throws error in case the music file doesn't playback or fails.
+     */
     public void start() throws InterruptedException {
         Picture background = new Picture(0, 0, "resources/background_gta_rambo_start2.jpg");
         Picture logo = new Picture(225, 100, "resources/gta_rambo_logo.png");
@@ -93,8 +106,12 @@ public class Game {
 
     }
 
+
     /**
-     * Creates a bunch of cars and randomly puts them in the field
+     * This method initiates all the logic for the collisions and move for the player, enemies and colliosion objects.
+     * @param tree The number of trees that will be created
+     * @param amo The number of ammo boxes that will be created
+     * @throws InterruptedException Throws erro in case the music file doesn't playback or fails.
      */
     public void init(int tree, int amo) throws InterruptedException {
 
@@ -122,6 +139,7 @@ public class Game {
             ImmovableGameObject bunker2 = new ImmovableGameObject(new ImmovableGOSGFX(bunker.getX(), bunker.getY() + bunker.getHeight() - 10, GameObjectType.BUNKER), GameObjectType.BUNKER);
             ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
 
+            //Add field props.
             staticGOCollision.add(bardedwire);
             staticGOCollision.add(bardedwire1);
             staticGOCollision.add(bardedwire2);
@@ -139,9 +157,11 @@ public class Game {
             enemiesInstantiated.add(new Enemy(new EnemySGFX(150, 250, Direction.DOWN, EnemyType.SOLDIER), Direction.DOWN, EnemyType.SOLDIER));
             enemiesInstantiated.add(new Enemy(new EnemySGFX(370, 350, Direction.DOWN, EnemyType.CAPTAIN), Direction.DOWN, EnemyType.CAPTAIN));
 
+            //Checks for collision
             CollisionChecker collisionChecker = new CollisionChecker(terrain, staticGOCollision);
             player = (Player) gameObjectFactory.createObject(100, 500, GameObjectType.PLAYER, collisionChecker);
 
+            //Game cycle
             while (true) {
                 Thread.sleep(delay);
                 player.reload();
@@ -155,6 +175,7 @@ public class Game {
                 moveBullets();
                 player.move();
 
+                //Checks for collision
                 collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated, staticGOCollision);
                 collisionChecker.scenarioCollisions(player, gameObjectInstantiated);
 
@@ -164,6 +185,7 @@ public class Game {
 
                 propsGenerator.reDraw();
 
+                //Sets the dead picture to the player
                 if (player.isDead()) {
                     initGame = false;
                     player.getRepresentation().load("resources/player_sprites/rambo_dead.png");
@@ -173,12 +195,17 @@ public class Game {
             }
         }
 
+        // Game-over
         Picture gameOver = new Picture(0,0,"resources/game_sprites/gameover.png");
         gameOver.draw();
         startMusic.playSound("resources/soundfx/stalloneyells.wav");
 
     }
 
+    /**
+     * Method for the enemy to shoot the player
+     * @param bulletsInstantiate Adds a new bullet to its correspondent linked list.
+     */
     public void enemyShootRound(LinkedList<Bullet> bulletsInstantiate) {
         Iterator enemyInterator = enemiesInstantiated.iterator();
 
@@ -190,6 +217,9 @@ public class Game {
         }
     }
 
+    /**
+     * Move the bullets
+     */
     public void moveBullets() {
         Iterator it = bulletsInstantiated.iterator();
 

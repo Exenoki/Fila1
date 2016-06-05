@@ -5,6 +5,7 @@ import org.academia.gta.gameobject.GameObject;
 import org.academia.gta.gameobject.GameObjectType;
 import org.academia.gta.gameobject.ImmovableGameObject;
 import org.academia.gta.gameobject.people.Enemy;
+import org.academia.gta.gameobject.people.EnemyType;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.terrainsgfx.Terrain;
 import org.academia.gta.simplegfx.gameobjectsgfx.ImmovableGOSGFX;
@@ -157,7 +158,11 @@ public class CollisionChecker {
                         bulletsIterator.remove();
 
                         if (enemy.isDead()) {
-                            enemy.getRepresentation().load("resources/enemy_sprites/captain_dead.png");
+                            if(enemy.getType()== EnemyType.CAPTAIN) {
+                                enemy.getRepresentation().load("resources/enemy_sprites/captain_dead.png");
+                            } else if (enemy.getType()== EnemyType.SOLDIER) {
+                                enemy.getRepresentation().load("resources/enemy_sprites/soldier_dead.png");
+                            }
                             enemyIterator.remove();
                         }
 

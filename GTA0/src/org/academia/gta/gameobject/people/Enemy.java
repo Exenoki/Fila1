@@ -16,9 +16,11 @@ public class Enemy extends Person {
     private boolean condition;
     private long betweenShoot = System.currentTimeMillis();
     private long instant;
+    private EnemyType type;
 
     public Enemy(Representable representation, Direction dir, EnemyType type) {
         super(representation);
+        this.type = type;
         this.dir = dir;//TODO criar classe que extende timertask e meter ali no schedule
     }
 
@@ -73,6 +75,10 @@ public class Enemy extends Person {
 
         return null;
 
+    }
+
+    public EnemyType getType(){
+        return type;
     }
 
 }

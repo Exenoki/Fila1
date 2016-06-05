@@ -7,15 +7,24 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 28/05/16.
+ * This class is responsible for assigning an picture to the Enemy and move it.
  */
 public class EnemySGFX extends SGFXRepresentation {
 
+    /**
+     * Enemy constructor, defines the type of enemy and cardinal diretion.
+     * @param x The X position of the Enemy when instantiated.
+     * @param y The Y position of the Enemy when instantiated.
+     * @param dir The direction of the enemy (UP, DOWN, LEFT or RIGHT) that will define where the enemy is facing.
+     * @param type The type of Enemy (CAPTAIN or SOLDIER) that will define the proper image to use in each case.
+     */
     public EnemySGFX(int x, int y, Direction dir, EnemyType type) {
-        super(new Picture(x, y, "resources/enemy_sprites/captain_u.png"));
+        super(new Picture(x, y, "resources/enemy_sprites/captain_u.png")); //Temporary image for the Enemy representation.
 
         this.delete();
 
         switch (type) {
+
             case CAPTAIN:
                 switch (dir) {
                     case UP:

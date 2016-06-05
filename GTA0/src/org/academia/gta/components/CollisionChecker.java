@@ -116,7 +116,7 @@ public class CollisionChecker {
             // Collision between player and bullet
             if(Math.sqrt(Math.abs(bulletCenterX - playerCenterX) * Math.abs(bulletCenterX - playerCenterX) +
                     Math.abs(bulletCenterY - playerCenterY) * Math.abs(bulletCenterY - playerCenterY)) < 15 + 1) {
-                player.giveDamage(10);
+                player.takeDamage(10);
                 bullet.getRepresentation().delete();
                 bulletsIterator.remove();
 
@@ -153,7 +153,7 @@ public class CollisionChecker {
 
                     if (Math.sqrt(Math.abs(bulletCenterX - enemyCenterX) * Math.abs(bulletCenterX - enemyCenterX) +
                             Math.abs(bulletCenterY - enemyCenterY) * Math.abs(bulletCenterY - enemyCenterY)) < 15 + 1) {
-                        enemy.giveDamage(10);
+                        enemy.takeDamage(10);
                         bullet.getRepresentation().delete();
                         bulletsIterator.remove();
 
@@ -204,7 +204,7 @@ public class CollisionChecker {
                         (playerCenterY + dy>= go.getY() && playerCenterY + dy <= go.getY() + go.getHeight())) {
 
                     if (go.getGot() == GameObjectType.BARBEDWIRE) {
-                        ((Player) gameObject).giveDamage(1);
+                        ((Player) gameObject).takeDamage(1);
                     }
 
                     if (go.getGot() == GameObjectType.BRIDGE) {

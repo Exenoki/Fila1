@@ -10,11 +10,11 @@ import org.academia.gta.representation.Representable;
 import org.academia.gta.simplegfx.gameobjectsgfx.BulletSGFX;
 
 /**
+ *
  * Created by codecadet on 01/06/16.
  */
 public class Player extends Person {
 
-    private int counter = 0;
     private boolean isDriving;
     private Animator playerAnimation;
     public static final int MAX_NUM_BULLETS = 12;
@@ -35,6 +35,14 @@ public class Player extends Person {
 
     }
 
+    /**
+     * Player's Move Method:
+     *
+     * Checks if player is inbound and not driving so he can move a certain amount in the vertical and horizontal directions.
+     * Checks player's direction and sets a moving motion based on it.
+     *
+     *
+     */
     public void move() {
         setCurrentDirection();
 
@@ -73,6 +81,11 @@ public class Player extends Person {
             ((MovableRepresentable)getRepresentation()).move(dx, dy);
     }
 
+    /**
+     * If the player is driving, his representation is not updated
+     *
+     * @param driving
+     */
     public void setDriving(boolean driving) {
         isDriving = driving;
     }
@@ -81,6 +94,15 @@ public class Player extends Person {
         currentDirection = playerControls.getCurrentDirection();
     }
 
+    /**
+     * Player's shoot method:
+     *
+     * Checks if player has a weapon, bullets and if the mouse was clicked.
+     * If so, depending on the direction the player is facing, he will be able to shoot 180 degrees to his front.
+     *
+     *
+     * @return
+     */
     public Bullet shoot() {
 
         if(playerControls.isShooted()  && hasWeapon) {
@@ -133,6 +155,13 @@ public class Player extends Person {
         return null;
     }
 
+    /**
+     * Reload Method:
+     *
+     * Checks if player has weapon, usable ammo and if the reload command was executed.
+     * If so, replenishes all the bullets and discounts one ammo slot.
+     *
+     */
     public void reload() {
         if(hasWeapon && totalAmmo > 0 && playerControls.isReload()) {
             numBullets = MAX_NUM_BULLETS;

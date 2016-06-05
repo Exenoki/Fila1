@@ -5,7 +5,6 @@ package org.academia.gta.gameobject;
  */
 public enum GameObjectType {
     BARBEDWIRE("resources/game_sprites/barbedwire_d.png"),
-    TOWER(""),
     BUNKER("resources/game_sprites/bunker_l.png"),
     TREE("resources/game_sprites/tree.png"),
     WALL(""),

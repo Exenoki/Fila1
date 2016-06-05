@@ -43,10 +43,6 @@ public class SGFXRepresentationFactory implements RepresentableFactory {
                 representable = new ImmovableGOSGFX(x, y, GameObjectType.TREE);
                 break;
 
-            case TOWER:
-                representable = new ImmovableGOSGFX(x, y, GameObjectType.TOWER);
-                break;
-
             case WALL:
                 representable = new ImmovableGOSGFX(x, y, GameObjectType.WALL);
                 break;

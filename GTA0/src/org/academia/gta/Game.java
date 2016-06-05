@@ -72,23 +72,14 @@ public class Game {
                 mouseOver.draw();
                 if (mouse.getMouseXclicked() > 370 && mouse.getMouseXclicked() < 570 &&
                         mouse.getMouseYclicked() > 400 && mouse.getMouseYclicked() < 480) {
-                    //playerControls.setShooted(false);
                     initGame = true;
-                    init(7, 3);
+                    init(13, 7);
                     break;
                 }
             } else {
                 mouseOver.delete();
                 start.draw();
             }
-
-//        if(playerControls.getMouseX() > 200 && playerControls.getMouseX() < 300 && playerControls.getMouseY() > 200 && playerControls.getMouseY() < 300) {
-//            start.delete();
-//            mouseOver.draw();
-//        } else {
-//            mouseOver.delete();
-//            start.draw();
-//        }
         }
 
 
@@ -116,19 +107,33 @@ public class Game {
             ImmovableGOSGFX boat = new ImmovableGOSGFX(600, 120, GameObjectType.BOAT);
             gameObjectInstantiated.add(boat);
 
-            ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(500, 500, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
-            ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(300, 500, GameObjectType.BUNKER), GameObjectType.BUNKER);
+            ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(100, 400, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
+            ImmovableGameObject bardedwire1 = new ImmovableGameObject(new ImmovableGOSGFX(200, 300, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
+            ImmovableGameObject bardedwire2 = new ImmovableGameObject(new ImmovableGOSGFX(bardedwire1.getX() + bardedwire1.getWidth(), 300, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
+            ImmovableGameObject bardedwire3 = new ImmovableGameObject(new ImmovableGOSGFX(300, 400, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
+            ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(580, 320, GameObjectType.BUNKER), GameObjectType.BUNKER);
+            ImmovableGameObject bunker2 = new ImmovableGameObject(new ImmovableGOSGFX(bunker.getX(), bunker.getY() + bunker.getHeight() - 10, GameObjectType.BUNKER), GameObjectType.BUNKER);
             ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
 
             staticGOCollision.add(bardedwire);
+            staticGOCollision.add(bardedwire1);
+            staticGOCollision.add(bardedwire2);
+            staticGOCollision.add(bardedwire3);
             staticGOCollision.add(bunker);
+            staticGOCollision.add(bunker2);
             staticGOCollision.add(bridge);
 
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP));
-            enemiesInstantiated.add(new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN));
+            // Add enemies in the game
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(650, 350, Direction.RIGHT), Direction.RIGHT));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(650, 400, Direction.RIGHT), Direction.RIGHT));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(900, 50, Direction.DOWN), Direction.DOWN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(550, 120, Direction.LEFT), Direction.LEFT));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(250, 50, Direction.DOWN), Direction.DOWN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(150, 250, Direction.DOWN), Direction.DOWN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(370, 350, Direction.DOWN), Direction.DOWN));
 
             CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
-            player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
+            player = (Player) gameObjectFactory.createObject(100, 500, GameObjectType.PLAYER, collisionChecker);
 
             while (true) {
                 Thread.sleep(25);
@@ -174,7 +179,7 @@ public class Game {
             Bullet bullet = ((Enemy) enemyInterator.next()).shoot(player);
 
             if(bullet != null)
-                bulletsInstantiated.add(bullet);
+                bulletsInstantiate.add(bullet);
         }
     }
 

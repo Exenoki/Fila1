@@ -45,10 +45,6 @@ public class GameObjectFactory {
                 gameObject = new Bullet((MovableRepresentable) factory.createRepresentation(x, y, got));
                 break;
 
-            case TOWER:
-                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
-                break;
-
             case TREE:
                 gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;

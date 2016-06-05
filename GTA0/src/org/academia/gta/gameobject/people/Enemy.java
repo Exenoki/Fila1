@@ -19,9 +19,22 @@ public class Enemy extends Person {
 
     public Enemy(Representable representation, Direction dir, EnemyType type) {
         super(representation);
-        this.dir = dir;//TODO criar classe que extende timertask e meter ali no schedule
+        this.dir = dir;
     }
 
+    /**
+     * Enemy's shoot method:
+     *
+     * Depending on the enemy's direction, his shooting direction and behavior will also change.
+     * Each condition creates a frontal cone of vision, which depends on the direction the enemy is turned to.
+     *
+     * There is also a secondary condition which compares the system current time in milliseconds with a second value
+     * that increases each time the condition is allowed. This behavior causes a precise delay to the enemy's shot.
+     *
+     *
+     * @param player
+     * @return
+     */
     public Bullet shoot(Player player) {
 
         bullet = null;

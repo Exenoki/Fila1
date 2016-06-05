@@ -19,7 +19,7 @@ public class CollisionChecker {
 
     private Grid grid;
     private LinkedList<ImmovableGameObject> staticGOCollision;
-    private boolean isInverted;
+    private boolean isInverted = false;
 
     public CollisionChecker(Grid grid, LinkedList<ImmovableGameObject> staticGOCollision) {
         this.grid = grid;
@@ -57,18 +57,21 @@ public class CollisionChecker {
                         (playerCenterY >= go.getY() && playerCenterY <= go.getY() + go.getHeight())) {
 
                     if(player.entry()) {
+                        isInverted = !isInverted;
                         player.getRepresentation().translate(go.getX() - player.getX(), go.getY() - player.getY());
                         player.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
-                        player.setDriving(!isInverted);
-                        isInverted = !isInverted;
+                        player.setDriving(isInverted);
                     }
+
+                    if (isInverted) {
+                        go.translate(player.getX() - go.getX(), player.getY() - go.getY());
+                    }
+
                 }
-
-                if (isInverted)
-                    go.translate(player.getX() - go.getX(), player.getY() - go.getY());
-
             }
         }
+
+        player.resetEntry();
     }
 
     public void bulletsCollision(Player player, LinkedList<Bullet> bullets, LinkedList<Enemy> enemies) {
@@ -161,12 +164,13 @@ public class CollisionChecker {
             }
 
             // Water collision
-            if(playerCenterX + dx >= 615 && playerCenterX + dx <= 820 && !isInverted) {
+            if(playerCenterX + dx >= 620 && playerCenterX + dx <= 820 && !isInverted) {
                 return false;
             }
 
-            if (isInverted)
+            if (isInverted) {
                 return !(playerCenterX + dx < 610 || playerCenterX + dx > 825);
+            }
         }
 
         return goX + dx >= 0 && goXWidth + dx <= grid.getWidth()

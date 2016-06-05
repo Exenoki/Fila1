@@ -16,7 +16,7 @@ public abstract class Person extends GameObject {
 
     public Person(Representable representation) {
         super(representation, GameObjectType.PLAYER);
-        setRadius(10); // TODO remove hard coding radius person
+        setRadius(10);
     }
 
     public int getHealth() {
@@ -25,7 +25,7 @@ public abstract class Person extends GameObject {
 
     public void takeDamage(int damage) {
         health -= damage;
-    } //
+    }
 
     public boolean isDead() {
         return health <= 0;

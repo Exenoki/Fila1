@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="JarBuild" basedir="." default="jarfile">
+    <target name="init" description="init properties">
+        <property name="project.name" value="GTA0" />
+        <property name="src.dir" value="src" />
+        <property name="build.dir" value="build" />
+        <property name="classes.dir" value="${build.dir}/classes/" />
+        <property name="etc.dir" value="etc" />
+        <property name="manifest.dir" value="MANIFEST.MF" />
+    </target>
+
+    <target name="prepare" description="creates build folder and classes" depends="clean">
+        <mkdir dir="${classes.dir}" />
+    </target>
+
+    <target name="compile" description="compile code" depends="prepare">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" />
+    </target>
+
+    <target name="jarfile" description="Archives the code" depends="compile">
+        <jar destfile="${build.dir}/${project.name}.jar" basedir="${classes.dir}" manifest="${manifest.dir}" />
+    </target>
+
+    <target name="clean" description="Clean everything" depends="init" >
+        <delete dir="${build.dir}" />
+    </target>
+</project>

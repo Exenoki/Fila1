@@ -86,6 +86,9 @@ public class CollisionChecker {
         while (bulletsIterator.hasNext()) {
             Bullet bullet = bulletsIterator.next();
 
+            enemyIterator = enemies.iterator();
+            staticGOIterator = staticGOCollision.iterator();
+
             boolean bulletHit = false;
 
             int bulletCenterX = bullet.getX() + Math.round(bullet.getWidth() / 2);
@@ -97,6 +100,7 @@ public class CollisionChecker {
                 player.giveDamage(10);
                 bullet.getRepresentation().delete();
                 bulletsIterator.remove();
+
                 bulletHit = true;
             }
 
@@ -111,11 +115,10 @@ public class CollisionChecker {
 
                             bullet.getRepresentation().delete();
                             bulletsIterator.remove();
+                            bulletHit = true;
 
                             break;
                         }
-
-                        bulletHit = true;
                     }
                 }
             }

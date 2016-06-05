@@ -21,7 +21,7 @@ public class HeadsUpDisplay  {
     private boolean isLoaded=false;
 
     /**
-     * Text 
+     * Text
      */
     private void playerAmmo(){
         Text ammo = new Text(760, 30, "");

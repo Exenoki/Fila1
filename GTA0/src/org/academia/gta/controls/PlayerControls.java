@@ -11,6 +11,8 @@ import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
 /**
  * Created by codecadet on 31/05/16.
+ *
+ * Controls for the player in the game
  */
 public class PlayerControls implements KeyboardHandler, MouseHandler {
 
@@ -19,6 +21,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
      * index 1 -> Right
      * index 2 -> Down
      * index 3 -> Left
+     * index 4 -> Reload
      */
     private boolean[] keyPressed = new boolean[5];
 
@@ -32,25 +35,20 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     private int mouseX;
     private int mouseY;
 
-    /** Spedd of the player movement */
+    /** Speed of the player movement */
     private final int SPEED = 2;
 
     private int dx;
     private int dy;
 
     private boolean toReload;
-    private boolean isEntry;
+    private boolean isEntry; // When the player click the space button to enter the boat
 
-    private boolean shooted = false;
+    private boolean shooted = false; // Shoot trigger event
 
-    public int getDx() {
-        return dx;
-    }
-
-    public int getDy() {
-        return dy;
-    }
-
+    /**
+     * Construct a control player and initialize the event listeners
+     */
     public PlayerControls() {
         // Create and define the keyboard configuration
         keyboard = new Keyboard(this);
@@ -128,7 +126,7 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     }
 
     /**
-     * Give movement to the object
+     * Give movement to the game object
      */
     public void move() {
         if(keyPressed[0])
@@ -144,6 +142,9 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
             dx = -SPEED;
     }
 
+    /**
+     * Reload the weapon
+     */
     public void reload() {
         if(keyPressed[4]){
             toReload = true;
@@ -151,18 +152,24 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         }
     }
 
+    /**
+     * Getter
+     * @return If the player pressed space to enter the boat
+     */
     public boolean isEntry() {
         return isEntry;
     }
 
+    /**
+     * Reset the isEntry variable
+     */
     public void entred() {
         isEntry = false;
     }
 
     @Override
     /**
-     * Give a movement to the player when a key or keys are pressed
-     * by changing a delta x and y values
+     * Give movement to the player and check if is to reload the weapon
      */
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
@@ -183,6 +190,8 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
 
         // If a key is pressed call the move method
         move();
+
+        // Check if the player pressed the reload button
         reload();
 
     }
@@ -234,6 +243,14 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         return mouseY;
     }
 
+    public int getDx() {
+        return dx;
+    }
+
+    public int getDy() {
+        return dy;
+    }
+
     public boolean isShooted() {
         return shooted;
     }
@@ -243,9 +260,6 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
     }
 
     @Override
-    /**
-     * When the mouse is clicked, send the x and y position to mouseClickedEvent
-     */
     public void mouseClicked(MouseEvent mouseEvent) {
 
         mouseX = (int) mouseEvent.getX();

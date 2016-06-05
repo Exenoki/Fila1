@@ -6,28 +6,22 @@ package org.academia.gta.simplegfx.terrainsgfx;
 public interface Terrain {
 
     /**
-     * Initializes the grid
+     * Initializes the Terrain
      */
     public void init(int width, int height);
 
     /**
-     * Gets the number of columns in the grid
+     * Gets the width of the terrain
      *
-     * @return the number of columns
+     * @return the width of the terrain
      */
     public int getWidth();
 
     /**
-     * Gets the number of rows in the grid
+     * Gets the height of the terrain
      *
-     * @return the number of rows
+     * @return the height of the terrain
      */
     public int getHeight();
-
-    /**
-     * Create a random grid position
-     *
-     * @return the new grid position
-     */
 
 }

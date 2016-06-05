@@ -4,6 +4,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 
 /**
  * Created by codecadet on 29/05/16.
+ *
+ * Key map for the game
  */
 public enum GameKeys {
     UP,

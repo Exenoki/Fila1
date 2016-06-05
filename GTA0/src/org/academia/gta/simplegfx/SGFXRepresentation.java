@@ -1,7 +1,6 @@
 package org.academia.gta.simplegfx;
 
 import org.academia.gta.representation.Representable;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -11,8 +10,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public abstract class SGFXRepresentation implements Representable {
 
     public Picture shape;
-    private int x;
-    private int y;
 
     public SGFXRepresentation(Picture shape) {
         this.shape = shape;
@@ -63,7 +60,8 @@ public abstract class SGFXRepresentation implements Representable {
         shape.draw();
     }
 
-   public void load (String s){
+    @Override
+    public void load (String s){
        shape.load(s);
    }
 

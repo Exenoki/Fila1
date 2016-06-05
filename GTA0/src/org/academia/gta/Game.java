@@ -73,12 +73,12 @@ public class Game {
 
         while (true) {
 
-            if (mouse.getMouseXmove() > 370 && mouse.getMouseXmove() < 570 &&
-                    mouse.getMouseYmove() > 400 && mouse.getMouseYmove() < 480) {
+            if (mouse.getMouseXMove() > 370 && mouse.getMouseXMove() < 570 &&
+                    mouse.getMouseYMove() > 400 && mouse.getMouseYMove() < 480) {
                 start.delete();
                 mouseOver.draw();
-                if (mouse.getMouseXclicked() > 370 && mouse.getMouseXclicked() < 570 &&
-                        mouse.getMouseYclicked() > 400 && mouse.getMouseYclicked() < 480) {
+                if (mouse.getMouseXClicked() > 370 && mouse.getMouseXClicked() < 570 &&
+                        mouse.getMouseYClicked() > 400 && mouse.getMouseYClicked() < 480) {
                     initGame = true;
                     init(13, 7);
                     break;

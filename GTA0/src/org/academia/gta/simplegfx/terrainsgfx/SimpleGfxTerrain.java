@@ -8,15 +8,18 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxTerrain implements Terrain {
 
+    private static final int CELL_SIZE = 50; //Cell size in pixels
+
     private int width;
     private int height;
     private int x;
     private int y;
     private Picture[][] ground;
 
-    private static final int CELL_SIZE = 50; //Cell size in pixels
-
     @Override
+    /**
+     * Create the river in the terrain
+     */
     public void init(int width, int height) {
         this.width = width;
         this.height = height;

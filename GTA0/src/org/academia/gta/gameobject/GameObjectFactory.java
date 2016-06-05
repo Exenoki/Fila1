@@ -30,10 +30,6 @@ public class GameObjectFactory {
                 gameObject = new Player((MovableRepresentable) factory.createRepresentation(x, y, got), collisionChecker);
                 break;
 
-            case ENEMY:
-                gameObject = new Enemy((Representable) factory.createRepresentation(x, y, got), Direction.DOWN, EnemyType.CAPTAIN);
-                break;
-
             case AMMO:
                 gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
@@ -49,14 +45,6 @@ public class GameObjectFactory {
             case TREE:
                 gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
                 break;
-
-            case WALL:
-                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
-                break;
-
-            case WEAPON:
-                gameObject = new ImmovableGameObject((Representable) factory.createRepresentation(x, y, got), got);
-
 
         }
 

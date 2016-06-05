@@ -7,16 +7,21 @@ import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
 /**
  * Created by codecadet on 03/06/16.
+ *
+ * Mouse controls for the game menu
  */
 public class MouseControl implements MouseHandler{
 
-    private int mouseXclicked;
-    private int mouseYclicked;
-    private int mouseXmove;
-    private int mouseYmove;
+    private int mouseXClicked;
+    private int mouseYClicked;
+    private int mouseXMove;
+    private int mouseYMove;
 
     private Mouse mouse;
 
+    /**
+     * Construct the mouse and gives the moved and clicked event
+     */
     public MouseControl() {
         mouse = new Mouse(this);
 
@@ -25,36 +30,53 @@ public class MouseControl implements MouseHandler{
 
     }
 
-    public int getMouseXclicked() {
-        return mouseXclicked;
+    /**
+     * Getter
+     *
+     * @return X position of the click
+     */
+    public int getMouseXClicked() {
+        return mouseXClicked;
     }
 
-    public int getMouseYclicked() {
-        return mouseYclicked;
+    /**
+     * Getter
+     *
+     * @return Y position of the click
+     */
+    public int getMouseYClicked() {
+        return mouseYClicked;
     }
 
-    public int getMouseXmove() {
-        return mouseXmove;
+    /**
+     * Getter
+     *
+     * @return X position of the mouse when moving
+     */
+    public int getMouseXMove() {
+        return mouseXMove;
     }
 
-    public int getMouseYmove() {
-        return mouseYmove;
+    /**
+     * Getter
+     *
+     * @return Y position of the mouse when moving
+     */
+    public int getMouseYMove() {
+        return mouseYMove;
     }
 
     @Override
-    /**
-     * When the mouse is clicked, send the x and y position to mouseClickedEvent
-     */
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        mouseXclicked = (int) mouseEvent.getX();
-        mouseYclicked = (int) mouseEvent.getY() - 25;
+        mouseXClicked = (int) mouseEvent.getX();
+        mouseYClicked = (int) mouseEvent.getY() - 25;
 
     }
 
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
-        mouseXmove = (int) mouseEvent.getX();
-        mouseYmove = (int) mouseEvent.getY() - 25;
+        mouseXMove = (int) mouseEvent.getX();
+        mouseYMove = (int) mouseEvent.getY() - 25;
     }
 }

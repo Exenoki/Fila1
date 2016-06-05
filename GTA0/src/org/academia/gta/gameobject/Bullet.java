@@ -56,14 +56,7 @@ public class Bullet extends GameObject implements Destructable {
         x = (int) Math.floor((1 - d / dt) * x0 + d / dt * xf);
         y = (int) Math.floor((1 - d / dt) * y0 + d / dt * yf);
 
-        //if(collisionChecker.isBetweenEdges(this, x, y)) {
-            ((MovableRepresentable) getRepresentation()).move(x, y);
-            //return true;
-        //}
-
-
-        //return false;
-
+        ((MovableRepresentable) getRepresentation()).move(x, y);
     }
 
     @Override

@@ -144,7 +144,7 @@ public class Game {
                 moveBullets();
                 player.move();
 
-                collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated);
+                collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated, staticGOCollision);
                 collisionChecker.scenarioCollisions(player, gameObjectInstantiated);
 
                 myHud.hud(player.getHealth());
@@ -165,7 +165,6 @@ public class Game {
         Picture gameOver = new Picture(0,0,"resources/game_sprites/gameover.png");
         gameOver.draw();
         startMusic.playSound("resources/soundfx/stalloneyells.wav");
-        System.out.println("Game over");
 
     }
 

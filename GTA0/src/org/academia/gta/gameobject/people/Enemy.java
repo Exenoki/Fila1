@@ -64,7 +64,6 @@ public class Enemy extends Person {
 
 
                 bullet = new Bullet(new BulletSGFX(positionOffsetX, positionOffsetY));
-
                 bullet.shooted(positionOffsetX, positionOffsetY, player.getX() + player.getWidth() / 2, player.getY() + player.getHeight() / 2);
 
                 betweenShoot = System.currentTimeMillis() + 250;

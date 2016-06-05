@@ -74,18 +74,19 @@ public class CollisionChecker {
         player.resetEntry();
     }
 
-    public void bulletsCollision(Player player, LinkedList<Bullet> bullets, LinkedList<Enemy> enemies) {
+    public void bulletsCollision(Player player, LinkedList<Bullet> bullets, LinkedList<Enemy> enemies, LinkedList<ImmovableGameObject> staticGOCollision) {
 
         Iterator<Bullet> bulletsIterator = bullets.iterator();
         Iterator<Enemy> enemyIterator = enemies.iterator();
+        Iterator<ImmovableGameObject> staticGOIterator = staticGOCollision.iterator();
 
         int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
         int playerCenterY = player.getY() + Math.round(player.getHeight() / 2);
- 
+
         while (bulletsIterator.hasNext()) {
             Bullet bullet = bulletsIterator.next();
 
-            boolean playerHit = false;
+            boolean bulletHit = false;
 
             int bulletCenterX = bullet.getX() + Math.round(bullet.getWidth() / 2);
             int bulletCenterY = bullet.getY() + Math.round(bullet.getHeight() / 2);
@@ -96,11 +97,30 @@ public class CollisionChecker {
                 player.giveDamage(10);
                 bullet.getRepresentation().delete();
                 bulletsIterator.remove();
-                playerHit = true;
+                bulletHit = true;
             }
 
-            if(!playerHit) {
+            if (!bulletHit) {
+                while (staticGOIterator.hasNext()) {
+                    ImmovableGameObject immovableGameObject = staticGOIterator.next();
 
+                    if (immovableGameObject.getGot() == GameObjectType.BUNKER) {
+
+                        if ((bulletCenterX >= immovableGameObject.getX() && bulletCenterX <= immovableGameObject.getX() + immovableGameObject.getWidth()) &&
+                                (bulletCenterY >= immovableGameObject.getY() && bulletCenterY <= immovableGameObject.getY() + immovableGameObject.getHeight())) {
+
+                            bullet.getRepresentation().delete();
+                            bulletsIterator.remove();
+
+                            break;
+                        }
+
+                        bulletHit = true;
+                    }
+                }
+            }
+
+            if(!bulletHit) {
                 while (enemyIterator.hasNext()) {
                     Enemy enemy = enemyIterator.next();
 

@@ -76,14 +76,17 @@ public class Player extends Person {
         if(playerControls.isShooted()  && hasWeapon) {
             playerControls.setShooted(false);
 
-            int positionOffsetY = 0;
-            int positionOffsetX = 0;
+            /*int positionOffsetY = 0;
+            int positionOffsetX = 0;*/
             
             if (numBullets > 0) {
 
+                int playerCenterX = getX() + Math.round(getWidth() / 2);
+                int playerCenterY = getY() + Math.round(getHeight() / 2);
 
-                Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getHeight()));
+                Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getY() + getHeight()));
                 bullet.shooted(getX()+getWidth()/2, getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
+
                 numBullets--;
 
                 return bullet;

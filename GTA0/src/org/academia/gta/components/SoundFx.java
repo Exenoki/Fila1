@@ -6,11 +6,12 @@ import java.io.IOException;
 
 /**
  * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 04/06/16.
+ *
+ * Class responsible for the sound of the game
  */
 public class SoundFx {
 
     private Clip sample;
-    private Clip gameover;
     private Clip shootFx;
 
     public void playSound(String source) {
@@ -55,8 +56,6 @@ public class SoundFx {
 
         }
     }
-
-
 
     public Clip getBgmusic(){
         return sample;

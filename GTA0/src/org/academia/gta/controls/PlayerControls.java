@@ -40,7 +40,6 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
 
     private boolean toReload;
     private boolean isEntry;
-    private boolean onlyOneTimePressed;
 
     private boolean shooted = false;
 
@@ -152,8 +151,12 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         }
     }
 
-    public boolean entry() {
+    public boolean isEntry() {
         return isEntry;
+    }
+
+    public void entred() {
+        isEntry = false;
     }
 
     @Override
@@ -177,12 +180,6 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
 
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.RELOAD))
             keyPressed[4] = true;
-
-        if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.ENTRY) && !onlyOneTimePressed) {
-            isEntry = true;
-            onlyOneTimePressed = true;
-        }
-
 
         // If a key is pressed call the move method
         move();
@@ -216,10 +213,8 @@ public class PlayerControls implements KeyboardHandler, MouseHandler {
         }
 
         if(keyboardEvent.getKey() == GameKeys.getKeyCode(GameKeys.ENTRY)) {
-            isEntry = false;
-            onlyOneTimePressed = false;
+            isEntry = true;
         }
-
 
     }
 

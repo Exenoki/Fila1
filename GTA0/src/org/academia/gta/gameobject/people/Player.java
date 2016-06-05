@@ -7,7 +7,6 @@ import org.academia.gta.gameobject.Bullet;
 import org.academia.gta.representation.MovableRepresentable;
 import org.academia.gta.representation.Representable;
 import org.academia.gta.simplegfx.BulletSGFX;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 01/06/16.
@@ -58,6 +57,7 @@ public class Player extends Person {
             } else if(currentDirection==Direction.UP){
                 moveUp();
             }
+
         }
 
         if(collisionChecker.isBetweenEdges(this, dx, dy))
@@ -82,7 +82,6 @@ public class Player extends Person {
                 bullet.shooted(getX()+getWidth()/2, getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
                 numBullets--;
 
-
                 return bullet;
             }
 
@@ -99,8 +98,16 @@ public class Player extends Person {
         }
     }
 
+    public void resetEntry() {
+        playerControls.entred();
+    }
+
     public boolean entry() {
-        return playerControls.entry();
+
+        boolean isEntry = playerControls.isEntry();
+        resetEntry();
+
+        return isEntry;
     }
 
     public int getTotalAmmo() {

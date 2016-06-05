@@ -76,7 +76,11 @@ public class Player extends Person {
         if(playerControls.isShooted()  && hasWeapon) {
             playerControls.setShooted(false);
 
+            int positionOffsetY = 0;
+            int positionOffsetX = 0;
+            
             if (numBullets > 0) {
+
 
                 Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getHeight()));
                 bullet.shooted(getX()+getWidth()/2, getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());

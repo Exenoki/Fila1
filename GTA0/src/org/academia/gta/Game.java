@@ -32,6 +32,8 @@ public class Game {
     private int width;
     private int height;
     private Player player;
+    private SoundFx startMusic = new SoundFx();
+    private boolean initGame = false;
 
     Game(int width, int height, int delay) {
 
@@ -58,17 +60,21 @@ public class Game {
         logo.draw();
         start.draw();
 
-        new SoundFx().playSound();
+
+        startMusic.playSound("resources/soundfx/bgmusic.wav");
+
         while (true) {
 
             if (mouse.getMouseXmove() > 370 && mouse.getMouseXmove() < 570 &&
                     mouse.getMouseYmove() > 400 && mouse.getMouseYmove() < 480) {
                 start.delete();
                 mouseOver.draw();
-                if (/*playerControls.isShooted() &&*/ mouse.getMouseXclicked() > 370 && mouse.getMouseXclicked() < 570 &&
+                if (mouse.getMouseXclicked() > 370 && mouse.getMouseXclicked() < 570 &&
                         mouse.getMouseYclicked() > 400 && mouse.getMouseYclicked() < 480) {
                     //playerControls.setShooted(false);
+                    initGame = true;
                     init(7, 3);
+                    break;
                 }
             } else {
                 mouseOver.delete();
@@ -82,9 +88,9 @@ public class Game {
 //            mouseOver.delete();
 //            start.draw();
 //        }
-
-
         }
+
+
 
     }
 
@@ -93,63 +99,70 @@ public class Game {
      */
     public void init(int tree, int amo) throws InterruptedException {
 
-        GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
-        HeadsUpDisplay myHud = new HeadsUpDisplay();
+        if(initGame) {
+            GameObjectFactory gameObjectFactory = new GameObjectFactory(new SGFXRepresentationFactory());
+            HeadsUpDisplay myHud = new HeadsUpDisplay();
 
-        propsGenerator = new PropsGenerator();
+            propsGenerator = new PropsGenerator();
 
-        grid.init(width, height);
+            grid.init(width, height);
 
-        propsGenerator.ammoGenerator(this.grid, amo);
-        propsGenerator.treeGenerator(this.grid, tree);
+            propsGenerator.ammoGenerator(this.grid, amo);
+            propsGenerator.treeGenerator(this.grid, tree);
 
-        propsGenerator.getAmmoArray(gameObjectInstantiated);
+            propsGenerator.getAmmoArray(gameObjectInstantiated);
 
-        ImmovableGOSGFX boat = new ImmovableGOSGFX(600, 120, GameObjectType.BOAT);
-        gameObjectInstantiated.add(boat);
+            ImmovableGOSGFX boat = new ImmovableGOSGFX(600, 120, GameObjectType.BOAT);
+            gameObjectInstantiated.add(boat);
 
-        ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(500, 500, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
-        ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(300, 500, GameObjectType.BUNKER), GameObjectType.BUNKER);
-        ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
+            ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(500, 500, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
+            ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(300, 500, GameObjectType.BUNKER), GameObjectType.BUNKER);
+            ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
 
-        staticGOCollision.add(bardedwire);
-        staticGOCollision.add(bunker);
-        staticGOCollision.add(bridge);
+            staticGOCollision.add(bardedwire);
+            staticGOCollision.add(bunker);
+            staticGOCollision.add(bridge);
 
-        enemiesInstantiated.add(new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP));
-        enemiesInstantiated.add(new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP));
+            enemiesInstantiated.add(new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN));
 
-        CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
-        player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
+            CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
+            player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
 
-        while (true) {
-            Thread.sleep(25);
-            player.reload();
-            Bullet b = player.shoot();
+            while (true) {
+                Thread.sleep(25);
+                player.reload();
+                Bullet b = player.shoot();
 
-            if (b != null)
-                bulletsInstantiated.add(b);
+                if (b != null)
+                    bulletsInstantiated.add(b);
 
-            enemyShootRound(bulletsInstantiated);
+                enemyShootRound(bulletsInstantiated);
 
-            moveBullets();
-            player.move();
+                moveBullets();
+                player.move();
 
-            collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated);
-            collisionChecker.scenarioCollisions(player, gameObjectInstantiated);
+                collisionChecker.bulletsCollision(player, bulletsInstantiated, enemiesInstantiated);
+                collisionChecker.scenarioCollisions(player, gameObjectInstantiated);
 
-            myHud.hud(player.getHealth());
-            myHud.getHudAmmo().setText(player.getTotalAmmo()+"");
-            myHud.getHudBullets().setText(player.getNumBullets()+"");
+                myHud.hud(player.getHealth());
+                myHud.getHudAmmo().setText(player.getTotalAmmo() + "");
+                myHud.getHudBullets().setText(player.getNumBullets() + "");
 
-            propsGenerator.reDraw();
+                propsGenerator.reDraw();
 
-            if(player.isDestroyed()) {
-                player.getRepresentation().load("resources/player_sprites/rambo_dead.png");
-                break;
+                if (player.isDestroyed()) {
+                    initGame = false;
+                    player.getRepresentation().load("resources/player_sprites/rambo_dead.png");
+                    startMusic.getBgmusic().stop();
+                    break;
+                }
             }
         }
 
+        Picture gameOver = new Picture(0,0,"resources/game_sprites/gameover.png");
+        gameOver.draw();
+        startMusic.playSound("resources/soundfx/stalloneyells.wav");
         System.out.println("Game over");
 
     }

@@ -9,21 +9,23 @@ import java.io.IOException;
  */
 public class SoundFx {
 
-    private Clip bgmusic;
+    private Clip sample;
+    private Clip gameover;
     private Clip shootFx;
 
-    public void playSound() {
+    public void playSound(String source) {
 
-        File soundFile = new File("resources/soundfx/bgmusic.wav");
+        File soundFile = new File(source);
 
         try {
 
             AudioInputStream stream = AudioSystem.getAudioInputStream(soundFile);
             AudioSystem.getAudioFileFormat(soundFile);
-            bgmusic = AudioSystem.getClip();
-            bgmusic.open(stream);
-            bgmusic.start();
-            bgmusic.loop(Clip.LOOP_CONTINUOUSLY);
+            sample = AudioSystem.getClip();
+            sample.open(stream);
+            sample.start();
+            sample.loop(Clip.LOOP_CONTINUOUSLY);
+
 
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
 
@@ -32,7 +34,6 @@ public class SoundFx {
 
         }
     }
-
 
     public void shootSound() {
 
@@ -55,6 +56,11 @@ public class SoundFx {
         }
     }
 
+
+
+    public Clip getBgmusic(){
+        return sample;
+    }
 
 
 }

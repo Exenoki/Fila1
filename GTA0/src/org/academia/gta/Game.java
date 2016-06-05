@@ -23,7 +23,6 @@ public class Game {
      */
     private Grid grid;
     private PropsGenerator propsGenerator;
-    private PlayerControls playerControls;
     private MouseControl mouse;
 
     /**

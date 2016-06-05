@@ -38,22 +38,22 @@ public class Enemy extends Person {
                 break;
 
             case DOWN:
-                condition = Math.sqrt(Math.pow((double)(this.getX() - player.getX()),2) + Math.pow((double)(this.getY() - player.getY()),2)) < 100 &&
-                        player.getY() > getY();
+                condition = Math.sqrt(Math.pow((double)(this.getX() - player.getX()),2) + Math.pow((double)(this.getY() - player.getY()),2)) < 200 &&
+                        player.getY() > getY() && (player.getY() - getY() > 0.5*(player.getX() - getX()) && (player.getY() - getY() > 0.5*(getX() - player.getX())));
                 positionOffsetY = getY()+getHeight();
                 positionOffsetX = getX()+getWidth()/2;
                 break;
 
             case LEFT:
-                condition = Math.sqrt(Math.pow((double)(this.getX() - player.getX()),2) + Math.pow((double)(this.getY() - player.getY()),2)) < 100 &&
-                        player.getX() < getX();
+                condition = Math.sqrt(Math.pow((double)(this.getX() - player.getX()),2) + Math.pow((double)(this.getY() - player.getY()),2)) < 200 &&
+                        player.getX() < getX() && (player.getY() - getY() > 2*(player.getX() - getX()) && (player.getY() - getY() < 2*(getX() - player.getX())));
                 positionOffsetY = getY()+getHeight()/2;
                 positionOffsetX = getX();
                 break;
 
             case RIGHT:
-                condition = Math.sqrt(Math.pow((double)(this.getX() - player.getX()),2) + Math.pow((double)(this.getY() - player.getY()),2)) < 100 &&
-                        player.getX() > getX();
+                condition = Math.sqrt(Math.pow((double)(this.getX() - player.getX()),2) + Math.pow((double)(this.getY() - player.getY()),2)) < 200 &&
+                        player.getX() > getX() && (player.getY() - getY() < 2*(player.getX() - getX()) && (player.getY() - getY() > 2*(getX() - player.getX())));
                 positionOffsetY = getY()+getHeight()/2;
                 positionOffsetX = getX()+getWidth();
         }

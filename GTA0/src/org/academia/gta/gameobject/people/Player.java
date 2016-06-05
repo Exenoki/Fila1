@@ -1,5 +1,6 @@
 package org.academia.gta.gameobject.people;
 
+import org.academia.gta.Animator;
 import org.academia.gta.CollisionChecker;
 import org.academia.gta.controls.Direction;
 import org.academia.gta.controls.PlayerControls;
@@ -15,7 +16,7 @@ public class Player extends Person {
 
     private int counter = 0;
     private boolean isDriving;
-
+    private Animator playerAnimation;
     public static final int MAX_NUM_BULLETS = 12;
 
     private boolean hasWeapon = true;
@@ -24,10 +25,12 @@ public class Player extends Person {
     private PlayerControls playerControls = new PlayerControls();
 
     private Direction currentDirection = Direction.NULL;
+    private Direction lastDirection = Direction.NULL;
     private CollisionChecker collisionChecker;
 
     public Player(Representable representation, CollisionChecker collisionChecker) {
         super(representation);
+        playerAnimation = new Animator();
         this.collisionChecker = collisionChecker;
 
     }
@@ -40,22 +43,28 @@ public class Player extends Person {
 
         if (!isDriving) {
 
-            if(currentDirection==Direction.RIGHT_DOWN) {
-                moveDownRight();
-            } else if (currentDirection==Direction.UP_RIGHT) {
-                moveUpRight();
-            } else if(currentDirection==Direction.LEFT_UP) {
-               moveUpLeft();
-            } else if(currentDirection==Direction.DOWN_LEFT) {
-                moveDownLeft();
-            } else if(currentDirection==Direction.RIGHT){
-                moveRight();
-            } else if(currentDirection==Direction.DOWN){
-                moveDown();
-            } else if(currentDirection==Direction.LEFT){
-                moveLeft();
-            } else if(currentDirection==Direction.UP){
-                moveUp();
+            if (currentDirection != Direction.NULL) {
+
+                lastDirection = currentDirection;
+
+                if (currentDirection == Direction.RIGHT_DOWN) {
+                    playerAnimation.moveDownRight(this);
+                } else if (currentDirection == Direction.UP_RIGHT) {
+                    playerAnimation.moveUpRight(this);
+                } else if (currentDirection == Direction.LEFT_UP) {
+                    playerAnimation.moveUpLeft(this);
+                } else if (currentDirection == Direction.DOWN_LEFT) {
+                    playerAnimation.moveDownLeft(this);
+                } else if (currentDirection == Direction.RIGHT) {
+                    playerAnimation.moveRight(this);
+                } else if (currentDirection == Direction.DOWN) {
+                    playerAnimation.moveDown(this);
+                } else if (currentDirection == Direction.LEFT) {
+                    playerAnimation.moveLeft(this);
+                } else if (currentDirection == Direction.UP) {
+                    playerAnimation.moveUp(this);
+                }
+
             }
 
         }
@@ -73,23 +82,50 @@ public class Player extends Person {
     }
 
     public Bullet shoot() {
+
         if(playerControls.isShooted()  && hasWeapon) {
+
             playerControls.setShooted(false);
 
-            /*int positionOffsetY = 0;
-            int positionOffsetX = 0;*/
-            
             if (numBullets > 0) {
 
-                int playerCenterX = getX() + Math.round(getWidth() / 2);
-                int playerCenterY = getY() + Math.round(getHeight() / 2);
+                Bullet bullet = null;
 
-                Bullet bullet = new Bullet(new BulletSGFX(getX()+getWidth()/2, getY() + getHeight()));
-                bullet.shooted(getX()+getWidth()/2, getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
+                if (lastDirection != Direction.NULL) {
 
-                numBullets--;
+                    if (lastDirection == Direction.UP && playerControls.getMouseY() < getY() - getRadius()) {
+                        bullet = new Bullet(new BulletSGFX(getX() + getWidth() / 2, getY()));
+                        bullet.shooted(getX() + getWidth() / 2, getY(), playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.UP_RIGHT && (playerControls.getMouseY() - getY() < playerControls.getMouseX() - (getX() + getWidth()))) {
+                        bullet = new Bullet(new BulletSGFX(getX() + getWidth(), getY()));
+                        bullet.shooted(getX() + getWidth(), getY(), playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.RIGHT && (playerControls.getMouseX() > getX() + getWidth())) {
+                        bullet = new Bullet(new BulletSGFX(getX() + getWidth(), getY() + getHeight() / 2));
+                        bullet.shooted(getX() + getWidth(), getY() + getHeight() / 2, playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.RIGHT_DOWN && (playerControls.getMouseY() - (getY() + getHeight()) > (getX() + getWidth()) - playerControls.getMouseX())) {
+                        bullet = new Bullet(new BulletSGFX(getX() + getWidth(), getY() + getHeight()));
+                        bullet.shooted(getX() + getWidth(), getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.DOWN && (playerControls.getMouseY() > getY() + getHeight())) {
+                        bullet = new Bullet(new BulletSGFX(getX() + getWidth() / 2, getY()+getHeight()));
+                        bullet.shooted(getX() + getWidth() / 2, getY()+getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.DOWN_LEFT && (playerControls.getMouseY() - (getY() + getHeight()) > playerControls.getMouseX() - getX())) {
+                        bullet = new Bullet(new BulletSGFX(getX(), getY() + getHeight()));
+                        bullet.shooted(getX(), getY() + getHeight(), playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.LEFT && (playerControls.getMouseX() < getX())) {
+                        bullet = new Bullet(new BulletSGFX(getX() , getY() + getHeight() / 2));
+                        bullet.shooted(getX(), getY() + getHeight() / 2, playerControls.getMouseX(), playerControls.getMouseY());
+                    } else if (lastDirection == Direction.LEFT_UP && (playerControls.getMouseY() - getY() < getX() - playerControls.getMouseX())) {
+                        bullet = new Bullet(new BulletSGFX(getX(), getY()));
+                        bullet.shooted(getX(), getY(), playerControls.getMouseX(), playerControls.getMouseY());
+                    }
 
-                return bullet;
+                    if (bullet != null) {
+                        numBullets--;
+                        return bullet;
+                    }
+
+                }
+
             }
 
         }
@@ -125,165 +161,4 @@ public class Player extends Person {
         return numBullets;
     }
 
-    private void moveRight() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_r.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_r.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_r.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_r.png");
-        } else if (counter >= 30){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_r.png");
-            counter = 0;
-        }
-    }
-
-    private void moveLeft() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_l.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_l.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_l.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_l.png");
-        } else if (counter >= 30){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_l.png");
-            counter = 0;
-        }
-    }
-
-    private void moveUp() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_u.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_u.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_u.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_u.png");
-        } else if (counter >= 30){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_u.png");
-            counter = 0;
-        }
-    }
-
-    private void moveDown() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_d.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_d.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_d.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_d.png");
-        } else if (counter >= 30){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_d.png");
-            counter = 0;
-        }
-    }
-
-    private void moveUpRight() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_ur.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_ur.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_ur.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_ur.png");
-        } else if (counter >= 30){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ur.png");
-            counter = 0;
-        }
-    }
-
-    private void moveUpLeft() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_ul.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_ul.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_ul.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_ul.png");
-        } else if (counter >= 30){
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_ul.png");
-            counter = 0;
-        }
-    }
-
-    private void moveDownLeft() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_dl.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_dl.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_dl.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_dl.png");
-        } else if (counter >= 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dl.png");
-            counter = 0;
-        }
-
-    }
-
-    private void moveDownRight() {
-        counter++;
-        if (counter >= 0 && counter < 5) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
-        } else if (counter >= 5 && counter < 10) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot1_dr.png");
-        } else if (counter >= 10 && counter < 15) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot2_dr.png");
-        } else if (counter >= 15 && counter < 20) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
-        } else if (counter >= 20 && counter < 25) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot3_dr.png");
-        } else if (counter >= 25 && counter < 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_walk_shoot4_dr.png");
-        } else if (counter >= 30) {
-            this.getRepresentation().load("resources/player_sprites/rambo_idle_shoot_dr.png");
-            counter = 0;
-        }
-
-    }
 }

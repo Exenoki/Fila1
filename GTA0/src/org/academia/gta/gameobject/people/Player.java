@@ -107,11 +107,7 @@ public class Player extends Person {
     }
 
     public boolean entry() {
-
-        boolean isEntry = playerControls.isEntry();
-        resetEntry();
-
-        return isEntry;
+        return playerControls.isEntry();
     }
 
     public int getTotalAmmo() {

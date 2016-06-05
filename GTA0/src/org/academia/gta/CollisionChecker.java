@@ -81,7 +81,7 @@ public class CollisionChecker {
 
         int playerCenterX = player.getX() + Math.round(player.getWidth() / 2);
         int playerCenterY = player.getY() + Math.round(player.getHeight() / 2);
-
+ 
         while (bulletsIterator.hasNext()) {
             Bullet bullet = bulletsIterator.next();
 
@@ -118,6 +118,8 @@ public class CollisionChecker {
                             enemy.getRepresentation().load("resources/enemy_sprites/captain_dead.png");
                             enemyIterator.remove();
                         }
+
+                        break;
                     }
                 }
             }

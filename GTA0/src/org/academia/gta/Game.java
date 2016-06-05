@@ -8,6 +8,8 @@ import org.academia.gta.gameobject.people.Enemy;
 import org.academia.gta.gameobject.people.Player;
 import org.academia.gta.simplegfx.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+
+import java.awt.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 

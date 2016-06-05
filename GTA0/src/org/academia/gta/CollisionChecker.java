@@ -161,12 +161,12 @@ public class CollisionChecker {
             }
 
             // Water collision
-            if(playerCenterX + dx >= 615 && playerCenterX + dx <= 810 && !isInverted) {
+            if(playerCenterX + dx >= 615 && playerCenterX + dx <= 820 && !isInverted) {
                 return false;
             }
 
             if (isInverted)
-                return !(playerCenterX + dx < 615 || playerCenterX + dx > 825);
+                return !(playerCenterX + dx < 610 || playerCenterX + dx > 825);
         }
 
         return goX + dx >= 0 && goXWidth + dx <= grid.getWidth()

@@ -105,23 +105,22 @@ public class Game {
 
         propsGenerator.getAmmoArray(gameObjectInstantiated);
 
+        ImmovableGOSGFX boat = new ImmovableGOSGFX(600, 120, GameObjectType.BOAT);
+        gameObjectInstantiated.add(boat);
+
         ImmovableGameObject bardedwire = new ImmovableGameObject(new ImmovableGOSGFX(500, 500, GameObjectType.BARBEDWIRE), GameObjectType.BARBEDWIRE);
         ImmovableGameObject bunker = new ImmovableGameObject(new ImmovableGOSGFX(300, 500, GameObjectType.BUNKER), GameObjectType.BUNKER);
         ImmovableGameObject bridge = new ImmovableGameObject(new ImmovableGOSGFX(595, 320, GameObjectType.BRIDGE), GameObjectType.BRIDGE);
-        ImmovableGOSGFX boat = new ImmovableGOSGFX(600, 120, GameObjectType.BOAT);
-
-        gameObjectInstantiated.add(boat);
 
         staticGOCollision.add(bardedwire);
         staticGOCollision.add(bunker);
         staticGOCollision.add(bridge);
 
-        CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
-
-        player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
-
         enemiesInstantiated.add(new Enemy(new EnemySGFX(200, 200, Direction.UP), Direction.UP));
         enemiesInstantiated.add(new Enemy(new EnemySGFX(400, 100, Direction.DOWN), Direction.DOWN));
+
+        CollisionChecker collisionChecker = new CollisionChecker(grid, staticGOCollision);
+        player = (Player) gameObjectFactory.createObject(100, 100, GameObjectType.PLAYER, collisionChecker);
 
         while (true) {
             Thread.sleep(25);
@@ -174,7 +173,7 @@ public class Game {
 
             b.move();
 
-            if(b.getX() > grid.getWidth() - b.getWidth() || b.getY() > grid.getHeight() - b.getHeight()||
+            if(b.getX() > grid.getWidth() - (b.getWidth() * 3) || b.getY() > grid.getHeight() - (b.getHeight() * 3) ||
                     b.getX() < 0 || b.getY() < 0) {
                 b.getRepresentation().delete();
                 it.remove();

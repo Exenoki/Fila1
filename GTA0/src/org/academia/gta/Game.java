@@ -17,6 +17,8 @@ import org.academia.gta.simplegfx.terrainsgfx.SimpleGfxTerrain;
 import org.academia.gta.simplegfx.terrainsgfx.Terrain;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -82,7 +84,7 @@ public class Game {
         start.draw();
 
 
-        //startMusic.playSound("resources/soundfx/bgmusic.wav");
+
         startMusic.playSound("soundfx/bgmusic.wav");
 
         while (true) {

@@ -82,7 +82,8 @@ public class Game {
         start.draw();
 
 
-        startMusic.playSound("resources/soundfx/bgmusic.wav");
+        //startMusic.playSound("resources/soundfx/bgmusic.wav");
+        startMusic.playSound("soundfx/bgmusic.wav");
 
         while (true) {
 
@@ -93,7 +94,7 @@ public class Game {
                 if (mouse.getMouseXClicked() > 370 && mouse.getMouseXClicked() < 570 &&
                         mouse.getMouseYClicked() > 400 && mouse.getMouseYClicked() < 480) {
                     initGame = true;
-                    init(13, 7);
+                    init(13, 5);
                     break;
                 }
             } else {
@@ -200,7 +201,8 @@ public class Game {
         // Game-over
         Picture gameOver = new Picture(0,0,"resources/game_sprites/gameover.png");
         gameOver.draw();
-        startMusic.playSound("resources/soundfx/stalloneyells.wav");
+        //startMusic.playSound("resources/soundfx/stalloneyells.wav");
+        startMusic.playSound("soundfx/stalloneyells.wav");
 
     }
 

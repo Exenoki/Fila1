@@ -38,7 +38,8 @@ public class SoundFx {
 
     public void shootSound() {
 
-        File soundFile = new File("resources/soundfx/gunshot.wav");
+        // File soundFile = new File("resources/soundfx/gunshot.wav");
+        File soundFile = new File("soundfx/gunshot.wav");
 
         try {
 

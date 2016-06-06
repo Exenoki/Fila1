@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 04/06/16.
+ * Created by codecadet on 26/05/16.
  *
  * Class responsible for the sound of the game
  */

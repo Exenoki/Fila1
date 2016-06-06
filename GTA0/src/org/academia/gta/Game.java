@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 29/05/16.
+ * Created by codecadet on 26/05/16.
  * Class responsible for generating the Terrain, insert the Immovable Objects and Props, the boat, the bridge, the Enemies and the Player.
  */
 public class Game {

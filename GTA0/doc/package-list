@@ -1,0 +1,9 @@
+org.academia.gta
+org.academia.gta.components
+org.academia.gta.controls
+org.academia.gta.gameobject
+org.academia.gta.gameobject.people
+org.academia.gta.representation
+org.academia.gta.simplegfx
+org.academia.gta.simplegfx.gameobjectsgfx
+org.academia.gta.simplegfx.terrainsgfx

@@ -9,7 +9,7 @@ import org.academia.gta.simplegfx.terrainsgfx.Terrain;
 import java.util.LinkedList;
 
 /**
- * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 30/05/16.
+ * Created by codecadet on 26/05/16.
  * This class is responsible for producing and placing the props (scenario objects).
  */
 public class PropsGenerator {

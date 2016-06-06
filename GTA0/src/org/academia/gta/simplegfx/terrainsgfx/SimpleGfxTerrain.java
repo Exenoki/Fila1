@@ -3,7 +3,7 @@ package org.academia.gta.simplegfx.terrainsgfx;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
- * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 28/05/16.
+ * Created by codecadet on 26/05/16.
  */
 
 public class SimpleGfxTerrain implements Terrain {

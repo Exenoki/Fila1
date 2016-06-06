@@ -1,7 +1,7 @@
 package org.academia.gta.simplegfx.terrainsgfx;
 
 /**
- * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 28/05/16.
+ * Created by codecadet on 26/05/16.
  */
 public interface Terrain {
 

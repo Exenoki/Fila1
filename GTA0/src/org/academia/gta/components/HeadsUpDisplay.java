@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
- * Created by glitch for <Bashtard$ Bootcamp @ Academia de Código - Fundão 03/06/16.
+ * Created by codecadet on 26/05/16.
  *
  * Hud of the player information
  */
